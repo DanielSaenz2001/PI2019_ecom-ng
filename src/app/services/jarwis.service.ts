@@ -23,8 +23,11 @@ export class JarwisService {
   changePassword(data) {
     return this.http.post(`${this.baseUrl}/resetPassword`, data)
   }
-  public me(data): Observable<any>{
-    return this.http.post<any>(`${this.baseUrl}/me`,data)
+  me(data) {
+    return this.http.get(`${this.baseUrl}/usuario`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    })
   }
 
 }
