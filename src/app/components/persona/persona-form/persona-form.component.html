@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-lg-6"><h3>Persona</h3></div>
+</div>
+<form [formGroup]="personaForm" (ngSubmit)="save()" id="FO">
+
+  <div class="row">
+          <div class="col-lg-0">
+                  <div [hidden]="true">
+                          <input type="text" formControlName="id" name="id" id="id">
+                      </div>
+          </div>
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Nombre:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                  <input type="text" formControlName="nombre" required id="nombre" name="nombre" class="form-control">
+                  <div [hidden]="personaForm.get('nombre').valid || 
+                  personaForm.get('nombre').pristine" class="alert alert-danger">
+                      Nombre es importante
+                  </div>
+          </div>
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Apellido Paterno:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                  <input type="text" formControlName="ap_paterno" id="ap_paterno" name="ap_paterno" class="form-control">
+                  <div [hidden]="personaForm.get('ap_paterno').valid || 
+                  personaForm.get('ap_paterno').pristine" class="alert alert-danger">
+                      Apellido Paterno es importante
+                  </div>
+          </div>
+  </div>
+<br>  
+  <div class="row">
+
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Apellido Materno:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                  <input type="text" formControlName="ap_materno" id="ap_materno" name="ap_materno" class="form-control">
+                  <div [hidden]="personaForm.get('ap_materno').valid || 
+                  personaForm.get('ap_materno').pristine" class="alert alert-danger">
+                      Apellido Materno es importante
+                  </div>
+          </div>
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Celular:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                  <input type="text" formControlName="celular" maxlength="9" id="celular" name="celular" class="form-control">
+                  <div [hidden]="personaForm.get('celular').valid || 
+                  personaForm.get('celular').pristine" class="alert alert-danger">
+                      Su Celular es importante
+                  </div>
+          </div>
+  </div>
+<br>
+  <div class="row">
+
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Dirección:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                  <input type="text" formControlName="domicilio_actual" id="domicilio_actual" name="domicilio_actual" class="form-control">
+                  <div [hidden]="personaForm.get('domicilio_actual').valid || 
+                  personaForm.get('domicilio_actual').pristine" class="alert alert-danger">
+                      La Dirreción es importante
+                  </div>
+          </div>
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Sexo:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                  <input type="radio" formControlName="sexo" id="sexo" name="sexo" value="Masculino"> Male <br>
+                  <input type="radio" formControlName="sexo" id="sexo" name="sexo" value="Femenino"> Female
+                  <div [hidden]="personaForm.get('sexo').valid || 
+                  personaForm.get('sexo').pristine" class="alert alert-danger">
+                      Su Genero es importante
+                  </div>
+          </div>
+  </div>
+<br>
+  <div class="row">
+          <div class="col-lg-0">
+                  <input type="text" formControlName="dependiente" maxlength="9" id="dependiente" name="dependiente" hidden class="form-control">
+          </div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+          </div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              <button type="submit" [disabled]="!personaForm.valid" class="form-control alert-success" id="ad">Submit</button>
+      </div>
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+      </div>
+      
+  </div>
+<br>
+
+</form>
+

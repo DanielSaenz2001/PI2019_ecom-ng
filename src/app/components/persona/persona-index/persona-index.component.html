@@ -1,0 +1,95 @@
+
+<div class="row ">
+    <div class="m-auto">
+        <h2>
+            <a routerLink="/personaform" routerLinkActive="active">Crear Persona</a>
+        </h2>
+    </div>
+</div>
+<div class="row">
+  <h2 class="m-auto">Personas</h2>
+  <table class="table table-light" >
+      <thead class="thead-light">
+          <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>Celular</th>
+              <th>Dirección</th>
+              <th>Genero</th>       
+              <th >Dependiente</th>
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let d of list; index as i">
+          <tr *ngIf="d.dependiente == null ">
+              <td >{{i+1}}</td>
+              <td>{{d.nombre}}</td>
+              <td>{{d.ap_paterno}} {{d.ap_materno}}</td>
+              <td>{{d.celular}}</td>
+              <td>{{d.domicilio_actual}}</td>
+              <td>{{d.sexo}}</td>
+              <td >
+                  <a routerLink="/personadependiente/{{d.id}}" routerLinkActive="active" id="ga">
+                      <button class="button-red" class="form-control alert-success"id="ad" >Agregar</button>
+                  </a>
+              </td>
+              <td > 
+                  <div class="row" id="ad">
+                          <a routerLink="/personaform/{{d.id}}" routerLinkActive="active" id="ga">
+                              <button class="button-red" class="form-control alert-warning"id="ad" >Edit</button>
+                          </a>
+                  </div>
+                  <div class="row">
+                          <button class="button-red" class="form-control alert-danger" id="ad" (click)="delete(d.id)">Delete</button>
+                  </div>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+<div class="row">
+  <h2 class="m-auto">Dependientes</h2>
+  <table class="table table-light" >
+      <thead class="thead-light">
+          <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>Celular</th>
+              <th>Dirección</th>
+              <th>Genero</th>       
+              <th >Dependiente</th>
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let d of list; index as i ">
+          <tr *ngIf="d.dependiente !== null">
+              <td>{{i+1}}</td>
+              <td>{{d.nombre}}</td>
+              <td>{{d.ap_paterno}} {{d.ap_materno}}</td>
+              <td>{{d.celular}}</td>
+              <td>{{d.domicilio_actual}}</td>
+              <td>{{d.sexo}}</td>
+              <td >
+                  <div *ngFor="let da of list">
+                      <div *ngIf="da.id == d.dependiente">
+                          {{da.nombre}}
+                      </div>
+                  </div>
+              </td>
+              <td > 
+                  <div class="row" id="ad">
+                      <a routerLink="/personaform/{{d.id}}" routerLinkActive="active" id="ga">
+                          <button class="button-red" class="form-control alert-warning"id="ad" >Edit</button>
+                      </a>
+                  </div>
+                  <div class="row">
+                      <button class="button-red" class="form-control alert-danger" id="ad" (click)="delete(d.id)">Delete</button>
+                  </div>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
