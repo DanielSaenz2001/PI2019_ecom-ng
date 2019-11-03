@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { JarwisService } from './services/jarwis.service';
 import { TokenService } from './services/token.service';
 import { PersonaService } from './services/persona.service';
+import { PaisesService } from './services/paises.service';
+import { DepartamentosService } from './services/departamentos.service';
 import { AuthService } from './services/auth.service';
 import { AfterLoginService } from './services/after-login.service';
 import { BeforeLoginService } from './services/before-login.service';
@@ -46,7 +48,7 @@ import { PersonaDependienteComponent } from './components/persona/persona-depend
     ReactiveFormsModule,
     SnotifyModule
   ],
-  providers: [JarwisService, TokenService, AuthService, AfterLoginService, BeforeLoginService,PersonaService,
+  providers: [JarwisService, TokenService, AuthService, AfterLoginService, BeforeLoginService,PersonaService, PaisesService,DepartamentosService,
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
     SnotifyService],
   bootstrap: [AppComponent]

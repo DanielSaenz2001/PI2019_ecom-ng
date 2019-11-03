@@ -16,14 +16,13 @@ export class ProfileComponent implements OnInit {
     password: null,
     password_confirmation: null
   };
-  list:{};
+  list;
   ngOnInit() {
     this.listar();
   }
   listar(){
     this.Jarwis.me(this.token.get()).subscribe(response => {
       this.list= Array.of(response);
-      console.log(this.list)
     });
   }
 }
