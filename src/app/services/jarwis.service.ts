@@ -28,4 +28,13 @@ export class JarwisService {
       }
     })
   }
+  users(data) {
+    return this.http.get(`${this.baseUrl}/users`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    })
+  }
+  users2() {
+    return this.http.get(`${this.baseUrl}/users`)
+  }
 }

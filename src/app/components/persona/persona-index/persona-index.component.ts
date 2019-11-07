@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonaService } from '../../../services/persona.service';
+import { JarwisService } from 'src/app/services/jarwis.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-persona-index',
@@ -9,13 +11,15 @@ import { PersonaService } from '../../../services/persona.service';
 export class PersonaIndexComponent implements OnInit {
 
   list;
+  list2;
 
-  constructor(private personaService: PersonaService) { 
+  constructor(private personaService: PersonaService,private Jarwis: JarwisService, private token:TokenService) { 
       this.listar();
     }
 
   ngOnInit() {
     this.listar();
+    this.listar2();
   }
 
   delete(id) {
@@ -34,4 +38,10 @@ export class PersonaIndexComponent implements OnInit {
       });
     }
 
+    listar2(){
+      this.Jarwis.users2().subscribe(response => {
+        this.list2= response;
+        console.log(this.list2)
+      });
+    }
 }

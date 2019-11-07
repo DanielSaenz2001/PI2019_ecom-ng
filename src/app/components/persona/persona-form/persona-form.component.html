@@ -2,7 +2,8 @@
   <div class="col-lg-6"><h3>Datos Personales</h3></div>
 </div>
 <form [formGroup]="personaForm" (ngSubmit)="save()" id="FO">
-        <div *ngIf="personaForm.value.id == null">
+                {{personaForm.value.id}}
+        <div *ngIf="personaForm.value.id == false">
                 <div class="row">
                         <div class="col-lg-0">
                                 <div [hidden]="true">
@@ -141,11 +142,6 @@
                                 <div class="col-lg-0">
                                         <input type="text" formControlName="dependiente" maxlength="9" id="dependiente" name="dependiente" hidden class="form-control">
                                 </div>
-                                <div class="col-lg-1">
-                                <div  *ngFor="let list of list">
-                                        <input type="text" class="form-control" value={{list.id}} >
-                                </div>
-                        </div>
                                 <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
                                 </div>
                                 <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
@@ -157,7 +153,7 @@
                         </div>
                 <br>  
         </div>
-        <div *ngIf="personaForm.value.id == !null">
+        <div *ngIf="personaForm.value.id == 12">
                 <div class="row">
                         <div class="col-lg-0">
                                 <div [hidden]="true">
@@ -296,11 +292,6 @@
                                 <div class="col-lg-0">
                                         <input type="text" formControlName="dependiente" maxlength="9" id="dependiente" name="dependiente" hidden class="form-control">
                                 </div>
-                                <div class="col-lg-1">
-                                <div  *ngFor="let list of list">
-                                        <input type="text" class="form-control" value={{list.id}} >
-                                </div>
-                        </div>
                                 <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
                                 </div>
                                 <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
@@ -312,7 +303,5 @@
                         </div>
                 <br>  
         </div>
-
-{{personaForm.value | json}}
 </form>
 

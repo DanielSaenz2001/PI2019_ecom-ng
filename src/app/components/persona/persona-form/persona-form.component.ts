@@ -87,7 +87,4 @@ export class PersonaFormComponent implements OnInit {
     this.router.navigate(['/profile']);
   }
 
-  userForms(){
-
-  }
 }
