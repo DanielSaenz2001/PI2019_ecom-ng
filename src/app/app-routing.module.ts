@@ -13,6 +13,7 @@ import { PersonaFormComponent } from './components/persona/persona-form/persona-
 import { PersonaDependienteComponent } from './components/persona/persona-dependiente/persona-dependiente.component';
 
 
+
 const routes: Routes = [
   {
     path: 'login',
@@ -26,11 +27,13 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: 'persona',
-    component: PersonaIndexComponent
+    component: PersonaIndexComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: 'personaform',
@@ -39,11 +42,13 @@ const routes: Routes = [
   },
   {
     path: 'personaform/:id',
-    component: PersonaFormComponent
+    component: PersonaFormComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: 'personadependiente/:id',
-    component: PersonaDependienteComponent
+    component: PersonaDependienteComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: 'request-password-reset',
