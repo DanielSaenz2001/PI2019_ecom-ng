@@ -84,7 +84,7 @@ export class PersonaFormComponent implements OnInit {
       this.personaServices.add(this.personaForm.value).subscribe();
     }
     
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/signup']);
   }
 
 }

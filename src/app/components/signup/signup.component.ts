@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
   }
   handleResponse(data) {
     this.Token.handle(data.access_token);
-    this.router.navigateByUrl('/personaform');
+    this.router.navigateByUrl('/profile');
   }
 
   handleError(error) {
