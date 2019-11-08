@@ -81,10 +81,14 @@ export class PersonaFormComponent implements OnInit {
       this.personaServices.update(id, this.personaForm.value)
       .subscribe();
     }else{
-      this.personaServices.add(this.personaForm.value).subscribe();
+      this.personaServices.add(this.personaForm.value).subscribe(response =>{
+        console.log("data= " + JSON.stringify(response));
+        
+      });
+      this.router.navigate(['/signup']);
     }
     
-    this.router.navigate(['/signup']);
+    
   }
 
 }

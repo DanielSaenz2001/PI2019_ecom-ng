@@ -37,7 +37,7 @@ const routes: Routes = [
   {
     path: 'personaform',
     component: PersonaFormComponent,
-    canActivate: [AfterLoginService]
+    canActivate: [BeforeLoginService]
   },
   {
     path: 'personaform/:id',
