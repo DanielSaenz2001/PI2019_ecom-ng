@@ -20,7 +20,6 @@ export class ProfileComponent implements OnInit {
   listar(){
     this.Jarwis.me(this.token.get()).subscribe(response => {
       this.list= response;
-      console.log(this.list)
     });
   }
   
