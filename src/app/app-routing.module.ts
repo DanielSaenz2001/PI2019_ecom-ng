@@ -26,14 +26,11 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent,
-    canActivate: [AfterLoginService]
+    component: ProfileComponent
   },
   {
     path: 'persona',
-    component: PersonaIndexComponent,
-    canActivate: [AfterLoginService]
-  },
+    component: PersonaIndexComponent
   {
     path: 'personaform',
     component: PersonaFormComponent,
@@ -41,13 +38,11 @@ const routes: Routes = [
   },
   {
     path: 'personaform/:id',
-    component: PersonaFormComponent,
-    canActivate: [AfterLoginService]
+    component: PersonaFormComponent
   },
   {
     path: 'personadependiente/:id',
-    component: PersonaDependienteComponent,
-    canActivate: [AfterLoginService]
+    component: PersonaDependienteComponent
   },
   {
     path: 'request-password-reset',
