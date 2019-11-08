@@ -31,6 +31,7 @@ const routes: Routes = [
   {
     path: 'persona',
     component: PersonaIndexComponent
+  }
   {
     path: 'personaform',
     component: PersonaFormComponent,
