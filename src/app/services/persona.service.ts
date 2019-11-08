@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class PersonaService {
 
-  endPoint ='http://localhost:8000/api/persona'
+  endPoint ='https://serve-ecom.herokuapp.com/api/persona'
   constructor(private http:HttpClient) { }
 
   public getlist(): Observable<any>{

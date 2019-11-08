@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ecom-ng';
+  url ='https://serve-ecom.herokuapp.com/'
 }
