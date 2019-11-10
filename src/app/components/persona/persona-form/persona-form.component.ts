@@ -17,35 +17,24 @@ export class PersonaFormComponent implements OnInit {
   constructor( private route: ActivatedRoute,
     private personaServices: PersonaService,
     private formBuilder: FormBuilder,
-    private router: Router,private Jarwis: JarwisService, 
-    private token:TokenService,
+    private router: Router,
     private paisesService:PaisesService,
     private departamentosService:DepartamentosService) { 
       let id =this.route.snapshot.paramMap.get('id')
-      this.personaServices.getById(id).subscribe(response => {
-      });
+      this.personaServices.getById(id).subscribe();
       
     }
     paises;
     departamentos;
-    public list
-    usuario(){
-      this.Jarwis.me(this.token.get()).subscribe(response => {
-        this.list= Array.of(response);
-      });
-    }
-
   ngOnInit() {
-    this.usuario();
     this.pais();
     this.depar();
     this.personaForm = this.formBuilder.group({
-      id: [''],
+      id:  ['', [Validators.required, Validators.minLength(8),Validators.pattern('[0-9]*')]],
       nombre: ['', [Validators.required]],
       ap_paterno: ['', [Validators.required]],
       ap_materno: ['', [Validators.required]],
       celular: ['', [Validators.required, Validators.minLength(9),Validators.pattern('[0-9]*')]],
-      dni: ['', [Validators.required, Validators.minLength(8),Validators.pattern('[0-9]*')]],
       pais: ['', [Validators.required]],
       departamento: ['', [Validators.required]],
       email: ['', [Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
@@ -75,20 +64,15 @@ export class PersonaFormComponent implements OnInit {
   }
 
   save(){
-    console.log(this.personaForm.value)
     let id = this.route.snapshot.paramMap.get('id')
     if(id != null){
       this.personaServices.update(id, this.personaForm.value)
       .subscribe();
     }else{
       this.personaServices.add(this.personaForm.value).subscribe(response =>{
-        console.log("data= " + JSON.stringify(response));
+        console.log(response);
         
       });
-      this.router.navigate(['/signup']);
     }
-    
-    
   }
-
 }

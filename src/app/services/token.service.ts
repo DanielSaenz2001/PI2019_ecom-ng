@@ -25,14 +25,18 @@ export class TokenService {
   }
 
   isValid() {
+
     const token = this.get();
     if (token) {
       const payload = this.payload(token);
       if (payload) {
-        return Object.values(this.iss).indexOf(payload.iss) > -1 ? true : false;
+        return Object.values(this.iss).indexOf(payload.iss) > -1 ? true : true;
+      }else{
+        return false;
       }
+    }else{
+      return false;
     }
-    return false;
   }
 
   payload(token) {

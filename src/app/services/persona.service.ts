@@ -15,6 +15,7 @@ export class PersonaService {
     return this.http.get<any>(`${this.endPoint}/${id}`);
   }
   public add(data): Observable<any> {
+    console.log(data)
     return this.http.post<any>(`${this.endPoint}`, data);
   }
   public update(id, data): Observable<any> {

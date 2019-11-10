@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { JarwisService } from '../../services/jarwis.service';
 import { TokenService } from '../../services/token.service';
 import { Router } from '@angular/router';
@@ -10,11 +10,14 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
+  @Input() personaID:string;
+  
   public form = {
     email: null,
     name: null,
     password: null,
-    password_confirmation: null
+    password_confirmation: null,
+    personaid: null
   };
   public error = [];
 
