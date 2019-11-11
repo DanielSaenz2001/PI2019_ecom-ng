@@ -23,7 +23,6 @@ export class PersonaIndexComponent implements OnInit {
   }
 
   delete(id) {
-    console.log("cliente: "+ id );
     this.personaService.delete(id).subscribe(response=>{
       
       console.log(JSON.stringify(response ))
@@ -41,7 +40,6 @@ export class PersonaIndexComponent implements OnInit {
     listar2(){
       this.Jarwis.users2().subscribe(response => {
         this.list2= response;
-        console.log(this.list2)
       });
     }
 }

@@ -65,14 +65,11 @@ export class PersonaFormComponent implements OnInit {
 
   save(){
     let id = this.route.snapshot.paramMap.get('id')
-    if(id != null){
+   if(id != null){
       this.personaServices.update(id, this.personaForm.value)
       .subscribe();
     }else{
-      this.personaServices.add(this.personaForm.value).subscribe(response =>{
-        console.log(response);
-        
-      });
+      this.personaServices.add(this.personaForm.value).subscribe();
     }
   }
 }

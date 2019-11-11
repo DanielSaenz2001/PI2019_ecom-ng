@@ -20,9 +20,7 @@ export class PersonaDependienteComponent implements OnInit {
     private paisesService:PaisesService,
     private departamentosService:DepartamentosService) { 
       let id =this.route.snapshot.paramMap.get('id')
-      this.personaServices.getById(id).subscribe(response => {
-        console.log(response);
-      });
+      this.personaServices.getById(id).subscribe();
       
     }
 
@@ -50,12 +48,9 @@ export class PersonaDependienteComponent implements OnInit {
 
   }
   save(){
-    console.log(this.personaForm.value)
     let id = this.route.snapshot.paramMap.get('id')
     if(id != null){
-      this.personaServices.add(this.personaForm.value).subscribe(response=>{
-        console.log("ADD", response);
-      });
+      this.personaServices.add(this.personaForm.value).subscribe();
     }
     
     this.router.navigate(['/persona']);
