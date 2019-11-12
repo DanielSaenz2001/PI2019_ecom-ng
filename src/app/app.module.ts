@@ -26,6 +26,7 @@ import { PersonaFormComponent } from './components/persona/persona-form/persona-
 import { PersonaDependienteComponent } from './components/persona/persona-dependiente/persona-dependiente.component';
 import { HomeComponent } from './components/home/home.component';
 import { EgresadoformComponent } from './components/egresado/egresadoform/egresadoform.component';
+import { EgresadoindexComponent } from './components/egresado/egresadoindex/egresadoindex.component';
 
 
 
@@ -42,7 +43,8 @@ import { EgresadoformComponent } from './components/egresado/egresadoform/egresa
     PersonaFormComponent,
     PersonaDependienteComponent,
     HomeComponent,
-    EgresadoformComponent
+    EgresadoformComponent,
+    EgresadoindexComponent
   ],
   imports: [
     BrowserModule,

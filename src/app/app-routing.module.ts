@@ -14,7 +14,8 @@ import { PersonaDependienteComponent } from './components/persona/persona-depend
 
 import { HomeComponent } from './components/home/home.component';
 
-
+import { EgresadoformComponent } from './components/egresado/egresadoform/egresadoform.component';
+import { EgresadoindexComponent } from './components/egresado/egresadoindex/egresadoindex.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,16 @@ const routes: Routes = [
   {
     path: 'personadependiente/:id',
     component: PersonaDependienteComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'egresado',
+    component: EgresadoindexComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'egresadoform',
+    component: EgresadoformComponent,
     canActivate: [AfterLoginService]
   },
   {

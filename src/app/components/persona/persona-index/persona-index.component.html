@@ -9,7 +9,6 @@
 <div class="row ">
     <div class="m-auto" *ngFor="let data of usuarios">
         <h2>
-                
             <a routerLink="/personadependiente/{{data.persona_ID}}" routerLinkActive="active" id="ga">
                 <button class="button-red" class="form-control alert-success"id="ad" >Agregar</button>
             </a>
@@ -22,6 +21,7 @@
       <thead class="thead-light">
           <tr>
               <th>#</th>
+              <th>Estado</th>
               <th>Nombre</th>
               <th>Apellidos</th>
               <th>Celular</th>
@@ -34,6 +34,7 @@
       <tbody *ngFor="let d of list; index as i">
           <tr *ngIf="d.dependiente == null ">
               <td >{{i+1}}</td>
+              <td>FALTA DATOS</td>
               <td>{{d.nombre}}</td>
               <td>{{d.ap_paterno}} {{d.ap_materno}}</td>
               <td>{{d.celular}}</td>
