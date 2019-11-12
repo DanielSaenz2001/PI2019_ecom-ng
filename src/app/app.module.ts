@@ -16,6 +16,7 @@ import { TokenService } from './services/token.service';
 import { PersonaService } from './services/persona.service';
 import { PaisesService } from './services/paises.service';
 import { DepartamentosService } from './services/departamentos.service';
+import { FacultadesService} from './services/facultades.service';
 import { AuthService } from './services/auth.service';
 import { AfterLoginService } from './services/after-login.service';
 import { BeforeLoginService } from './services/before-login.service';
@@ -60,7 +61,8 @@ import { EspecialidadesComponent } from './components/facultad/especialidades/es
     ReactiveFormsModule,
     SnotifyModule
   ],
-  providers: [JarwisService, TokenService, AuthService, AfterLoginService, BeforeLoginService,PersonaService, PaisesService,DepartamentosService,
+  providers: [JarwisService, TokenService, AuthService, AfterLoginService, BeforeLoginService,
+    PersonaService, PaisesService,DepartamentosService,FacultadesService,
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
     SnotifyService],
   bootstrap: [AppComponent]

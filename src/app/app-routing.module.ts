@@ -17,6 +17,11 @@ import { HomeComponent } from './components/home/home.component';
 import { EgresadoformComponent } from './components/egresado/egresadoform/egresadoform.component';
 import { EgresadoindexComponent } from './components/egresado/egresadoindex/egresadoindex.component';
 
+import { FacultadComponent } from './components/facultad/facultad.component';
+import { EscuelasComponent } from './components/facultad/escuelas/escuelas.component';
+import { EspecialidadesComponent } from './components/facultad/especialidades/especialidades.component';
+
+
 const routes: Routes = [
   {
     path: 'login',
@@ -77,6 +82,22 @@ const routes: Routes = [
     component: ResponseResetComponent,
     canActivate: [BeforeLoginService]
   },
+  {
+    path: 'facultades',
+    component: FacultadComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'escuelas',
+    component: EscuelasComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'especialidades',
+    component: EspecialidadesComponent,
+    canActivate: [AfterLoginService]
+  },
+
 ];
 
 @NgModule({

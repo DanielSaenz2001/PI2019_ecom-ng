@@ -1,3 +1,136 @@
-<p>
-  facultad works!
-</p>
+<div class="row ">
+  <div class="m-auto">
+      <h2>
+          GESTION DE LA UNIVERSIDAD
+      </h2>
+  </div>
+</div>
+<div class="row">
+<h2 class="m-auto">Facultades</h2>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Agregar Facultad</button>
+<table class="table table-light" >
+    <thead class="thead-light">
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Acronimo</th>
+            <th colspan="1">Escuelas</th>
+            <th colspan="2">Acciones</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let d of list; index as i">
+        <tr *ngIf="d.dependiente == null ">
+            <td >{{i+1}}</td>
+            <td>{{d.nombre}}</td>
+            <td>{{d.acronimo}}</td>
+            <td >
+                <a routerLink="/personadependiente/{{d.id}}" routerLinkActive="active" id="ga">
+                    <button class="button-red" class="form-control alert-success"id="ad" >Agregar</button>
+                </a>
+            </td>
+            <td > 
+                <div class="row" id="ad">
+                        <a routerLink="/personaform/{{d.id}}" routerLinkActive="active" id="ga">
+                            <button class="button-red" class="form-control alert-warning"id="ad" >Edit</button>
+                        </a>
+                </div>
+                
+            </td>
+            <td>
+              <div class="row">
+                <button class="button-red" class="form-control alert-danger" id="ad" (click)="delete(d.id)">Delete</button>
+        </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="row">
+<h2 class="m-auto">Dependientes</h2>
+<table class="table table-light" >
+    <thead class="thead-light">
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Celular</th>
+            <th>Dirección</th>
+            <th>Genero</th>       
+            <th >Dependiente</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let d of list; index as i ">
+        <tr *ngIf="d.dependiente !== null">
+            <td>{{i+1}}</td>
+            <td>{{d.nombre}}</td>
+            <td>{{d.ap_paterno}} {{d.ap_materno}}</td>
+            <td>{{d.celular}}</td>
+            <td>{{d.domicilio_actual}}</td>
+            <td>{{d.sexo}}</td>
+            <td >
+                <div *ngFor="let da of list">
+                    <div *ngIf="da.id == d.dependiente">
+                        {{da.nombre}}
+                    </div>
+                </div>
+            </td>
+            <td > 
+                <div class="row" id="ad">
+                    <a routerLink="/personaform/{{d.id}}" routerLinkActive="active" id="ga">
+                        <button class="button-red" class="form-control alert-warning"id="ad" >Edit</button>
+                    </a>
+                </div>
+                <div class="row">
+                    <button class="button-red" class="form-control alert-danger" id="ad" (click)="delete(d.id)">Delete</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Facultad</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+            <form [formGroup]="facultadForm" (ngSubmit)="save()">
+                <div class="row">
+                    <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Nombre:</div>
+                    <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                            <input type="text" formControlName="nombre" required id="nombre" name="nombre" class="form-control">
+                            <div [hidden]="facultadForm.get('nombre').valid || 
+                            facultadForm.get('nombre').pristine" class="alert alert-danger">
+                            El Nombre es importante
+                            </div>
+                    </div>
+                    <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Acronimo:</div>
+                    <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                            <input type="text" formControlName="acronimo" acronimo="acronimo" name="acronimo" class="form-control" maxlength="8">
+                            <div [hidden]="facultadForm.get('acronimo').valid || 
+                            facultadForm.get('acronimo').pristine" class="alert alert-danger">
+                            El Acronimo es importante
+                            </div>
+                    </div>
+            </div>
+            <button type="submit" [disabled]="!facultadForm.valid" class="form-control alert-success">Submit</button>
+            </form>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+

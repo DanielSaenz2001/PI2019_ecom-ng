@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class FacultadesService {
+export class ProvinciasService {
 
-  endPoint ='https://serve-ecom.herokuapp.com/api/facultad'
+  endPoint ='https://serve-ecom.herokuapp.com/api/provincias'
   constructor(private http:HttpClient) { }
 
   public getlist(): Observable<any>{
