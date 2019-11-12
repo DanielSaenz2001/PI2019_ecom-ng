@@ -27,6 +27,9 @@ import { PersonaDependienteComponent } from './components/persona/persona-depend
 import { HomeComponent } from './components/home/home.component';
 import { EgresadoformComponent } from './components/egresado/egresadoform/egresadoform.component';
 import { EgresadoindexComponent } from './components/egresado/egresadoindex/egresadoindex.component';
+import { FacultadComponent } from './components/facultad/facultad.component';
+import { EscuelasComponent } from './components/facultad/escuelas/escuelas.component';
+import { EspecialidadesComponent } from './components/facultad/especialidades/especialidades.component';
 
 
 
@@ -44,7 +47,10 @@ import { EgresadoindexComponent } from './components/egresado/egresadoindex/egre
     PersonaDependienteComponent,
     HomeComponent,
     EgresadoformComponent,
-    EgresadoindexComponent
+    EgresadoindexComponent,
+    FacultadComponent,
+    EscuelasComponent,
+    EspecialidadesComponent
   ],
   imports: [
     BrowserModule,
