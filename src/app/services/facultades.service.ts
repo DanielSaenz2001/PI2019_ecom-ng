@@ -23,4 +23,8 @@ export class FacultadesService {
       
       return this.http.delete<any>(`${this.endPoint}/${id}`);
   }
+  public getById(id): Observable<any> {
+    console.log(id)
+    return this.http.get<any>(`${this.endPoint}/${id}`);
+  }
 }

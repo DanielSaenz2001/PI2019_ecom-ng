@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FacultadesService } from 'src/app/services/facultades.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -9,8 +9,10 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./facultad.component.css']
 })
 export class FacultadComponent implements OnInit {
-
-  constructor(private route: ActivatedRoute,private router: Router,private formBuilder: FormBuilder,private facultadService: FacultadesService) { }
+  @ViewChild('btnClose') btnClose: ElementRef;
+  constructor(private route: ActivatedRoute,private router: Router,private formBuilder: FormBuilder,private facultadService: FacultadesService) { 
+    this.facultades();
+  }
 list;
 facultadForm: FormGroup;
   ngOnInit() {
@@ -33,14 +35,19 @@ facultadForm: FormGroup;
       this.facultades();
     });
   }
-  save(){
-    console.log(this.facultadForm.value.id)
-    if(this.facultadForm.value.id != null){
-      this.facultadService.update(this.facultadForm.value.id, this.facultadForm.value)
-      .subscribe();
-      this.router.navigateByUrl('/facultades');
-    }else{
-      this.facultadService.add(this.facultadForm.value).subscribe();
-    }
+  saveFacultad(){
+      this.facultadService.add(this.facultadForm.value).subscribe(response=>{
+        this.facultades();
+      });
+      this.facultadForm.reset();
+  }
+  update(){
+    
+  }
+  onPreUpdateArea(id) {
+    console.log('ID: ', id)
+    this.facultadService.getById(id).subscribe(response =>{
+    this.facultadForm.setValue(response);
+    })
   }
 }

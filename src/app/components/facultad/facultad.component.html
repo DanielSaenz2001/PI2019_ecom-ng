@@ -30,15 +30,13 @@
             </td>
             <td > 
                 <div class="row" id="ad">
-                        <a routerLink="/personaform/{{d.id}}" routerLinkActive="active" id="ga">
-                            <button class="button-red" class="form-control alert-warning"id="ad" >Edit</button>
-                        </a>
+                    <button class="button-red" class="form-control alert-warning"id="ad" (click)="onPreUpdateArea(d.id)" data-toggle="modal" data-target="#myModal">Edit</button>
                 </div>
                 
             </td>
             <td>
               <div class="row">
-                <button class="button-red" class="form-control alert-danger" id="ad" (click)="delete(d.id)">Delete</button>
+                <button class="button-red" class="form-control alert-danger" id="ad" (click)="delete(d.id)" >Delete</button>
         </div>
             </td>
         </tr>
@@ -101,7 +99,7 @@
         
         <!-- Modal body -->
         <div class="modal-body">
-            <form [formGroup]="facultadForm" (ngSubmit)="save()">
+            <form [formGroup]="facultadForm" >
                 <div class="row">
                     <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Nombre:</div>
                     <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
@@ -120,13 +118,13 @@
                             </div>
                     </div>
             </div>
-            <button type="submit" [disabled]="!facultadForm.valid" class="form-control alert-success">Submit</button>
+            
             </form>
         </div>
         
         <!-- Modal footer -->
         <div class="modal-footer">
-            
+            <button type="submit" [disabled]="!facultadForm.valid" class="form-control alert-success" (click)= "saveFacultad()" data-dismiss="modal">Submit</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
         
