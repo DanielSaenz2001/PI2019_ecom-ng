@@ -12,6 +12,8 @@ import { PersonaIndexComponent } from './components/persona/persona-index/person
 import { PersonaFormComponent } from './components/persona/persona-form/persona-form.component';
 import { PersonaDependienteComponent } from './components/persona/persona-dependiente/persona-dependiente.component';
 
+import { HomeComponent } from './components/home/home.component';
+
 
 
 const routes: Routes = [
@@ -19,6 +21,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     canActivate: [BeforeLoginService]
+  },
+  {
+    path: '',
+    component: HomeComponent
   },
   {
     path: 'signup',

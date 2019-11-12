@@ -19,13 +19,16 @@ export class PersonaFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private paisesService:PaisesService,
-    private departamentosService:DepartamentosService) { 
+    private departamentosService:DepartamentosService,
+    private Jarwis: JarwisService, private token:TokenService) { 
       let id =this.route.snapshot.paramMap.get('id')
       this.personaServices.getById(id).subscribe();
       
     }
+    editar = false;
     paises;
     departamentos;
+    usuarios;
   ngOnInit() {
     this.pais();
     this.depar();
@@ -49,6 +52,8 @@ export class PersonaFormComponent implements OnInit {
       this.personaServices.getById(id).subscribe(response =>{
         this.personaForm.setValue(response);
       })
+      this.editar = true;
+      this.usuario();
     }
   }
 
@@ -68,8 +73,15 @@ export class PersonaFormComponent implements OnInit {
    if(id != null){
       this.personaServices.update(id, this.personaForm.value)
       .subscribe();
+      this.router.navigateByUrl('/profile');
     }else{
       this.personaServices.add(this.personaForm.value).subscribe();
     }
+  }
+  usuario(){
+    this.Jarwis.me(this.token.get()).subscribe(response => {
+      this.usuarios= response[0].persona_ID;
+       // this.list= JSON.stringify(response );
+    });
   }
 }

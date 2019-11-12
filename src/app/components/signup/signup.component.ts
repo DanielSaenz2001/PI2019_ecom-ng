@@ -28,16 +28,18 @@ export class SignupComponent implements OnInit {
     private router: Router
   ) { }
   onSubmit() {
+    
     this.form.personaid= this.personaID;
     this.form.email= this.email;
     this.Jarwis.signup(this.form).subscribe(
       data => this.handleResponse(data),
       error => this.handleError(error)
     );
+   
   }
   handleResponse(data) {
     this.Token.handle(data.access_token);
-    this.router.navigateByUrl('/profile');
+    location.reload();
   }
 
   handleError(error) {
@@ -46,8 +48,5 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     
-  }
-  verdatos(){
-    console.log("DAtos:", this.personaID , "  ", this.email)
   }
 }

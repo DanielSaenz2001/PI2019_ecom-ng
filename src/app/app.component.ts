@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ecom-ng';
-  url ='https://serve-ecom.herokuapp.com/'
+  url ='https://serve-ecom.herokuapp.com/';
+  ngOnInit() {
+    console.log("Grupo 4")
+  }
 }

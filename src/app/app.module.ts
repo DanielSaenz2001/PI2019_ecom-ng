@@ -24,6 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PersonaIndexComponent } from './components/persona/persona-index/persona-index.component';
 import { PersonaFormComponent } from './components/persona/persona-form/persona-form.component';
 import { PersonaDependienteComponent } from './components/persona/persona-dependiente/persona-dependiente.component';
+import { HomeComponent } from './components/home/home.component';
+import { EgresadoformComponent } from './components/egresado/egresadoform/egresadoform.component';
 
 
 
@@ -38,7 +40,9 @@ import { PersonaDependienteComponent } from './components/persona/persona-depend
     ResponseResetComponent,
     PersonaIndexComponent,
     PersonaFormComponent,
-    PersonaDependienteComponent
+    PersonaDependienteComponent,
+    HomeComponent,
+    EgresadoformComponent
   ],
   imports: [
     BrowserModule,

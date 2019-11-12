@@ -6,6 +6,16 @@
         </h2>
     </div>
 </div>
+<div class="row ">
+    <div class="m-auto" *ngFor="let data of usuarios">
+        <h2>
+                
+            <a routerLink="/personadependiente/{{data.persona_ID}}" routerLinkActive="active" id="ga">
+                <button class="button-red" class="form-control alert-success"id="ad" >Agregar</button>
+            </a>
+        </h2>
+    </div>
+</div>
 <div class="row">
   <h2 class="m-auto">Personas</h2>
   <table class="table table-light" >

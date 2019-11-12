@@ -4,6 +4,9 @@ import { PersonaService } from '../../../services/persona.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DepartamentosService } from 'src/app/services/departamentos.service';
 import { PaisesService } from 'src/app/services/paises.service';
+import { TokenService } from 'src/app/services/token.service';
+import { JarwisService } from 'src/app/services/jarwis.service';
+
 @Component({
   selector: 'app-persona-dependiente',
   templateUrl: './persona-dependiente.component.html',
@@ -13,29 +16,31 @@ export class PersonaDependienteComponent implements OnInit {
   paises;
   departamentos;
   personaForm: FormGroup;
+  usuarios;
   constructor( private route: ActivatedRoute,
     private personaServices: PersonaService,
     private formBuilder: FormBuilder,
     private router: Router,
     private paisesService:PaisesService,
-    private departamentosService:DepartamentosService) { 
+    private departamentosService:DepartamentosService,
+    private Jarwis: JarwisService, private token:TokenService) { 
       let id =this.route.snapshot.paramMap.get('id')
       this.personaServices.getById(id).subscribe();
       
     }
-
+    
     id = this.route.snapshot.paramMap.get('id')
   ngOnInit() {
     this.pais();
+    this.usuario();
     this.depar();
     this.personaForm = this.formBuilder.group({
       
-      id: [''],
+      id:  ['', [Validators.required, Validators.minLength(8),Validators.pattern('[0-9]*')]],
       nombre: ['', [Validators.required]],
       ap_paterno: ['', [Validators.required]],
       ap_materno: ['', [Validators.required]],
       celular: ['', [Validators.required, Validators.minLength(9),Validators.pattern('[0-9]*')]],
-      dni: ['', [Validators.required, Validators.minLength(8),Validators.pattern('[0-9]*')]],
       pais: ['', [Validators.required]],
       departamento: ['', [Validators.required]],
       email: ['', [Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
@@ -45,7 +50,6 @@ export class PersonaDependienteComponent implements OnInit {
       sexo: ['', [Validators.required]],
       dependiente:[this.id],
     });
-
   }
   save(){
     let id = this.route.snapshot.paramMap.get('id')
@@ -63,6 +67,12 @@ export class PersonaDependienteComponent implements OnInit {
   depar(){
     this.departamentosService.getlist().subscribe(response => {
       this.departamentos= response;
+    });
+  }
+  usuario(){
+    this.Jarwis.me(this.token.get()).subscribe(response => {
+      this.usuarios= response[0].persona_ID;
+       // this.list= JSON.stringify(response );
     });
   }
 }

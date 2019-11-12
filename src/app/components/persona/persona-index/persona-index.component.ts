@@ -12,7 +12,7 @@ export class PersonaIndexComponent implements OnInit {
 
   list;
   list2;
-
+  usuarios;
   constructor(private personaService: PersonaService,private Jarwis: JarwisService, private token:TokenService) { 
       this.listar();
     }
@@ -20,12 +20,13 @@ export class PersonaIndexComponent implements OnInit {
   ngOnInit() {
     this.listar();
     this.listar2();
+    this.usuario();
   }
 
   delete(id) {
     this.personaService.delete(id).subscribe(response=>{
       
-      console.log(JSON.stringify(response ))
+      //console.log(JSON.stringify(response ))
       this.listar();
 
     });
@@ -40,6 +41,14 @@ export class PersonaIndexComponent implements OnInit {
     listar2(){
       this.Jarwis.users2().subscribe(response => {
         this.list2= response;
+        console.log(response)
+      });
+    }
+
+    usuario(){
+      this.Jarwis.me(this.token.get()).subscribe(response => {
+        this.usuarios= response;
+         // this.list= JSON.stringify(response );
       });
     }
 }
