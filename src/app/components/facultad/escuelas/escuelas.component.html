@@ -1,3 +1,76 @@
-<p>
-  escuelas works!
-</p>
+<div class="row">
+  <h2 class="m-auto">Escuelas Profesionales</h2>
+  <table class="table table-light" >
+      <thead class="thead-light">
+          <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Acreditado</th>
+              <th>Facultad</th>
+              <th>Especialidad</th>
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let d of list; index as i ">
+          <tr *ngIf="d.dependiente !== null">
+              <td>{{i+1}}</td>
+              <td>{{d.nombre}}</td>
+              <td>{{d.estado_acreditacion}}</td>
+              <td>
+                {{d.facultad_id}}
+              </td>
+              <td>
+                <button class="button-red" class="form-control alert-success"id="ad" data-toggle="modal" data-target="#Especialidades" (click)="id(d.id);">Agregar</button>
+              </td>
+              <td> 
+                  <div class="row" id="ad">
+                        <button class="button-red" class="form-control alert-warning"id="ad" (click)="updateEscuela(d.id)" data-toggle="modal" data-target="#Escuelas">Edit</button>
+                  </div>
+                  <div class="row">
+                      <button class="button-red" class="form-control alert-danger" id="ad" (click)="delete(d.id)">Delete</button>
+                  </div>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+<div class="modal fade" id="Escuelas">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Escuelas Profesionales</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+          <form [formGroup]="escuelasForm" >
+              <div class="row">
+                  <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Nombre:</div>
+                  <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                          <input type="text" formControlName="nombre" required id="nombre" name="nombre" class="form-control">
+                  </div>
+                  <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Acredi:</div>
+                  <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                          <select class="form-control" id="sel1" formControlName="estado_acreditacion" id="estado_acreditacion" name="estado_acreditacion">
+                                  <option value=true>Si</option>
+                                  <option value=false>No</option>
+                          </select>
+                  </div>
+          </div>
+          
+          </form>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+          <button type="submit" [disabled]="!escuelasForm.valid" class="form-control alert-success" (click)= "saveEscuela()" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="borrar()">Close</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<app-especialidades [ID] ="ID"></app-especialidades>

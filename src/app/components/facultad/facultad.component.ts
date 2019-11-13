@@ -1,7 +1,6 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FacultadesService } from 'src/app/services/facultades.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-facultad',
@@ -9,11 +8,11 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./facultad.component.css']
 })
 export class FacultadComponent implements OnInit {
-  @ViewChild('btnClose') btnClose: ElementRef;
-  constructor(private route: ActivatedRoute,private router: Router,private formBuilder: FormBuilder,private facultadService: FacultadesService) { 
+  constructor(private formBuilder: FormBuilder,private facultadService: FacultadesService) { 
     this.facultades();
   }
 list;
+ID;
 facultadForm: FormGroup;
   ngOnInit() {
     this.facultades();
@@ -41,13 +40,17 @@ facultadForm: FormGroup;
       });
       this.facultadForm.reset();
   }
-  update(){
-    
-  }
-  onPreUpdateArea(id) {
+
+  updateFacultad(id) {
     console.log('ID: ', id)
     this.facultadService.getById(id).subscribe(response =>{
     this.facultadForm.setValue(response);
     })
+  }
+  borrar(){
+    this.facultadForm.reset();
+  }
+  id(id){
+    this.ID = id;
   }
 }

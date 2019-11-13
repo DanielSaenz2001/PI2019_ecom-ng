@@ -7,7 +7,7 @@
 </div>
 <div class="row">
 <h2 class="m-auto">Facultades</h2>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Agregar Facultad</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Facultad">Agregar Facultad</button>
 <table class="table table-light" >
     <thead class="thead-light">
         <tr>
@@ -23,14 +23,12 @@
             <td >{{i+1}}</td>
             <td>{{d.nombre}}</td>
             <td>{{d.acronimo}}</td>
-            <td >
-                <a routerLink="/personadependiente/{{d.id}}" routerLinkActive="active" id="ga">
-                    <button class="button-red" class="form-control alert-success"id="ad" >Agregar</button>
-                </a>
+            <td>
+                <button class="button-red" class="form-control alert-success"id="ad" data-toggle="modal" data-target="#Escuelas" (click)="id(d.id);">Agregar</button>
             </td>
             <td > 
                 <div class="row" id="ad">
-                    <button class="button-red" class="form-control alert-warning"id="ad" (click)="onPreUpdateArea(d.id)" data-toggle="modal" data-target="#myModal">Edit</button>
+                    <button class="button-red" class="form-control alert-warning"id="ad" (click)="updateFacultad(d.id)" data-toggle="modal" data-target="#Facultad">Edit</button>
                 </div>
                 
             </td>
@@ -43,51 +41,8 @@
     </tbody>
 </table>
 </div>
-<div class="row">
-<h2 class="m-auto">Dependientes</h2>
-<table class="table table-light" >
-    <thead class="thead-light">
-        <tr>
-            <th>#</th>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Celular</th>
-            <th>Dirección</th>
-            <th>Genero</th>       
-            <th >Dependiente</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody *ngFor="let d of list; index as i ">
-        <tr *ngIf="d.dependiente !== null">
-            <td>{{i+1}}</td>
-            <td>{{d.nombre}}</td>
-            <td>{{d.ap_paterno}} {{d.ap_materno}}</td>
-            <td>{{d.celular}}</td>
-            <td>{{d.domicilio_actual}}</td>
-            <td>{{d.sexo}}</td>
-            <td >
-                <div *ngFor="let da of list">
-                    <div *ngIf="da.id == d.dependiente">
-                        {{da.nombre}}
-                    </div>
-                </div>
-            </td>
-            <td > 
-                <div class="row" id="ad">
-                    <a routerLink="/personaform/{{d.id}}" routerLinkActive="active" id="ga">
-                        <button class="button-red" class="form-control alert-warning"id="ad" >Edit</button>
-                    </a>
-                </div>
-                <div class="row">
-                    <button class="button-red" class="form-control alert-danger" id="ad" (click)="delete(d.id)">Delete</button>
-                </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
-</div>
-<div class="modal fade" id="myModal">
+
+<div class="modal fade" id="Facultad">
     <div class="modal-dialog">
       <div class="modal-content">
       
@@ -125,10 +80,11 @@
         <!-- Modal footer -->
         <div class="modal-footer">
             <button type="submit" [disabled]="!facultadForm.valid" class="form-control alert-success" (click)= "saveFacultad()" data-dismiss="modal">Submit</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="borrar()">Close</button>
         </div>
         
       </div>
     </div>
-  </div>
+</div>
 
+<app-escuelas [ID] ="ID"></app-escuelas>
