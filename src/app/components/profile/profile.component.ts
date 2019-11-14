@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JarwisService } from 'src/app/services/jarwis.service';
 import { TokenService } from 'src/app/services/token.service';
-import { NgForm } from '@angular/forms';
-
 
 @Component({
   selector: 'app-profile',

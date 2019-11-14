@@ -12,7 +12,7 @@
       <div class="modal-body">
         <h2>UPDATE USER IMAGE</h2>
         <div>
-          <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
             <input type="file" #fileupload [(ngModel)]="myFile" name="myFile" (change)="fileEvent($event)"/>
             <button>Upload Image</button>
             </form>

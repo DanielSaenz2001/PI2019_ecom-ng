@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-eventos',
   templateUrl: './eventos.component.html',
@@ -12,4 +12,5 @@ export class EventosComponent implements OnInit {
   ngOnInit() {
   }
 
+  
 }
