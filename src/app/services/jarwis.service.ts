@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class JarwisService {
@@ -36,5 +36,15 @@ export class JarwisService {
   }
   users2() {
     return this.http.get(`${this.baseUrl}/users`)
+  }
+
+  profile(data){
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    console.log(data)
+    this.http.post(`${this.baseUrl}/image`, data, {headers: headers}).subscribe(response=>{
+      console.log(response)
+    })
   }
 }

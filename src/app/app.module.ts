@@ -31,6 +31,7 @@ import { EgresadoindexComponent } from './components/egresado/egresadoindex/egre
 import { FacultadComponent } from './components/facultad/facultad.component';
 import { EscuelasComponent } from './components/facultad/escuelas/escuelas.component';
 import { EspecialidadesComponent } from './components/facultad/especialidades/especialidades.component';
+import { UserFormComponent } from './components/profile/user-form/user-form.component';
 
 
 
@@ -51,7 +52,8 @@ import { EspecialidadesComponent } from './components/facultad/especialidades/es
     EgresadoindexComponent,
     FacultadComponent,
     EscuelasComponent,
-    EspecialidadesComponent
+    EspecialidadesComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
