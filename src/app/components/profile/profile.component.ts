@@ -27,5 +27,5 @@ export class ProfileComponent implements OnInit {
   id(id){
     this.ID = id;
   }
-
+  
 }

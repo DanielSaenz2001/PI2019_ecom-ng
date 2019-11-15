@@ -1,54 +1,56 @@
-<div *ngFor="let list of list">
-  <div class="container" id="perfil">
-    <section id="profile" class="mt-5" >
-      <div class="row">
-        <div class="col-10 col-sm-10  col-md-7  col-lg-5 col-xl-5 mx-auto main-section text-center card">
-          <div class="row">
-            <div class="col-lg-12 col-sm-12 col-12 profile-header user-details">
-              <div class="row">
-                  <div class="col-lg-12 col-sm-12 col-12" id="foto">
-                    <img src='https://serve-ecom.herokuapp.com/uploads/avatars/{{list.avatar}}' alt="img user" style="width: 150px; height: 150px; border-radius: 50%; " 
-                    data-toggle="modal" data-target="#Usuario" (click)="id(list.user_ID);">
-                  </div>    
-              </div>
-            </div>
-          </div>
-          <div class="row user-details">
-            <div class="col-12 col-lg-12 col-sm-12">
-              <span>
-                  {{list.avatar}}
-               Usuario: {{list.usuario}}
-               Sexo: {{list.sexo}}
-               Role: {{list.rol}}
-               Pais: {{list.pais}}
-               Nombre: {{list.nombre}}
-               Fech_nacimiento: {{list.fec_nacimiento}}
-               Estado Civil: {{list.est_civil}}
-               Email: {{list.email}}
-               Direccion {{list.domicilio_actual}}
-               Dni: {{list.persona_ID}}
-               Departamento: {{list.departamentos}}
-               Celular: {{list.celular}}
-               Materno: {{list.ap_materno}}
-               Paterno: {{list.ap_paterno}}
-               Provincia: {{list.provincia}}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-          <div class="col-10 col-sm-10  col-md-7  col-lg-5 col-xl-5 mx-auto main-section text-center card">
-            <a routerLink="/personaform/{{list.persona_ID}}" routerLinkActive="active">
-              <button class="button-red" class="btn btn-dark mt-2 form-control">Actualizar</button>
-          </a>
-          </div>
-      </div>
-    </section>
-  </div>  
-  <hr>
- 
-</div>
+<div class="row">
   
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <div *ngFor="let list of list">
+                <section id="profile" class="mt-5" >
+                  <div class="row">
+                    <div class="col-10 col-sm-10  col-md-7  col-lg-5 col-xl-5 mx-auto main-section text-center card">
+                      <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-12 profile-header user-details">
+                          <div class="row">
+                              <div class="col-lg-12 col-sm-12 col-12" id="foto">
+                                <img src='https://serve-ecom.herokuapp.com/uploads/avatars/{{list.avatar}}' alt="img user" style="width: 150px; height: 150px; border-radius: 50%; " 
+                                data-toggle="modal" data-target="#Usuario" (click)="id(list.user_ID);">
+                              </div>    
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row user-details">
+                        <div class="col-12 col-lg-12 col-sm-12">
+                          <span>
+                              {{list.avatar}}
+                           Usuario: {{list.usuario}}
+                           Sexo: {{list.sexo}}
+                           Role: {{list.rol}}
+                           Pais: {{list.pais}}
+                           Nombre: {{list.nombre}}
+                           Fech_nacimiento: {{list.fec_nacimiento}}
+                           Estado Civil: {{list.est_civil}}
+                           Email: {{list.email}}
+                           Direccion {{list.domicilio_actual}}
+                           Dni: {{list.persona_ID}}
+                           Departamento: {{list.departamentos}}
+                           Celular: {{list.celular}}
+                           Materno: {{list.ap_materno}}
+                           Paterno: {{list.ap_paterno}}
+                           Provincia: {{list.provincia}}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <div class="row">
+                      <div class="col-10 col-sm-10  col-md-7  col-lg-5 col-xl-5 mx-auto main-section text-center card">
+                        <a routerLink="/personaform/{{list.persona_ID}}" routerLinkActive="active">
+                          <button class="button-red" class="btn btn-dark mt-2 form-control">Actualizar</button>
+                      </a>
+                      </div>
+                  </div>
+                </section>
+              </div>  
+              
+  
+</div>
+
 <app-user-form [ID] ="ID"></app-user-form>

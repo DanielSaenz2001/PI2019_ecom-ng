@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ecom-ng';
-  url ='https://serve-ecom.herokuapp.com/';
+  public loggedIn: boolean;
+  constructor (private Auth: AuthService){
+    
+  }
   ngOnInit() {
-    console.log("Grupo 4")
+    console.log("Grupo 4");
+    this.Auth.authStatus.subscribe(value => this.loggedIn = value);
   }
 }

@@ -33,6 +33,7 @@ import { EscuelasComponent } from './components/facultad/escuelas/escuelas.compo
 import { EspecialidadesComponent } from './components/facultad/especialidades/especialidades.component';
 import { UserFormComponent } from './components/profile/user-form/user-form.component';
 import { EventosComponent } from './components/eventos/eventos.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 
@@ -55,7 +56,8 @@ import { EventosComponent } from './components/eventos/eventos.component';
     EscuelasComponent,
     EspecialidadesComponent,
     UserFormComponent,
-    EventosComponent
+    EventosComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

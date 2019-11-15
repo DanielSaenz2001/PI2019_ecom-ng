@@ -1,5 +1,11 @@
 <app-navbar></app-navbar>
 <ng-snotify></ng-snotify>
-<div class="container">
-    <router-outlet></router-outlet>
+
+<div class="wrapper">
+  <div class="row">
+      <app-sidebar style="margin-left: 15px;" *ngIf="loggedIn"></app-sidebar>
+      <div class="container col-11 col-sm-11 col-md-11 col-lg-8 col-xl-8">
+         <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
