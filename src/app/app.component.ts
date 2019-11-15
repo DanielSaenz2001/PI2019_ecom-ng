@@ -12,6 +12,7 @@ export class AppComponent {
   constructor (private Auth: AuthService){
     
   }
+
   ngOnInit() {
     console.log("Grupo 4");
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);

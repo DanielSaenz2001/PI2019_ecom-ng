@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ProvinciasService {
 
-  endPoint ='https://serve-ecom.herokuapp.com/api/provincias'
+  endPoint ='http://localhost:8000/api/provincias'
   constructor(private http:HttpClient) { }
 
   public getlist(): Observable<any>{
