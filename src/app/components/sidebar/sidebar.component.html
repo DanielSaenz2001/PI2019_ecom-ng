@@ -1,54 +1,61 @@
-
-<div class="wrapper">
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>BOOTSTRAP SIDEBAR</h3>
-        </div>
-        
-        
-        <ul class="list-unstyled components">
-            <li class="nav-item active">
-                <a class="navbar-brand" href="#" *ngIf="!loggedIn"  routerLink="/login"  routerLinkActive="active" >Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/profile" routerLinkActive="active">Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/persona" routerLinkActive="active">Persona</a>
-              </li>
-              <li class="nav-item">
-                <a class="navbar-brand" href="#" *ngIf="loggedIn"   (click)="logout($event)" >Logout</a>
-              </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Page</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">page1</a>
-                    </li>
-                    <li>
-                        <a href="#">page2</a>
-                    </li>
-                    <li>
-                        <a href="#">page3</a>
-                    </li>
-                </ul> 
-            </li>
-            <li>
-                <a href="#">Services</a>
-            </li>
-            <li>
-                <a href="#">Contact Us</a>
-            </li>
-        </ul>
-        
-        <ul class="list-unstyled CTAs">
-            <li>
-                <a href="#" class="download">Download code</a>
-            </li>
-            <li>
-                <a href="#" class="article">article</a>
-            </li>
-        </ul>
-    </nav>
-
+<div *ngFor="let list of list">
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <img src='http://localhost:8000/uploads/avatars/{{list.avatar}}' alt="img user" style="width: 150px; height: 150px; border-radius: 50%;  display: block;
+                margin: auto;">
+                <div style="text-align: center;">
+                    {{list.ap_paterno}} {{list.ap_materno}} <br>
+                    {{list.nombre}}
+                </div>
+            </div>
+            <ul class="list-unstyled components"> 
+                <li class="nav-item">
+                    <a class="navbar-brand" href="#" *ngIf="loggedIn"  routerLink="/"  routerLinkActive="active" > <i class="fa fa-home"></i>  Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand" href="#" *ngIf="!loggedIn"  routerLink="/login"  routerLinkActive="active" >Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/profile" routerLinkActive="active">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/persona" routerLinkActive="active">Persona</a>
+                </li>
+                  <li class="nav-item">
+                    <a class="navbar-brand" href="#" *ngIf="loggedIn"   (click)="logout($event)" >Logout</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Page</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">page1</a>
+                        </li>
+                        <li>
+                            <a href="#">page2</a>
+                        </li>
+                        <li>
+                            <a href="#">page3</a>
+                        </li>
+                    </ul> 
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact Us</a>
+                </li>
+            </ul>
+            
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="#" class="download">Download code</a>
+                </li>
+                <li>
+                    <a href="#" class="article">article</a>
+                </li>
+            </ul>
+        </nav>
+    
+    </div>
 </div>

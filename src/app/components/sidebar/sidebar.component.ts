@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
+import { JarwisService } from 'src/app/services/jarwis.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,11 +14,13 @@ export class SidebarComponent implements OnInit {
   constructor(
     private Auth: AuthService,
     private router: Router,
-    private Token: TokenService
+    private Token: TokenService,
+    private Jarwis: JarwisService
   ) { }
-
+  list;
   ngOnInit() {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
+    this.listar();
   }
 
   logout(event: MouseEvent) {
@@ -26,5 +29,19 @@ export class SidebarComponent implements OnInit {
     this.Auth.changeAuthStatus(false);
     this.router.navigateByUrl('/login');
   }
-
+  listar(){
+    this.Jarwis.me(this.Token.get()).subscribe(
+      data => this.handleResponse(data),
+      error => this.handleError()
+    );
+  }
+  handleResponse(data) {
+    this.list= data;
+  }
+  handleError() {
+    this.Token.remove();
+    this.Auth.changeAuthStatus(false);
+    this.router.navigateByUrl('/login');
+  }
+  public error = null;
 }

@@ -21,6 +21,8 @@ export class UserFormComponent implements OnInit {
     var myFormData = new FormData();
     myFormData.append('id', this.ID);
     myFormData.append('image', this.filedata);
-    this.jarwisService.profile(myFormData);
+    //
+    //this.jarwisService.profile(myFormData);
+    console.log(myFormData)
   }                    
 }

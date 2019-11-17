@@ -47,12 +47,12 @@ export class PersonaFormComponent implements OnInit {
         nombre: ['', [Validators.required]],
         ap_paterno: ['', [Validators.required]],
         ap_materno: ['', [Validators.required]],
-        celular: ['', [Validators.required, Validators.minLength(9),Validators.pattern('[0-9]*')]],
+        //celular: ['', [Validators.required, Validators.minLength(9),Validators.pattern('[0-9]*')]],
         provincia: ['', [Validators.required]],
         email: ['', [Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
         fec_nacimiento: ['', [Validators.required]],
         est_civil: ['', [Validators.required]],
-        domicilio_actual: ['', [Validators.required]],
+        //domicilio_actual: ['', [Validators.required]],
         sexo: ['', [Validators.required]],
         dependiente:null
       });
@@ -64,14 +64,14 @@ export class PersonaFormComponent implements OnInit {
         nombre: ['', [Validators.required]],
         ap_paterno: ['', [Validators.required]],
         ap_materno: ['', [Validators.required]],
-        celular: ['', [Validators.required, Validators.minLength(9),Validators.pattern('[0-9]*')]],
+       // celular: ['', [Validators.required, Validators.minLength(9),Validators.pattern('[0-9]*')]],
         pais: ['', [Validators.required]],
         departamento: ['', [Validators.required]],
         provincia: ['', [Validators.required]],
         email: ['', [Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
         fec_nacimiento: ['', [Validators.required]],
         est_civil: ['', [Validators.required]],
-        domicilio_actual: ['', [Validators.required]],
+        //domicilio_actual: ['', [Validators.required]],
         sexo: ['', [Validators.required]],
         dependiente:null
       });
@@ -86,6 +86,7 @@ export class PersonaFormComponent implements OnInit {
   depar(){
     this.departamentosService.getlist().subscribe(response => {
       this.departamentos= response;
+      console.log(response)
     });
   }
   provin(){

@@ -1,0 +1,67 @@
+<div class="modal fade" id="Usuario">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Eventos UPEU</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+     
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" >Close</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div>
+  <form [formGroup]="eventoForm" (ngSubmit)="save(f)" >
+    <input type="file" #fileupload [(ngModel)]="myFile" name="myFile" (change)="fileEvent($event)" [ngModelOptions]="{standalone: true}">
+
+    <input type="text" formControlName="id" id="id" name="id" class="form-control">
+    <div [hidden]="eventoForm.get('id').valid || 
+    eventoForm.get('id').pristine" class="alert alert-danger">
+    El identificador es importante
+    </div>
+
+    <input type="text" formControlName="nombre" id="nombre" name="nombre" class="form-control">
+    <div [hidden]="eventoForm.get('nombre').valid || 
+    eventoForm.get('nombre').pristine" class="alert alert-danger">
+    Nombre es importante
+    </div>
+
+    <br>
+
+    <input type="text" formControlName="descripcion" id="descripcion" name="descripcion" class="form-control">
+    <div [hidden]="eventoForm.get('descripcion').valid || 
+    eventoForm.get('descripcion').pristine" class="alert alert-danger">
+    Descripcion es importante
+    </div>
+
+    <br>
+    
+    <input type="date" formControlName="fec_inicio" id="fec_inicio" name="fec_inicio" class="form-control">
+    <div [hidden]="eventoForm.get('fec_inicio').valid || 
+    eventoForm.get('fec_inicio').pristine" class="alert alert-danger">
+    La fecha Inicio es importante
+    </div>
+
+    <br>
+
+    <input type="date" formControlName="fec_fin" id="fec_fin" name="fec_fin" class="form-control">
+    <div [hidden]="eventoForm.get('fec_fin').valid || 
+    eventoForm.get('fec_fin').pristine" class="alert alert-danger">
+    La fecha Final es importante
+    </div>
+
+    <button type="submit" [disabled]="!eventoForm.valid" class="form-control alert-success">Submit</button>
+    </form>
+</div>

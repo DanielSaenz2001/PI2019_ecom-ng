@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class PaisesService {
 
   endPoint ='http://localhost:8000/api/paises'
+  endPoint2 ='http://localhost:8000/api/lugares'
   constructor(private http:HttpClient) { }
 
   public getlist(): Observable<any>{

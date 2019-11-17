@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,7 +14,12 @@ export class EventosService {
     return this.http.get<any>(`${this.endPoint}`)
   }
   public add(data): Observable<any> {
-    return this.http.post<any>(`${this.endPoint}`, data);
+
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    console.log(data)
+    return this.http.post(`${this.endPoint}`, data, {headers: headers})
   }
   public update(id, data): Observable<any> {
       return this.http.put<any>(`${this.endPoint}/${id}`, data);
