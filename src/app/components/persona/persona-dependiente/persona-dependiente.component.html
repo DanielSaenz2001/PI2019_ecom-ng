@@ -3,6 +3,8 @@
 </div>
 <div *ngIf ="usuarios == personaForm.value.dependiente">
         <form [formGroup]="personaForm" (ngSubmit)="save()" id="FO">
+                <h4>Datos de Nacimiento</h4>
+                <hr>
                 <div >
                         <div class="row">
                                 <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Nombre:</div>
@@ -43,14 +45,8 @@
                                 </div>
                         <br>
                                 <div class="row">
-                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Celular:</div>
-                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                        <input type="text" formControlName="celular" maxlength="9" id="celular" name="celular" class="form-control">
-                                        <div [hidden]="personaForm.get('celular').valid || 
-                                        personaForm.get('celular').pristine" class="alert alert-danger">
-                                                Su Celular es importante
-                                        </div>
-                                </div>
+
+                        
                                 <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Fecha de Nacimiento:</div>
                                 <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
                                         <input type="date" formControlName="fec_nacimiento" id="fec_nacimiento" name="fec_nacimiento" class="form-control">
@@ -59,23 +55,13 @@
                                         Su Fecha de nacimiento es importante
                                         </div>
                                 </div>
-                                </div>
-                        <br>
-                                <div class="row">
-                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Email:</div>
+                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Sexo:</div>
                                 <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                        <input type="text" formControlName="email" id="email" name="email" class="form-control">
-                                        <div [hidden]="personaForm.get('email').valid || 
-                                        personaForm.get('email').pristine" class="alert alert-danger">
-                                                Su Email es importante
-                                        </div>
-                                </div>
-                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Dirección:</div>
-                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                        <input type="text" formControlName="domicilio_actual" id="domicilio_actual" name="domicilio_actual" class="form-control">
-                                        <div [hidden]="personaForm.get('domicilio_actual').valid || 
-                                        personaForm.get('domicilio_actual').pristine" class="alert alert-danger">
-                                                La Dirreción es importante
+                                        <input type="radio" formControlName="sexo" id="sexo" name="sexo" value="Masculino"> Masculino <br>
+                                        <input type="radio" formControlName="sexo" id="sexo" name="sexo" value="Femenino"> Femenino
+                                        <div [hidden]="personaForm.get('sexo').valid || 
+                                        personaForm.get('sexo').pristine" class="alert alert-danger">
+                                        Su Genero es importante
                                         </div>
                                 </div>
                                 </div>
@@ -93,7 +79,7 @@
                                 </div>
                                 <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Departamento:</div>
                                 <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                        <select class="form-control" id="sel1" size="5" formControlName="departamento" id="departamento" name="departamento" >
+                                        <select class="form-control" id="sel1" size="2" formControlName="departamento" id="departamento" name="departamento" >
                                                 <ng-container *ngFor="let d of departamentos">
                                                 <option  [ngValue]="d.id" *ngIf="d.pais_id == personaForm.value.pais">          
                                                         {{d.nombre}}               
@@ -107,8 +93,33 @@
                                 </div>
                                 </div>
                         <br>
-                        
-                                <div class="row"> 
+                                <div class="row">
+                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Provincia:</div>
+                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                                        <select class="form-control" id="sel1" size="2" formControlName="provincia" id="provincia" name="provincia" >
+                                                <ng-container *ngFor="let d of provincias">
+                                                <option  [ngValue]="d.id" *ngIf="d.dep_id == personaForm.value.departamento">          
+                                                        {{d.nombre}}               
+                                                </option>
+                                        </ng-container> 
+                                        </select>
+                                        <div [hidden]="personaForm.get('provincia').valid || 
+                                        personaForm.get('provincia').pristine" class="alert alert-danger">
+                                                Su Provincia es importante
+                                        </div>
+                                </div>
+                                </div>   
+                        <h4>Datos Personales</h4>
+                        <hr>
+                                <div class="row">
+                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Email:</div>
+                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                                        <input type="text" formControlName="email" id="email" name="email" class="form-control">
+                                        <div [hidden]="personaForm.get('email').valid || 
+                                        personaForm.get('email').pristine" class="alert alert-danger">
+                                                Su Email es importante
+                                        </div>
+                                </div>
                                 <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Estado civil:</div>
                                 <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
                                         <select class="form-control" id="sel1" formControlName="est_civil" id="est_civil" name="est_civil">
@@ -122,30 +133,23 @@
                                                 Su Estado Civil es importante
                                         </div>
                                 </div>
-                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Sexo:</div>
-                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                        <input type="radio" formControlName="sexo" id="sexo" name="sexo" value="Masculino"> Masculino <br>
-                                        <input type="radio" formControlName="sexo" id="sexo" name="sexo" value="Femenino"> Femenino
-                                        <div [hidden]="personaForm.get('sexo').valid || 
-                                        personaForm.get('sexo').pristine" class="alert alert-danger">
-                                        Su Genero es importante
-                                        </div>
                                 </div>
-                                </div>
-                        <br>
-                        <div class="row">
-                                <div class="col-lg-0">
-                                        <input type="text" formControlName="dependiente" maxlength="9" id="dependiente" name="dependiente" hidden class="form-control">
-                                </div>
-                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                </div>
-                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                <button type="submit" [disabled]="!personaForm.valid" class="form-control alert-success" id="ad">Submit</button>
-                        </div>
-                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                        </div>
                         
-                        </div>
+                        <br>
+                        
+                                <div class="row">
+                                        <div class="col-lg-0">
+                                                <input type="text" formControlName="dependiente" maxlength="9" id="dependiente" name="dependiente" hidden class="form-control">
+                                        </div>
+                                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                                        </div>
+                                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                                        <button type="submit" [disabled]="!personaForm.valid" class="form-control alert-success" id="ad" data-toggle="modal" data-target="#miModal" data-toggle="modal"  data-backdrop=static data-keyboard=false>Submit</button>
+                                </div>
+                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                                </div>
+                                
+                                </div>
                         <br>  
                 </div>
         </form>

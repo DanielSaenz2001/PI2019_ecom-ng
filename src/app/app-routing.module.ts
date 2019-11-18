@@ -18,8 +18,6 @@ import { EgresadoformComponent } from './components/egresado/egresadoform/egresa
 import { EgresadoindexComponent } from './components/egresado/egresadoindex/egresadoindex.component';
 
 import { FacultadComponent } from './components/facultad/facultad.component';
-import { EscuelasComponent } from './components/facultad/escuelas/escuelas.component';
-import { EspecialidadesComponent } from './components/facultad/especialidades/especialidades.component';
 
 import { EventosComponent } from './components/eventos/eventos.component';
 
@@ -92,17 +90,6 @@ const routes: Routes = [
     component: FacultadComponent,
     canActivate: [AfterLoginService]
   },
-  {
-    path: 'escuelas',
-    component: EscuelasComponent,
-    canActivate: [AfterLoginService]
-  },
-  {
-    path: 'especialidades',
-    component: EspecialidadesComponent,
-    canActivate: [AfterLoginService]
-  },
-
 ];
 
 @NgModule({

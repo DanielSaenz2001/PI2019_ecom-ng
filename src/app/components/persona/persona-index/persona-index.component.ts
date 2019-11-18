@@ -32,19 +32,21 @@ export class PersonaIndexComponent implements OnInit {
     listar(){
       this.personaService.getlist().subscribe(response => {
         this.list= response;
-        console.log(response)
+        console.log("Lista de personas:", response)
       });
     }
 
     listar2(){
-      this.Jarwis.users2().subscribe(response => {
+      this.Jarwis.users(this.token.get()).subscribe(response => {
         this.list2= response;
+        console.log("dependientes: ",response)
       });
     }
 
     usuario(){
       this.Jarwis.me(this.token.get()).subscribe(response => {
         this.usuarios= response;
+        console.log("datos usuario:", response)
       });
     }
 }

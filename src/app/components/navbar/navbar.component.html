@@ -7,17 +7,29 @@
   
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02" >
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
-            <li class="nav-item active">
-              <a class="navbar-brand" href="#" *ngIf="!loggedIn"  routerLink="/login"  routerLinkActive="active" >Login</a>
+            <li class="nav-item">
+                <a class="navbar-brand" href="#" *ngIf="loggedIn"  routerLink="/"  routerLinkActive="active" > <i class="fa fa-home"></i>  Home</a>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/profile" routerLinkActive="active">Profile</a>
+                <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/profile" routerLinkActive="active">Profile</a>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/persona" routerLinkActive="active">Persona</a>
+                <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/persona" routerLinkActive="active">Persona</a>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand" href="#" *ngIf="loggedIn"   (click)="logout($event)" >Logout</a>
+                    <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/eventos" routerLinkActive="active">Eventos</a>
+            </li>
+            <li class="nav-item">
+                    <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/facultades" routerLinkActive="active">Facultades</a>
+            </li>
+            <li class="nav-item">
+                    <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/egresado" routerLinkActive="active">Egresado</a>
+            </li>
+            <li class="nav-item">
+                    <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/egresadoform" routerLinkActive="active">EgresadoForm</a>
+            </li>
+            <li class="nav-item">
+                <a class="navbar-brand" href="#" *ngIf="loggedIn"   (click)="logout($event)" >Logout</a>
             </li>
           </ul>
     </div>

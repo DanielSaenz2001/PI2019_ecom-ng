@@ -6,6 +6,7 @@ import { DepartamentosService } from 'src/app/services/departamentos.service';
 import { PaisesService } from 'src/app/services/paises.service';
 import { TokenService } from 'src/app/services/token.service';
 import { JarwisService } from 'src/app/services/jarwis.service';
+import { ProvinciasService } from 'src/app/services/provincias.service';
 
 @Component({
   selector: 'app-persona-dependiente',
@@ -15,6 +16,7 @@ import { JarwisService } from 'src/app/services/jarwis.service';
 export class PersonaDependienteComponent implements OnInit {
   paises;
   departamentos;
+  provincias;
   personaForm: FormGroup;
   usuarios;
   constructor( private route: ActivatedRoute,
@@ -23,6 +25,7 @@ export class PersonaDependienteComponent implements OnInit {
     private router: Router,
     private paisesService:PaisesService,
     private departamentosService:DepartamentosService,
+    private provinciasService:ProvinciasService,
     private Jarwis: JarwisService, private token:TokenService) { 
       let id =this.route.snapshot.paramMap.get('id')
       this.personaServices.getById(id).subscribe();
@@ -34,19 +37,21 @@ export class PersonaDependienteComponent implements OnInit {
     this.pais();
     this.usuario();
     this.depar();
+    this.provin();
     this.personaForm = this.formBuilder.group({
       
       id:  ['', [Validators.required, Validators.minLength(8),Validators.pattern('[0-9]*')]],
       nombre: ['', [Validators.required]],
       ap_paterno: ['', [Validators.required]],
       ap_materno: ['', [Validators.required]],
-      celular: ['', [Validators.required, Validators.minLength(9),Validators.pattern('[0-9]*')]],
-      pais: ['', [Validators.required]],
-      departamento: ['', [Validators.required]],
+      //celular: ['', [Validators.required, Validators.minLength(9),Validators.pattern('[0-9]*')]],
+       pais: ['', [Validators.required]],
+        departamento: ['', [Validators.required]],
+      provincia: ['', [Validators.required]],
       email: ['', [Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       fec_nacimiento: ['', [Validators.required]],
       est_civil: ['', [Validators.required]],
-      domicilio_actual: ['', [Validators.required]],
+      //domicilio_actual: ['', [Validators.required]],
       sexo: ['', [Validators.required]],
       dependiente:[this.id],
     });
@@ -67,6 +72,11 @@ export class PersonaDependienteComponent implements OnInit {
   depar(){
     this.departamentosService.getlist().subscribe(response => {
       this.departamentos= response;
+    });
+  }
+  provin(){
+    this.provinciasService.getlist().subscribe(response => {
+      this.provincias= response;
     });
   }
   usuario(){

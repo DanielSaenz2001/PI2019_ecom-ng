@@ -19,23 +19,30 @@ export class EscuelasComponent implements OnInit {
       id:  [''],
       nombre: ['', [Validators.required]],
       estado_acreditacion: ['', [Validators.required]],
+      facultad_id: [''],
     });
   }
   escuelas(){
     this.escuelasService.getlist().subscribe(response => {
       this.list= response;
-      console.log(response)
     });
   }
   saveEscuela(){
-    this.escuelasForm.value.facultad_id=this.ID;
-    this.escuelasService.add(this.escuelasForm.value).subscribe(response=>{
-        this.escuelas();
-      });
-      this.escuelasForm.reset();
+    this.escuelasForm.value.facultad_id= this.ID;
+      if(this.escuelasForm.value.id !== null){
+        this.escuelasService.update(this.escuelasForm.value.id, this.escuelasForm.value).subscribe(response=>{
+          this.escuelas();
+        });
+        this.escuelasForm.reset();
+      }else{
+        
+        this.escuelasService.add(this.escuelasForm.value).subscribe(response=>{
+          this.escuelas();
+        });
+        this.escuelasForm.reset();
+      }
   }
   updateEscuela(id) {
-    console.log('ID: ', id)
     this.escuelasService.getById(id).subscribe(response =>{
     this.escuelasForm.setValue(response);
     })

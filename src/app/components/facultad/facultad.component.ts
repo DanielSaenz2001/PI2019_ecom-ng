@@ -26,7 +26,6 @@ facultadForm: FormGroup;
   facultades(){
     this.facultadService.getlist().subscribe(response => {
       this.list= response;
-      console.log(response)
     });
   }
   delete(id) {
@@ -35,16 +34,25 @@ facultadForm: FormGroup;
     });
   }
   saveFacultad(){
+    if(this.facultadForm.value.id !== null){
+      this.facultadService.update(this.facultadForm.value.id, this.facultadForm.value).subscribe(response=>{
+        this.facultades()
+      });;
+      this.facultadForm.reset();
+      
+    }else{
       this.facultadService.add(this.facultadForm.value).subscribe(response=>{
         this.facultades();
       });
       this.facultadForm.reset();
+    }
+     
   }
 
   updateFacultad(id) {
-    console.log('ID: ', id)
     this.facultadService.getById(id).subscribe(response =>{
     this.facultadForm.setValue(response);
+
     })
   }
   borrar(){

@@ -14,15 +14,24 @@
                     <a class="navbar-brand" href="#" *ngIf="loggedIn"  routerLink="/"  routerLinkActive="active" > <i class="fa fa-home"></i>  Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="navbar-brand" href="#" *ngIf="!loggedIn"  routerLink="/login"  routerLinkActive="active" >Login</a>
-                </li>
-                <li class="nav-item">
                     <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/profile" routerLinkActive="active">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/persona" routerLinkActive="active">Persona</a>
                 </li>
-                  <li class="nav-item">
+                <li class="nav-item">
+                        <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/eventos" routerLinkActive="active">Eventos</a>
+                </li>
+                <li class="nav-item">
+                        <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/facultades" routerLinkActive="active">Facultades</a>
+                </li>
+                <li class="nav-item">
+                        <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/egresado" routerLinkActive="active">Egresado</a>
+                </li>
+                <li class="nav-item">
+                        <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/egresadoform" routerLinkActive="active">EgresadoForm</a>
+                </li>
+                <li class="nav-item">
                     <a class="navbar-brand" href="#" *ngIf="loggedIn"   (click)="logout($event)" >Logout</a>
                 </li>
                 <li>
@@ -39,22 +48,8 @@
                         </li>
                     </ul> 
                 </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact Us</a>
-                </li>
             </ul>
             
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="#" class="download">Download code</a>
-                </li>
-                <li>
-                    <a href="#" class="article">article</a>
-                </li>
-            </ul>
         </nav>
     
     </div>

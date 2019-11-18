@@ -7,7 +7,6 @@
               <th>Nombre</th>
               <th>Acreditado</th>
               <th>Facultad</th>
-              <th>Especialidad</th>
               <th>Acciones</th>
           </tr>
       </thead>
@@ -18,9 +17,6 @@
               <td>{{d.estado_acreditacion}}</td>
               <td>
                 {{d.facultad_id}}
-              </td>
-              <td>
-                <button class="button-red" class="form-control alert-success"id="ad" data-toggle="modal" data-target="#Especialidades" (click)="id(d.id);">Agregar</button>
               </td>
               <td> 
                   <div class="row" id="ad">
@@ -73,4 +69,3 @@
     </div>
   </div>
 </div>
-<app-especialidades [ID] ="ID"></app-especialidades>

@@ -8,11 +8,13 @@ import { EventosService } from 'src/app/services/eventos.service';
   styleUrls: ['./eventos.component.css']
 })
 export class EventosComponent implements OnInit {
+  evento: any;
   constructor( private formBuilder: FormBuilder, private eventosService:EventosService) { }
   eventoForm: FormGroup;
   ngOnInit() {
+    this.eventos();
     this.eventoForm = this.formBuilder.group({
-      id:  ['',[Validators.minLength(8)]],
+      id:  ['', [Validators.required, Validators.minLength(1), Validators.maxLength(10),Validators.pattern('[0-9]*')]],
       nombre: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
       fec_inicio: ['', [Validators.required]],
@@ -26,8 +28,6 @@ export class EventosComponent implements OnInit {
   }
   save(f: NgForm) {
     this.eventoForm.value.imagen = this.filedata
-    console.log(this.eventoForm.value.nombre)
-
     var myFormData = new FormData();
     myFormData.append('id', this.eventoForm.value.id);
     myFormData.append('nombre', this.eventoForm.value.nombre);
@@ -35,14 +35,28 @@ export class EventosComponent implements OnInit {
     myFormData.append('imagen', this.filedata);
     myFormData.append('fec_inicio', this.eventoForm.value.fec_inicio);
     myFormData.append('fec_fin', this.eventoForm.value.fec_fin);
-    this.eventosService.add(myFormData).subscribe(response=>{
-      console.log(response)
-    })
-    //
-    //this.jarwisService.profile(myFormData);
-    /*this.eventosService.add(this.eventoForm.value).subscribe(response=>{
-      console.log(response)
-    });*/
+   this.eventosService.add(myFormData)
   }  
-  
+  eventos(){
+    this.eventosService.getlist().subscribe(response => {
+      this.evento= response;
+    });
+  }
+  detalles(id){
+    this.eventosService.getById(id).subscribe(response =>{
+      this.eventoForm.setValue(response);
+    });
+    
+  }
+  update(id){
+    this.eventosService.update(id, this.eventoForm.value).subscribe(response => {
+      this.eventos();
+    });
+  }
+  delete(id) {
+    this.eventosService.delete(id).subscribe(response=>{
+      this.eventos();
+    });
+  }
+
 }

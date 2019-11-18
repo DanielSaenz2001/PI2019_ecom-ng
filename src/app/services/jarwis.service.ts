@@ -34,9 +34,6 @@ export class JarwisService {
       }
     })
   }
-  users2() {
-    return this.http.get(`${this.baseUrl}/users`)
-  }
 
   profile(data){
     const headers = new HttpHeaders();
