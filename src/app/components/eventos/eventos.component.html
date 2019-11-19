@@ -1,7 +1,7 @@
 <div class="modal fade" id="eventos">
   <div class="modal-dialog">
     <div class="modal-content">
-    
+        <form [formGroup]="eventoForm" (ngSubmit)="save(f)" >
       <!-- Modal Header -->
       <div class="modal-header">
         <h4 class="modal-title">Eventos UPEU</h4>
@@ -10,16 +10,11 @@
       
       <!-- Modal body -->
       <div class="modal-body">
-        <form [formGroup]="eventoForm" (ngSubmit)="save(f)" >
+       
           <input type="file" #fileupload [(ngModel)]="myFile" name="myFile" (change)="fileEvent($event)" [ngModelOptions]="{standalone: true}">
 
-          <label>ID: </label>
-          <input type="text" formControlName="id" id="id" name="id" class="form-control" maxlength="10">
-          <div [hidden]="eventoForm.get('id').valid || 
-          eventoForm.get('id').pristine" class="alert alert-danger">
-          El identificador es importante
-          </div>
-
+          <input type="text" formControlName="id" id="id" name="id" class="form-control" maxlength="10" [hidden]=true>
+          <br>
           <label>Titulo: </label>
           <input type="text" formControlName="nombre" id="nombre" name="nombre" class="form-control">
           <div [hidden]="eventoForm.get('nombre').valid || 
@@ -51,15 +46,16 @@
           La fecha Final es importante
           </div>
       
-          <button type="submit" [disabled]="!eventoForm.valid" class="form-control alert-success">Submit</button>
-          </form>
+          
+          
       </div>
       
       <!-- Modal footer -->
       <div class="modal-footer">
+          <button type="submit" [disabled]="!eventoForm.valid" class="form-control alert-success">Submit</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal" >Close</button>
       </div>
-      
+    </form>
     </div>
   </div>
 </div>

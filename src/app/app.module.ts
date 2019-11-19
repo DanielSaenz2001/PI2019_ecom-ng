@@ -33,6 +33,10 @@ import { EscuelasComponent } from './components/facultad/escuelas/escuelas.compo
 import { UserFormComponent } from './components/profile/user-form/user-form.component';
 import { EventosComponent } from './components/eventos/eventos.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SugerenciasformComponent } from './components/sugerencias/sugerenciasform/sugerenciasform.component';
+import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasindex/sugerenciasindex.component';
+import { EmpresasindexComponent } from './components/empresas/empresasindex/empresasindex.component';
+import { EmpresasformComponent } from './components/empresas/empresasform/empresasform.component';
 
 
 
@@ -55,7 +59,11 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     EscuelasComponent,
     UserFormComponent,
     EventosComponent,
-    SidebarComponent
+    SidebarComponent,
+    SugerenciasformComponent,
+    SugerenciasindexComponent,
+    EmpresasindexComponent,
+    EmpresasformComponent
   ],
   imports: [
     BrowserModule,

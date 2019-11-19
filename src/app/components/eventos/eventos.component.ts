@@ -14,7 +14,7 @@ export class EventosComponent implements OnInit {
   ngOnInit() {
     this.eventos();
     this.eventoForm = this.formBuilder.group({
-      id:  ['', [Validators.required, Validators.minLength(1), Validators.maxLength(10),Validators.pattern('[0-9]*')]],
+      id:  [''],
       nombre: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
       fec_inicio: ['', [Validators.required]],
@@ -35,7 +35,9 @@ export class EventosComponent implements OnInit {
     myFormData.append('imagen', this.filedata);
     myFormData.append('fec_inicio', this.eventoForm.value.fec_inicio);
     myFormData.append('fec_fin', this.eventoForm.value.fec_fin);
-   this.eventosService.add(myFormData)
+   this.eventosService.add(myFormData).subscribe(response => {
+    console.log(response);
+  });
   }  
   eventos(){
     this.eventosService.getlist().subscribe(response => {

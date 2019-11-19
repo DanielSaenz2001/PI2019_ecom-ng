@@ -21,6 +21,13 @@ import { FacultadComponent } from './components/facultad/facultad.component';
 
 import { EventosComponent } from './components/eventos/eventos.component';
 
+import { SugerenciasformComponent } from './components/sugerencias/sugerenciasform/sugerenciasform.component';
+import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasindex/sugerenciasindex.component';
+
+import { EmpresasindexComponent } from './components/empresas/empresasindex/empresasindex.component';
+import { EmpresasformComponent } from './components/empresas/empresasform/empresasform.component';
+
+
 const routes: Routes = [
   {
     path: 'login',
@@ -73,6 +80,26 @@ const routes: Routes = [
   {
     path: 'egresadoform',
     component: EgresadoformComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'sugerencias',
+    component: SugerenciasindexComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'sugerenciasform',
+    component: SugerenciasformComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'empresas',
+    component: SugerenciasindexComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'empresasform',
+    component: SugerenciasformComponent,
     canActivate: [AfterLoginService]
   },
   {
