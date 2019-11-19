@@ -94,12 +94,12 @@ const routes: Routes = [
   },
   {
     path: 'empresas',
-    component: SugerenciasindexComponent,
+    component: EmpresasindexComponent,
     canActivate: [AfterLoginService]
   },
   {
     path: 'empresasform',
-    component: SugerenciasformComponent,
+    component: EmpresasformComponent,
     canActivate: [AfterLoginService]
   },
   {

@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { JarwisService } from './services/jarwis.service';
 import { TokenService } from './services/token.service';
 import { PersonaService } from './services/persona.service';
+import { SugerenciasService } from './services/sugerencias.service';
 import { PaisesService } from './services/paises.service';
 import { DepartamentosService } from './services/departamentos.service';
 import { FacultadesService} from './services/facultades.service';
@@ -74,7 +75,7 @@ import { EmpresasformComponent } from './components/empresas/empresasform/empres
     SnotifyModule
   ],
   providers: [JarwisService, TokenService, AuthService, AfterLoginService, BeforeLoginService,
-    PersonaService, PaisesService,DepartamentosService,FacultadesService,
+    PersonaService, PaisesService,DepartamentosService,FacultadesService, SugerenciasService,
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
     SnotifyService],
   bootstrap: [AppComponent]

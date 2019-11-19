@@ -1,3 +1,18 @@
-<p>
-  sugerenciasindex works!
-</p>
+<h2> Lista de Comentarios</h2>
+<div *ngFor="let d of list">
+    <button type="submit" class="form-control alert-success" data-toggle="modal" data-target="#comentario" (click)="generar(d.user_ID)">Submit</button>
+</div>
+
+<app-sugerenciasform [ID]="id"></app-sugerenciasform>
+
+<div class="container">
+    <div class="" *ngFor="let s of sugerenciass">
+      <div class="border-1"> 
+        <input type="text" value="{{s.comentario_egresado}} " disabled>
+          Comentario: {{s.comentario_egresado}} <br>
+          fecha: {{s.fecha_creacion}} <br>
+         tipo: {{s.tipo_comentario}}
+      </div>
+       
+    </div>
+</div>
