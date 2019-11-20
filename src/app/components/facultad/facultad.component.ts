@@ -8,7 +8,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./facultad.component.css']
 })
 export class FacultadComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder,private facultadService: FacultadesService) { 
+  constructor(private formBuilder: FormBuilder,
+    private facultadService: FacultadesService) { 
     this.facultades();
   }
 list;

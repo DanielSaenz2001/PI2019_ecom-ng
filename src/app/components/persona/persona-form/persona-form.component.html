@@ -18,9 +18,9 @@
                                         </div>
                                         <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">DNI:</div>
                                         <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                                <input type="text" formControlName="id" id="id" name="id" class="form-control" maxlength="8">
-                                                <div [hidden]="personaForm.get('id').valid || 
-                                                personaForm.get('id').pristine" class="alert alert-danger">
+                                                <input type="text" formControlName="dni" id="dni" name="dni" class="form-control" maxlength="8">
+                                                <div [hidden]="personaForm.get('dni').valid || 
+                                                personaForm.get('dni').pristine" class="alert alert-danger">
                                                 Su DNI es importante
                                                 </div>
                                         </div>
@@ -155,69 +155,12 @@
                         </div>
                 </form>
         </div>
-        <app-signup [personaID]="personaForm.value.id" [email]="personaForm.value.email"></app-signup>
+        <app-signup [personaID]="IDS" [email]="personaForm.value.email"></app-signup>
         <div *ngIf="editar == true">
                 <div *ngIf="usuarios == personaForm.value.id">
                         <form [formGroup]="personaForm" (ngSubmit)="save()" id="FO">
                                 <div >
-                                        <div class="row">
-                                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Nombre:</div>
-                                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                                        <input type="text" formControlName="nombre" required id="nombre" name="nombre" class="form-control" disabled>
-                                                        <div [hidden]="personaForm.get('nombre').valid || 
-                                                        personaForm.get('nombre').pristine" class="alert alert-danger">
-                                                        Nombre es importante
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">DNI:</div>
-                                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                                        <input type="text" formControlName="id" id="id" name="id" class="form-control" maxlength="8" disabled>
-                                                        <div [hidden]="personaForm.get('id').valid || 
-                                                        personaForm.get('id').pristine" class="alert alert-danger">
-                                                        Su DNI es importante
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <br>  
-                                                <div class="row">
-                                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Apellido Paterno:</div>
-                                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                                        <input type="text" formControlName="ap_paterno" id="ap_paterno" name="ap_paterno" class="form-control" disabled>
-                                                        <div [hidden]="personaForm.get('ap_paterno').valid || 
-                                                        personaForm.get('ap_paterno').pristine" class="alert alert-danger">
-                                                                Apellido Paterno es importante
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Apellido Materno:</div>
-                                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                                        <input type="text" formControlName="ap_materno" id="ap_materno" name="ap_materno" class="form-control"disabled>
-                                                        <div [hidden]="personaForm.get('ap_materno').valid || 
-                                                        personaForm.get('ap_materno').pristine" class="alert alert-danger">
-                                                        Apellido Materno es importante
-                                                        </div>
-                                                </div>
-                                                </div>
-                                        <br>
-                                                <div class="row">
-                                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Fecha de Nacimiento:</div>
-                                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                                        <input type="date" formControlName="fec_nacimiento" id="fec_nacimiento" name="fec_nacimiento" class="form-control" disabled>
-                                                        <div [hidden]="personaForm.get('fec_nacimiento').valid || 
-                                                        personaForm.get('fec_nacimiento').pristine" class="alert alert-danger">
-                                                        Su Fecha de nacimiento es importante
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Email:</div>
-                                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                                        <input type="text" formControlName="email" id="email" name="email" class="form-control" disabled>
-                                                        <div [hidden]="personaForm.get('email').valid || 
-                                                        personaForm.get('email').pristine" class="alert alert-danger">
-                                                                Su Email es importante
-                                                        </div>
-                                                </div>
-                                                </div>
                                         
-                                        <br>
                                         
                                                 <div class="row"> 
                                                 <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Estado civil:</div>
@@ -245,9 +188,7 @@
                                                 </div>
                                         <br>
                                                 <div class="row">
-                                                        <div class="col-lg-0">
-                                                                <input type="text" formControlName="dependiente" maxlength="9" id="dependiente" name="dependiente" hidden class="form-control">
-                                                        </div>
+                                                        
                                                         <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
                                                         </div>
                                                         <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">

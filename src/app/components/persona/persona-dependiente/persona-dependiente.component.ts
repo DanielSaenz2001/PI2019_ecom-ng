@@ -40,18 +40,17 @@ export class PersonaDependienteComponent implements OnInit {
     this.provin();
     this.personaForm = this.formBuilder.group({
       
-      id:  ['', [Validators.required, Validators.minLength(8),Validators.pattern('[0-9]*')]],
+      id:  [''],
       nombre: ['', [Validators.required]],
       ap_paterno: ['', [Validators.required]],
       ap_materno: ['', [Validators.required]],
-      //celular: ['', [Validators.required, Validators.minLength(9),Validators.pattern('[0-9]*')]],
-       pais: ['', [Validators.required]],
-        departamento: ['', [Validators.required]],
+      pais: ['', [Validators.required]],
+      departamento: ['', [Validators.required]],
+      dni: ['', [Validators.required, Validators.minLength(8),Validators.pattern('[0-9]*')]],
       provincia: ['', [Validators.required]],
       email: ['', [Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       fec_nacimiento: ['', [Validators.required]],
       est_civil: ['', [Validators.required]],
-      //domicilio_actual: ['', [Validators.required]],
       sexo: ['', [Validators.required]],
       dependiente:[this.id],
     });

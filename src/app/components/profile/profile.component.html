@@ -26,7 +26,7 @@
                Fech_nacimiento: {{list.fec_nacimiento}}
                Estado Civil: {{list.est_civil}}
                Email: {{list.email}}
-               Dni: {{list.persona_ID}}
+               Dni: {{list.dni}}
                Departamento: {{list.departamentos}}
                Materno: {{list.ap_materno}}
                Paterno: {{list.ap_paterno}}
@@ -39,16 +39,13 @@
 
       <div class="row">
           <div class="col-10 col-sm-10  col-md-7  col-lg-5 col-xl-5 mx-auto main-section text-center card">
-            <a routerLink="/personaform/{{list.persona_ID}}" routerLinkActive="active">
-              <button class="button-red" class="btn btn-dark mt-2 form-control">Actualizar</button>
-          </a>
+              <button class="button-red" class="btn btn-dark mt-2 form-control" data-toggle="modal" data-target="#Persona" (click)="id(list.user_ID);">Actualizar</button>
           </div>
       </div>
     </section>
   </div>  
   <hr>
- 
+  <app-user-form [ID] ="list.user_ID" [PERSONAID]="list.persona_ID"></app-user-form>
 </div>
   
 
-<app-user-form [ID] ="ID"></app-user-form>

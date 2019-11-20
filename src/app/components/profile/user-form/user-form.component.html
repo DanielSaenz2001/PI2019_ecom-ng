@@ -27,3 +27,59 @@
     </div>
   </div>
 </div>
+
+
+<div class="modal fade" id="Persona">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Actualizar el E.C</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form [formGroup]="personaForm" id="FO">
+          <div >
+              <div class="row"> 
+              <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Estado civil:</div>
+              <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                      <select class="form-control" id="sel1" formControlName="est_civil" id="est_civil" name="est_civil">
+                              <option value="Soltero">Soltero</option>
+                              <option value="Casado">Casado</option>
+                              <option value="Divorciado">Divorciado</option>
+                              <option value="Viudo">Viudo</option>
+                      </select>
+                      <div [hidden]="personaForm.get('est_civil').valid || 
+                      personaForm.get('est_civil').pristine" class="alert alert-danger">
+                              Su Estado Civil es importante
+                      </div>
+              </div>
+              <br>
+              <div class="row">
+                      
+                      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                      </div>
+                      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                      
+              </div>
+              <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              </div>
+              
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+          <button type="submit" [disabled]="!personaForm.valid" class="form-control alert-success" (click)="save()" id="ad"  data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" >Close</button>
+      </div>
+      
+    </div>
+  </div>
+</div>

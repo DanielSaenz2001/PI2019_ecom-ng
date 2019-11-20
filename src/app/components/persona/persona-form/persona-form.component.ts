@@ -32,50 +32,26 @@ export class PersonaFormComponent implements OnInit {
     departamentos;
     usuarios;
     provincias;
+    IDS;
   ngOnInit() {
     this.pais();
     this.depar();
     this.provin();
-    
-    let id = this.route.snapshot.paramMap.get('id')
-    if(id != null){
-      this.personaServices.getById(id).subscribe(response =>{
-        this.personaForm.setValue(response);
-      })
       this.personaForm = this.formBuilder.group({
-        id:  ['', [Validators.required, Validators.minLength(8),Validators.pattern('[0-9]*')]],
+        id:  [''],
         nombre: ['', [Validators.required]],
         ap_paterno: ['', [Validators.required]],
         ap_materno: ['', [Validators.required]],
-        //celular: ['', [Validators.required, Validators.minLength(9),Validators.pattern('[0-9]*')]],
-        provincia: ['', [Validators.required]],
-        email: ['', [Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-        fec_nacimiento: ['', [Validators.required]],
-        est_civil: ['', [Validators.required]],
-        //domicilio_actual: ['', [Validators.required]],
-        sexo: ['', [Validators.required]],
-        dependiente:null
-      });
-      this.editar = true;
-      this.usuario();
-    }else{
-      this.personaForm = this.formBuilder.group({
-        id:  ['', [Validators.required, Validators.minLength(8),Validators.pattern('[0-9]*')]],
-        nombre: ['', [Validators.required]],
-        ap_paterno: ['', [Validators.required]],
-        ap_materno: ['', [Validators.required]],
-       // celular: ['', [Validators.required, Validators.minLength(9),Validators.pattern('[0-9]*')]],
+        dni: ['', [Validators.required, Validators.minLength(8),Validators.pattern('[0-9]*')]],
         pais: ['', [Validators.required]],
         departamento: ['', [Validators.required]],
         provincia: ['', [Validators.required]],
         email: ['', [Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
         fec_nacimiento: ['', [Validators.required]],
         est_civil: ['', [Validators.required]],
-        //domicilio_actual: ['', [Validators.required]],
         sexo: ['', [Validators.required]],
         dependiente:null
       });
-    }
   }
 
   pais(){
@@ -86,7 +62,6 @@ export class PersonaFormComponent implements OnInit {
   depar(){
     this.departamentosService.getlist().subscribe(response => {
       this.departamentos= response;
-      console.log(response)
     });
   }
   provin(){
@@ -98,16 +73,20 @@ export class PersonaFormComponent implements OnInit {
   save(){
     let id = this.route.snapshot.paramMap.get('id')
    if(id != null){
-      this.personaServices.update(id, this.personaForm.value);
+      this.personaServices.update(id, this.personaForm.value).subscribe(response => {
+        console.log(response)
+      });;
       this.router.navigateByUrl('/profile');
     }else{
-      this.personaServices.add(this.personaForm.value).subscribe();
+      this.personaServices.add(this.personaForm.value).subscribe(response => {
+
+        this.IDS= response.id;
+      });
     }
   }
   usuario(){
     this.Jarwis.me(this.token.get()).subscribe(response => {
-      this.usuarios= response[0].persona_ID;
-       // this.list= JSON.stringify(response );
+      this.usuarios= response[0].persona_ID
     });
   }
 }
