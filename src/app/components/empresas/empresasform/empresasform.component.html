@@ -1,44 +1,38 @@
-<div class="container">
-  <br>
-<h2 class="container">REGISTRAR EMPRESA</h2>
-<br>
-<label for="basic-url">Nombre:</label>
-<div class="input-group mb-3">
-<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-</div>
-
-<label for="basic-url">Teléfono:</label>
-<div class="input-group mb-3">
-<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-</div>
-
-<label for="basic-url">Tipo:</label>
-<select class="form-control form-control-lg">
-  <option>seleccionar tipo</option>
-  <option>Uno</option>
-  <option>dos</option>
-</select>
-
-<label for="basic-url">Dirección:</label>
-<div class="input-group mb-3">
-<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-</div>
-
-<label for="basic-url">Email:</label>
-<div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="correo electronico" aria-label="correo electronico" aria-describedby="basic-addon2">
-  <div class="input-group-append">
-    <span class="input-group-text" id="basic-addon2">@example.com</span>
-  </div>
-</div>
-
-
-
-<div class="container">
+<form [formGroup]="empresaFrom" (ngSubmit)="save()" id="FO">
   <div class="row">
-    <div class="col text-center">
-      <button type="button" class="btn btn-danger">Guardar</button>
-    </div>
+    <label for="basic-url">Nombre:</label> <br>
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="nombre" >     
+      <br>
+      <label for="basic-url">Teléfono:</label>
+          <input type="text" class="form-control" id="basic-url" maxlength="9" aria-describedby="basic-addon3" formControlName="telefono" >
+      <br>
+      <label for="basic-url">Tipo:</label>
+      <select class="form-control form-control-lg" formControlName="tipo" >
+        <option>seleccionar tipo</option>
+        <option>Uno</option>
+        <option>dos</option>
+      </select>
+
+      <label for="basic-url">Dirección:</label>
+      <div class="input-group">
+      <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="direccion" >
+      </div>
+      
+      <label for="basic-url">Email:</label>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="correo electronico" formControlName="correo"  aria-label="correo electronico" aria-describedby="basic-addon2">
+       
+        <div [hidden]="empresaFrom.get('correo').valid || 
+        empresaFrom.get('correo').pristine" class="alert alert-danger">
+          Su Email es importante
+        </div>                                        
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon2">@example.com</span>
+        </div>
+      </div>
+     
+
   </div>
-</div>
-</div>
+    
+  <button type="submit" class="btn btn-secondary btn-lg "[disabled]="!empresaFrom.valid">Block level button</button>
+</form>
