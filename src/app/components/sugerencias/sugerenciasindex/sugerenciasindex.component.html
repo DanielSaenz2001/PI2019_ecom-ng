@@ -1,9 +1,9 @@
 <h2> Lista de Comentarios</h2>
-<div *ngFor="let d of list">
-    <button type="submit" class="form-control alert-success" data-toggle="modal" data-target="#comentario" (click)="generar(d.user_ID)">Submit</button>
+<div *ngIf="list">
+    <button type="submit" class="form-control alert-success" data-toggle="modal" data-target="#comentario" (click)="generar(list.user_ID)">Submit</button>
 </div>
 
-<app-sugerenciasform [ID]="id"></app-sugerenciasform>
+<app-sugerenciasform [ID]="id" [FK]="FK"></app-sugerenciasform>
 
 <div class="container">
     <div class="" *ngFor="let s of sugerenciass">
@@ -15,7 +15,7 @@
           <div *ngIf="s.comentario_respuesta == null">
               Comentario de administrador
           </div>
-          <button type="button" class="btn btn-warning align-content-start" (click)="detalles(s.id)" >Actualizar</button>
+          <button type="button" class="btn btn-warning align-content-start" data-toggle="modal" data-target="#comentario" (click)="detalles(s.id)">Actualizar</button>
         <button type="button" class="btn btn-danger ml-2" (click)="delete(s.id)"> Eliminar</button>
       </div>
        

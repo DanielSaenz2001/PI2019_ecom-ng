@@ -38,6 +38,7 @@ import { SugerenciasformComponent } from './components/sugerencias/sugerenciasfo
 import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasindex/sugerenciasindex.component';
 import { EmpresasindexComponent } from './components/empresas/empresasindex/empresasindex.component';
 import { EmpresasformComponent } from './components/empresas/empresasform/empresasform.component';
+import { EgresadoescuelaComponent } from './components/egresado/egresadoescuela/egresadoescuela.component';
 
 
 
@@ -64,7 +65,8 @@ import { EmpresasformComponent } from './components/empresas/empresasform/empres
     SugerenciasformComponent,
     SugerenciasindexComponent,
     EmpresasindexComponent,
-    EmpresasformComponent
+    EmpresasformComponent,
+    EgresadoescuelaComponent
   ],
   imports: [
     BrowserModule,

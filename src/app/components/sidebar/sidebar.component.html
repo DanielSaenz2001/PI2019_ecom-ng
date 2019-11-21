@@ -1,7 +1,7 @@
-<div *ngFor="let list of list">
+<div >
     <div class="wrapper">
         <nav id="sidebar">
-            <div class="sidebar-header">
+            <div class="sidebar-header" *ngIf="list">
                 <img src='http://localhost:8000/uploads/avatars/{{list.avatar}}' alt="img user" style="width: 150px; height: 150px; border-radius: 50%;  display: block;
                 margin: auto;">
                 <div style="text-align: center;">

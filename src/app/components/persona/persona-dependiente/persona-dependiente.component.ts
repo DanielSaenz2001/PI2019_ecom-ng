@@ -34,8 +34,9 @@ export class PersonaDependienteComponent implements OnInit {
     
     id = this.route.snapshot.paramMap.get('id')
   ngOnInit() {
-    this.pais();
     this.usuario();
+    this.pais();
+   
     this.depar();
     this.provin();
     this.personaForm = this.formBuilder.group({
@@ -80,8 +81,8 @@ export class PersonaDependienteComponent implements OnInit {
   }
   usuario(){
     this.Jarwis.me(this.token.get()).subscribe(response => {
-      this.usuarios= response[0].persona_ID;
-       // this.list= JSON.stringify(response );
+      this.usuarios= response;
+      console.log(this.usuarios)
     });
   }
 }

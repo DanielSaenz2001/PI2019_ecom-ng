@@ -12,10 +12,12 @@ import { SugerenciasService } from 'src/app/services/sugerencias.service';
 })
 export class SugerenciasformComponent implements OnInit {
   @Input() ID:string;
+  @Input() FK:string;
   constructor(private formBuilder: FormBuilder,private router: Router,private route: ActivatedRoute,
     private datePipe: DatePipe, private sugerenciasService:SugerenciasService) { }
   sugerenciaForm: FormGroup;
   ngOnInit() {
+
     this.sugerenciaForm = this.formBuilder.group({
       id:  [''],
       comentario_egresado: ['', [Validators.required]],
@@ -24,19 +26,17 @@ export class SugerenciasformComponent implements OnInit {
   }
   myDate;
   save(){
-    this.myDate = new Date();
-    this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
-    this.sugerenciaForm.value.fecha_creacion=this.myDate;
-    this.sugerenciaForm.value.user_creador=this.ID;
-    this.sugerenciasService.add(this.sugerenciaForm.value).subscribe();
-   /* let id = this.route.snapshot.paramMap.get('id')
-   if(id != null){
-      this.personaServices.update(id, this.personaForm.value);
-      this.router.navigateByUrl('/profile');
+    if(this.sugerenciaForm.value.id == null){
+      this.myDate = new Date();
+      this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
+      this.sugerenciaForm.value.fecha_creacion=this.myDate;
+      this.sugerenciaForm.value.user_creador=this.ID;
+      this.sugerenciasService.add(this.sugerenciaForm.value).subscribe();
     }else{
-      this.personaServices.add(this.personaForm.value).subscribe();
-    }*/
-    
+      this.sugerenciasService.update(this.FK,this.sugerenciaForm.value).subscribe();
+    }
+    this.borrar()
+  
   }
   borrar(){
     this.sugerenciaForm.reset();

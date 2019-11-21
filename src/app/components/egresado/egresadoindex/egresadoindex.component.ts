@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EgresadosService } from 'src/app/services/egresados.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-egresadoindex',
@@ -8,15 +9,21 @@ import { EgresadosService } from 'src/app/services/egresados.service';
 })
 export class EgresadoindexComponent implements OnInit {
 
-  constructor(private egresadosService:EgresadosService) { }
+  constructor(private egresadosService:EgresadosService, private token:TokenService) { }
   egresados;
   ngOnInit() {
     this.egresadosList();
+    this.egresado();
   }
   egresadosList(){
     this.egresadosService.getlist().subscribe(response=>{
       this.egresados= response;
       console.log(response)
+    })
+  }
+  egresado(){
+    this.egresadosService.egresados(this.token.get()).subscribe(response=>{
+      console.log("datos: ",response)
     })
   }
 }

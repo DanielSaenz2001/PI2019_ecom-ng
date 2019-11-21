@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class EgresadosService {
 
-  endPoint ='http://localhost:8000/api/egresados'
+  endPoint ='http://localhost:8000/api/egresados';
   constructor(private http:HttpClient) { }
 
   public getlist(): Observable<any>{
@@ -26,5 +26,11 @@ export class EgresadosService {
   public getById(id): Observable<any> {
     console.log(id)
     return this.http.get<any>(`${this.endPoint}/${id}`);
+  }
+  egresados(data) {
+    return this.http.get(`${this.endPoint}datos`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    })
   }
 }

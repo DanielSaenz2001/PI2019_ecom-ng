@@ -13,7 +13,8 @@ export class SugerenciasindexComponent implements OnInit {
 
   constructor(private Jarwis: JarwisService, private token:TokenService, private sugerenciasService:SugerenciasService) { }
   list;
-  id
+  id;
+  FK;
   ngOnInit() {
     this.listar();
     this.sugerencias();
@@ -21,12 +22,13 @@ export class SugerenciasindexComponent implements OnInit {
   listar(){
     this.Jarwis.me(this.token.get()).subscribe(response => {
       this.list= response;
-      console.log("datos: ", response)
-       // this.list= JSON.stringify(response ); console.log("datos: ", response)
     });
   }
   generar(ids){
     this.id=ids
+  }
+  detalles(ids){
+    this.FK=ids
   }
   sugerencias(){
     this.sugerenciasService.getlist().subscribe(response=>{

@@ -1,7 +1,7 @@
-<div class="row">
-  <div class="col-lg-6"><h3>Persona</h3></div>
-</div>
-<div *ngIf ="usuarios == personaForm.value.dependiente">
+<div *ngIf ="usuarios">
+        <div class="row">
+                <div class="col-lg-6"><h3>Persona</h3></div>
+        </div>
         <form [formGroup]="personaForm" (ngSubmit)="save()" id="FO">
                 <h4>Datos de Nacimiento</h4>
                 <hr>
@@ -153,7 +153,6 @@
                         <br>  
                 </div>
         </form>
-</div>
-
+</div>    
 
 
