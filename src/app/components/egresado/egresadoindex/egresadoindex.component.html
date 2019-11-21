@@ -1,3 +1,12 @@
-<p>
-  egresadoindex works!
-</p>
+<h2>Egresados</h2>
+<div *ngFor="let e of egresados">
+  celular: {{e.celular}}
+  codigo: {{e.codigo}}
+  departamento: {{e.departamento}}
+  domicilio_actual: {{e.domicilio_actual}}
+  estado_actualizaciones: {{e.estado_actualizaciones}}
+  fec_actualizacion:  {{e.fec_actualizacion}}
+  id:  {{e.id}}
+  pais:  {{e.pais}}
+  persona_id:  {{e.persona_id}}
+</div>

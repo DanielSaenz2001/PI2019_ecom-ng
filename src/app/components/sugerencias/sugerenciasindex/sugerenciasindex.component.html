@@ -12,6 +12,11 @@
           Comentario: {{s.comentario_egresado}} <br>
           fecha: {{s.fecha_creacion}} <br>
          tipo: {{s.tipo_comentario}}
+          <div *ngIf="s.comentario_respuesta == null">
+              Comentario de administrador
+          </div>
+          <button type="button" class="btn btn-warning align-content-start" (click)="detalles(s.id)" >Actualizar</button>
+        <button type="button" class="btn btn-danger ml-2" (click)="delete(s.id)"> Eliminar</button>
       </div>
        
     </div>

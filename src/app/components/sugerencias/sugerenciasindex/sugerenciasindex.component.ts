@@ -33,4 +33,9 @@ export class SugerenciasindexComponent implements OnInit {
       this.sugerenciass= response;
     })
   }
+  delete(id) {
+    this.sugerenciasService.delete(id).subscribe(response=>{
+      this.sugerencias();
+    });
+  }
 }
