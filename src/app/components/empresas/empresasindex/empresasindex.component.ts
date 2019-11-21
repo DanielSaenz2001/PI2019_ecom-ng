@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmpresasService } from 'src/app/services/empresas.service';
 
 @Component({
   selector: 'app-empresasindex',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpresasindexComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private empresasService:EmpresasService) { }
+  empresas;
+  ngOnInit() { 
+    this.empresasList()
   }
-
+  empresasList(){
+    this.empresasService.getlist().subscribe(response=>{
+      this.empresas= response;
+      console.log(response)
+    })
+  }
 }

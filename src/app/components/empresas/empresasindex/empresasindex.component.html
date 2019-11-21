@@ -1,1 +1,37 @@
-<h1>empresas</h1>
+
+
+
+<div class="row">
+  <h2 class="m-auto">Empresas</h2>
+  <table class="table table-light" >
+      <thead class="thead-light">
+          <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Telefono</th>
+              <th>tipo</th>
+              <th>Dirección</th>
+              <th>correo</th>       
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let d of empresas; index as i">
+          <tr >
+              <td >{{i+1}}</td>
+              <td>{{d.nombre}}</td>
+              <td>{{d.telefono}}</td>
+              <td>{{d.tipo}}</td>
+              <td>{{d.direccion}}</td>
+              <td>{{d.correo}}</td>
+              <td > 
+                <div class="row" id="ad">
+                    <a routerLink="/empresasfrom" routerLinkActive="active" id="ga">
+                        <button type="button" class="btn btn-warning align-content-start" (click)="detalles(s.id)" >Actualizar</button>
+                    </a>
+                </div>
+            </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+

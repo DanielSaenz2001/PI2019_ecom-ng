@@ -39,6 +39,9 @@ import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasi
 import { EmpresasindexComponent } from './components/empresas/empresasindex/empresasindex.component';
 import { EmpresasformComponent } from './components/empresas/empresasform/empresasform.component';
 import { EgresadoescuelaComponent } from './components/egresado/egresadoescuela/egresadoescuela.component';
+import { CapacitacionesfromComponent } from './components/capacitaciones/capacitacionesfrom/capacitacionesfrom.component';
+import { CapacitacionesindexComponent } from './components/capacitaciones/capacitacionesindex/capacitacionesindex.component';
+
 
 
 
@@ -66,7 +69,9 @@ import { EgresadoescuelaComponent } from './components/egresado/egresadoescuela/
     SugerenciasindexComponent,
     EmpresasindexComponent,
     EmpresasformComponent,
-    EgresadoescuelaComponent
+    EgresadoescuelaComponent,
+    CapacitacionesfromComponent,
+    CapacitacionesindexComponent
   ],
   imports: [
     BrowserModule,
