@@ -38,6 +38,8 @@ import { SugerenciasformComponent } from './components/sugerencias/sugerenciasfo
 import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasindex/sugerenciasindex.component';
 import { EmpresasindexComponent } from './components/empresas/empresasindex/empresasindex.component';
 import { EmpresasformComponent } from './components/empresas/empresasform/empresasform.component';
+import { CapacitacionesfromComponent } from './components/capacitaciones/capacitacionesfrom/capacitacionesfrom.component';
+import { CapacitacionesindexComponent } from './components/capacitaciones/capacitacionesindex/capacitacionesindex.component';
 
 
 
@@ -64,7 +66,9 @@ import { EmpresasformComponent } from './components/empresas/empresasform/empres
     SugerenciasformComponent,
     SugerenciasindexComponent,
     EmpresasindexComponent,
-    EmpresasformComponent
+    EmpresasformComponent,
+    CapacitacionesfromComponent,
+    CapacitacionesindexComponent
   ],
   imports: [
     BrowserModule,
