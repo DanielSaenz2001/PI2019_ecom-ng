@@ -45,7 +45,9 @@
     </section>
   </div>  
   <hr>
+  <div *ngIf="list.activo == false">
+    <button data-toggle="modal" data-target="#Egresados"> AGREGAR</button>
+  </div>
   <app-user-form [ID] ="list.user_ID" [PERSONAID]="list.persona_ID"></app-user-form>
+  <app-egresadoform [ID] ="list.persona_ID"></app-egresadoform>
 </div>
-  
-

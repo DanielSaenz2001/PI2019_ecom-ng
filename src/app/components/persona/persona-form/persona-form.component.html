@@ -2,7 +2,6 @@
         <div class="row">
         <div class="col-lg-6"><h3>Formulario de Registro</h3></div>
         </div>
-        <div *ngIf="editar == false">
                 <form [formGroup]="personaForm" (ngSubmit)="save()" id="FO">
                         <h4>Datos de Nacimiento</h4>
                         <hr>
@@ -154,54 +153,5 @@
                                 <br>  
                         </div>
                 </form>
-        </div>
         <app-signup [personaID]="IDS" [email]="personaForm.value.email"></app-signup>
-        <div *ngIf="editar == true">
-                <div *ngIf="usuarios == personaForm.value.id">
-                        <form [formGroup]="personaForm" (ngSubmit)="save()" id="FO">
-                                <div >
-                                        
-                                        
-                                                <div class="row"> 
-                                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Estado civil:</div>
-                                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                                        <select class="form-control" id="sel1" formControlName="est_civil" id="est_civil" name="est_civil">
-                                                                <option value="Soltero">Soltero</option>
-                                                                <option value="Casado">Casado</option>
-                                                                <option value="Divorciado">Divorciado</option>
-                                                                <option value="Viudo">Viudo</option>
-                                                        </select>
-                                                        <div [hidden]="personaForm.get('est_civil').valid || 
-                                                        personaForm.get('est_civil').pristine" class="alert alert-danger">
-                                                                Su Estado Civil es importante
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Sexo:</div>
-                                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4" >
-                                                        <input type="radio" formControlName="sexo" id="sexo" name="sexo" value="Masculino" disabled> Masculino <br>
-                                                        <input type="radio" formControlName="sexo" id="sexo" name="sexo" value="Femenino" disabled> Femenino
-                                                        <div [hidden]="personaForm.get('sexo').valid || 
-                                                        personaForm.get('sexo').pristine" class="alert alert-danger">
-                                                        Su Genero es importante
-                                                        </div>
-                                                </div>
-                                                </div>
-                                        <br>
-                                                <div class="row">
-                                                        
-                                                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                                        </div>
-                                                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                                        <button type="submit" [disabled]="!personaForm.valid" class="form-control alert-success" id="ad">Submit</button>
-                                                </div>
-                                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                                                </div>
-                                                
-                                                </div>
-                                        <br>  
-                                </div>
-                        </form>
-                </div>
-        </div>
-
 </div>

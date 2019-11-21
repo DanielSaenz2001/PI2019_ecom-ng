@@ -1,67 +1,84 @@
-<div class="row">
-  <form [formGroup]="egresadoform" (ngSubmit)="save()" id="FO">
-    <div class="row">
-      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Codigo:</div>
-      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-        <input type="text" formControlName="codigo" required id="codigo" name="codigo" class="form-control" maxlength="9">
-        <div [hidden]="egresadoform.get('codigo').valid || 
-        egresadoform.get('codigo').pristine" class="alert alert-danger">
-        Codigo es importante
-        </div>
+
+<div class="modal fade" id="Egresados">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Formulario Egresados</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Celular:</div>
-      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-        <input type="text" formControlName="celular" id="celular" name="celular" class="form-control" maxlength="9">
-        <div [hidden]="egresadoform.get('celular').valid || 
-        egresadoform.get('celular').pristine" class="alert alert-danger">
-        Su Celular es importante
-        </div>
+      <div class="modal-body">
+        <form [formGroup]="egresadoform" (ngSubmit)="save()" id="FO">
+          <div class="row">
+            <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Codigo:</div>
+            <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              <input type="text" formControlName="codigo" required id="codigo" name="codigo" class="form-control" maxlength="9">
+              <div [hidden]="egresadoform.get('codigo').valid || 
+              egresadoform.get('codigo').pristine" class="alert alert-danger">
+              Codigo es importante
+              </div>
+            </div>
+            <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Celular:</div>
+            <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              <input type="text" formControlName="celular" id="celular" name="celular" class="form-control" maxlength="9">
+              <div [hidden]="egresadoform.get('celular').valid || 
+              egresadoform.get('celular').pristine" class="alert alert-danger">
+              Su Celular es importante
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Pais donde recide:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+            <select class="form-control" id="sel1" formControlName="pais" id="pais" name="pais" >
+                    <option *ngFor="let p of paises" [ngValue]="p.id">{{p.nombre}}</option>
+            </select>
+            <div [hidden]="egresadoform.get('pais').valid || 
+            egresadoform.get('pais').pristine" class="alert alert-danger">
+                    Su Pais es importante
+            </div>
+          </div>
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Departamento donde recide:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+            <select class="form-control" id="sel1" size="2" formControlName="departamento" id="departamento" name="departamento" >
+              <ng-container *ngFor="let d of departamentos">
+              <option  [ngValue]="d.id" *ngIf="d.pais_id == egresadoform.value.pais">          
+                {{d.nombre}}               
+              </option>
+            </ng-container> 
+            </select>
+            <div [hidden]="egresadoform.get('departamento').valid || 
+            egresadoform.get('departamento').pristine" class="alert alert-danger">
+              Su Departamento es importante
+            </div>
+          </div>
+          </div>
+      <br>
+          <div class="row">
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Provincia donde recide:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+            <select class="form-control" id="sel1" size="2" formControlName="provincia" id="provincia" name="provincia" >
+              <ng-container *ngFor="let d of provincias">
+              <option  [ngValue]="d.id" *ngIf="d.dep_id == egresadoform.value.departamento">          
+                {{d.nombre}}               
+              </option>
+            </ng-container> 
+            </select>
+            <div [hidden]="egresadoform.get('provincia').valid || 
+            egresadoform.get('provincia').pristine" class="alert alert-danger">
+              Su Provincia es importante
+            </div>
+          </div>
+          </div>
+          
+        </form>
       </div>
-    </div>
-    <br>
-    <div class="row">
-    <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Pais donde recide:</div>
-    <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-      <select class="form-control" id="sel1" formControlName="pais" id="pais" name="pais" >
-              <option *ngFor="let p of paises" [ngValue]="p.id">{{p.nombre}}</option>
-      </select>
-      <div [hidden]="egresadoform.get('pais').valid || 
-      egresadoform.get('pais').pristine" class="alert alert-danger">
-              Su Pais es importante
+
+      <div class="modal-footer">
+          <button type="submit" [disabled]="!egresadoform.valid" class="form-control alert-success" id="ad" (click)="save()" data-dismiss="modal" >Submit</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="borrar()">Close</button>
       </div>
+      
     </div>
-    <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Departamento donde recide:</div>
-    <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-      <select class="form-control" id="sel1" size="2" formControlName="departamento" id="departamento" name="departamento" >
-        <ng-container *ngFor="let d of departamentos">
-        <option  [ngValue]="d.id" *ngIf="d.pais_id == egresadoform.value.pais">          
-          {{d.nombre}}               
-        </option>
-      </ng-container> 
-      </select>
-      <div [hidden]="egresadoform.get('departamento').valid || 
-      egresadoform.get('departamento').pristine" class="alert alert-danger">
-        Su Departamento es importante
-      </div>
-    </div>
-    </div>
-<br>
-    <div class="row">
-    <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Provincia donde recide:</div>
-    <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-      <select class="form-control" id="sel1" size="2" formControlName="provincia" id="provincia" name="provincia" >
-        <ng-container *ngFor="let d of provincias">
-        <option  [ngValue]="d.id" *ngIf="d.dep_id == egresadoform.value.departamento">          
-          {{d.nombre}}               
-        </option>
-      </ng-container> 
-      </select>
-      <div [hidden]="egresadoform.get('provincia').valid || 
-      egresadoform.get('provincia').pristine" class="alert alert-danger">
-        Su Provincia es importante
-      </div>
-    </div>
-    </div>
-    <button type="submit" [disabled]="!egresadoform.valid" class="form-control alert-success" id="ad" >Submit</button>
-  </form>
+  </div>
 </div>
