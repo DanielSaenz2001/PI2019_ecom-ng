@@ -10,7 +10,7 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
+  myFile;
   constructor(private Jarwis: JarwisService, private token:TokenService
     , private personaServices: PersonaService,
     private formBuilder: FormBuilder) { }
@@ -73,5 +73,10 @@ export class ProfileComponent implements OnInit {
       this.PersonaList();
       console.log(response)
     });;
+  }
+  deleteDependiente(id){
+    this.personaServices.delete(id).subscribe(response=>{
+      this.dependientesList();
+    });
   }
 }

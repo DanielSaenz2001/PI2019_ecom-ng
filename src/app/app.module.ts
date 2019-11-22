@@ -31,7 +31,6 @@ import { EgresadoformComponent } from './components/egresado/egresadoform/egresa
 import { EgresadoindexComponent } from './components/egresado/egresadoindex/egresadoindex.component';
 import { FacultadComponent } from './components/facultad/facultad.component';
 import { EscuelasComponent } from './components/facultad/escuelas/escuelas.component';
-import { UserFormComponent } from './components/profile/user-form/user-form.component';
 import { EventosComponent } from './components/eventos/eventos.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SugerenciasformComponent } from './components/sugerencias/sugerenciasform/sugerenciasform.component';
@@ -62,7 +61,6 @@ import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoper
     EgresadoindexComponent,
     FacultadComponent,
     EscuelasComponent,
-    UserFormComponent,
     EventosComponent,
     SidebarComponent,
     SugerenciasformComponent,
