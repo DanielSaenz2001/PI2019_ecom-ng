@@ -27,6 +27,7 @@ import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasi
 import { EmpresasindexComponent } from './components/empresas/empresasindex/empresasindex.component';
 import { EmpresasformComponent } from './components/empresas/empresasform/empresasform.component';
 
+import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoperfil.component';
 
 const routes: Routes = [
   {
@@ -80,6 +81,11 @@ const routes: Routes = [
   {
     path: 'egresadoform',
     component: EgresadoformComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'perfilegresados',
+    component: EgresadoperfilComponent,
     canActivate: [AfterLoginService]
   },
   {

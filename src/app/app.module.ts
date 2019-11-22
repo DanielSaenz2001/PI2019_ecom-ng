@@ -41,7 +41,7 @@ import { EmpresasformComponent } from './components/empresas/empresasform/empres
 import { EgresadoescuelaComponent } from './components/egresado/egresadoescuela/egresadoescuela.component';
 import { CapacitacionesfromComponent } from './components/capacitaciones/capacitacionesfrom/capacitacionesfrom.component';
 import { CapacitacionesindexComponent } from './components/capacitaciones/capacitacionesindex/capacitacionesindex.component';
-
+import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoperfil.component';
 
 
 
@@ -71,7 +71,8 @@ import { CapacitacionesindexComponent } from './components/capacitaciones/capaci
     EmpresasformComponent,
     EgresadoescuelaComponent,
     CapacitacionesfromComponent,
-    CapacitacionesindexComponent
+    CapacitacionesindexComponent,
+    EgresadoperfilComponent
   ],
   imports: [
     BrowserModule,

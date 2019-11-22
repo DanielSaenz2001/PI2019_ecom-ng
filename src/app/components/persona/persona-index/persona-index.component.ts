@@ -18,7 +18,6 @@ export class PersonaIndexComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.listar2();
     this.usuario();
   }
 
@@ -36,12 +35,7 @@ export class PersonaIndexComponent implements OnInit {
       });
     }
 
-    listar2(){
-      this.Jarwis.users(this.token.get()).subscribe(response => {
-        this.list2= response;
-        console.log("dependientes: ",response)
-      });
-    }
+    
 
     usuario(){
       this.Jarwis.me(this.token.get()).subscribe(response => {
