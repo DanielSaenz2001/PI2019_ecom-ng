@@ -4,19 +4,19 @@
           <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="nombre" >     
         <br>
         <label for="basic-url">Información:</label>
-            <input type="text" class="form-control" id="basic-url" maxlength="9" aria-describedby="basic-addon3" formControlName="telefono" >
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="informacion" >
         <br>
         <label for="basic-url">Duración:</label>
-            <input type="text" class="form-control" id="basic-url" maxlength="9" aria-describedby="basic-addon3" formControlName="telefono" >
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="duracion" >
         <br>
         <label for="basic-url">Fecha Inicio:</label>
-            <input type="date" class="form-control" id="basic-url" maxlength="9" aria-describedby="basic-addon3" formControlName="telefono" >
+            <input type="date" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="fecha_inicio" >
         <br>
         <label for="basic-url">Fecha Fin:</label>
-            <input type="date" class="form-control" id="basic-url" maxlength="9" aria-describedby="basic-addon3" formControlName="telefono" >
+            <input type="date" class="form-control" id="basic-url"  aria-describedby="basic-addon3" formControlName="fecha_fin" >
         <br>
         <label for="basic-url">Dirección:</label>
-            <input type="text" class="form-control" id="basic-url" maxlength="9" aria-describedby="basic-addon3" formControlName="telefono" >
+            <input type="text" class="form-control" id="basic-url"  aria-describedby="basic-addon3" formControlName="direccion" >
         <br>
         <label for="basic-url">Tipo:</label>
         <select class="form-control form-control-lg" formControlName="tipo" >
@@ -27,13 +27,21 @@
   
         <label for="basic-url">Precio:</label>
         <div class="input-group">
-        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="direccion" >
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="precio" >
         </div>
         <label for="basic-url">Rutas:</label>
         <div class="input-group">
-        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="direccion" >
-        </div>  
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="rutas" >
+        </div>
+        
+        <label for="basic-url">Empresas:</label>
+    
+              
+
+        <div class="container"> <br>
+        <button type="submit" [disabled]="!capacitacionesFrom.valid" class="form-control alert-success" id="ad" data-toggle="modal" data-target="#miModal" data-toggle="modal"  data-backdrop=static data-keyboard=false>Publicar</button>
+        </div>
     </div><br>
       
-    <button type="submit" class="btn btn-secondary btn-lg "[disabled]="!empresaFrom.valid">Guardar</button>
+    
   </form>
