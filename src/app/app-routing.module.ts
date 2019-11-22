@@ -26,6 +26,9 @@ import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasi
 
 import { EmpresasindexComponent } from './components/empresas/empresasindex/empresasindex.component';
 import { EmpresasformComponent } from './components/empresas/empresasform/empresasform.component';
+import { CapacitacionesfromComponent } from './components/capacitaciones/capacitacionesfrom/capacitacionesfrom.component';
+import { CapacitacionesindexComponent } from './components/capacitaciones/capacitacionesindex/capacitacionesindex.component';
+
 
 import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoperfil.component';
 
@@ -123,6 +126,16 @@ const routes: Routes = [
     component: FacultadComponent,
     canActivate: [AfterLoginService]
   },
+  {
+    path: 'capacitaciones',
+    component: CapacitacionesindexComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'capacitacionesfrom',
+    component: CapacitacionesfromComponent,
+    canActivate: [AfterLoginService]
+  }
 ];
 
 @NgModule({

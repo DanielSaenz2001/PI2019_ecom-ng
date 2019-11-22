@@ -1,3 +1,39 @@
-<p>
-  capacitacionesfrom works!
-</p>
+<form [formGroup]="capacitacionesFrom" (ngSubmit)="save()" id="FO">
+    <div class="row">
+      <label for="basic-url">Nombre:</label> <br>
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="nombre" >     
+        <br>
+        <label for="basic-url">Información:</label>
+            <input type="text" class="form-control" id="basic-url" maxlength="9" aria-describedby="basic-addon3" formControlName="telefono" >
+        <br>
+        <label for="basic-url">Duración:</label>
+            <input type="text" class="form-control" id="basic-url" maxlength="9" aria-describedby="basic-addon3" formControlName="telefono" >
+        <br>
+        <label for="basic-url">Fecha Inicio:</label>
+            <input type="date" class="form-control" id="basic-url" maxlength="9" aria-describedby="basic-addon3" formControlName="telefono" >
+        <br>
+        <label for="basic-url">Fecha Fin:</label>
+            <input type="date" class="form-control" id="basic-url" maxlength="9" aria-describedby="basic-addon3" formControlName="telefono" >
+        <br>
+        <label for="basic-url">Dirección:</label>
+            <input type="text" class="form-control" id="basic-url" maxlength="9" aria-describedby="basic-addon3" formControlName="telefono" >
+        <br>
+        <label for="basic-url">Tipo:</label>
+        <select class="form-control form-control-lg" formControlName="tipo" >
+          <option>seleccionar tipo</option>
+          <option>Uno</option>
+          <option>dos</option>
+        </select>
+  
+        <label for="basic-url">Precio:</label>
+        <div class="input-group">
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="direccion" >
+        </div>
+        <label for="basic-url">Rutas:</label>
+        <div class="input-group">
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="direccion" >
+        </div>  
+    </div><br>
+      
+    <button type="submit" class="btn btn-secondary btn-lg "[disabled]="!empresaFrom.valid">Guardar</button>
+  </form>
