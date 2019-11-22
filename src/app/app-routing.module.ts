@@ -30,6 +30,7 @@ import { CapacitacionesfromComponent } from './components/capacitaciones/capacit
 import { CapacitacionesindexComponent } from './components/capacitaciones/capacitacionesindex/capacitacionesindex.component';
 
 
+import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoperfil.component';
 
 const routes: Routes = [
   {
@@ -83,6 +84,11 @@ const routes: Routes = [
   {
     path: 'egresadoform',
     component: EgresadoformComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'perfilegresados',
+    component: EgresadoperfilComponent,
     canActivate: [AfterLoginService]
   },
   {

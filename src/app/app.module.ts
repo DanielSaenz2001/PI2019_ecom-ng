@@ -31,7 +31,6 @@ import { EgresadoformComponent } from './components/egresado/egresadoform/egresa
 import { EgresadoindexComponent } from './components/egresado/egresadoindex/egresadoindex.component';
 import { FacultadComponent } from './components/facultad/facultad.component';
 import { EscuelasComponent } from './components/facultad/escuelas/escuelas.component';
-import { UserFormComponent } from './components/profile/user-form/user-form.component';
 import { EventosComponent } from './components/eventos/eventos.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SugerenciasformComponent } from './components/sugerencias/sugerenciasform/sugerenciasform.component';
@@ -41,7 +40,7 @@ import { EmpresasformComponent } from './components/empresas/empresasform/empres
 import { EgresadoescuelaComponent } from './components/egresado/egresadoescuela/egresadoescuela.component';
 import { CapacitacionesfromComponent } from './components/capacitaciones/capacitacionesfrom/capacitacionesfrom.component';
 import { CapacitacionesindexComponent } from './components/capacitaciones/capacitacionesindex/capacitacionesindex.component';
-
+import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoperfil.component';
 
 
 
@@ -62,7 +61,6 @@ import { CapacitacionesindexComponent } from './components/capacitaciones/capaci
     EgresadoindexComponent,
     FacultadComponent,
     EscuelasComponent,
-    UserFormComponent,
     EventosComponent,
     SidebarComponent,
     SugerenciasformComponent,
@@ -71,7 +69,8 @@ import { CapacitacionesindexComponent } from './components/capacitaciones/capaci
     EmpresasformComponent,
     EgresadoescuelaComponent,
     CapacitacionesfromComponent,
-    CapacitacionesindexComponent
+    CapacitacionesindexComponent,
+    EgresadoperfilComponent
   ],
   imports: [
     BrowserModule,

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserFormComponent } from './user-form.component';
+import { EgresadoperfilComponent } from './egresadoperfil.component';
 
-describe('UserFormComponent', () => {
-  let component: UserFormComponent;
-  let fixture: ComponentFixture<UserFormComponent>;
+describe('EgresadoperfilComponent', () => {
+  let component: EgresadoperfilComponent;
+  let fixture: ComponentFixture<EgresadoperfilComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserFormComponent ]
+      declarations: [ EgresadoperfilComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserFormComponent);
+    fixture = TestBed.createComponent(EgresadoperfilComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,33 @@
+
+  
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+    <li><a data-toggle="tab" href="#menu1">Egresado</a></li>
+    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+  </ul>
+  
+  <div class="tab-content">
+    <div id="home" class="tab-pane collapse in active">
+      <h3>HOME</h3>
+      <app-profile></app-profile>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+        <div *ngIf="egresado">
+            <h3>Menu 1</h3>
+            ap_materno: {{egresado.ap_materno}}
+        ap_paterno: {{egresado.ap_paterno}}
+        celular: {{egresado.celular}}
+        codigo: {{egresado.codigo}}
+        departamentos: {{egresado.departamentos}}
+        email: {{egresado.email}}
+        nombre: {{egresado.nombre}}
+        pais: {{egresado.pais}}
+        provincia: {{egresado.provincia}}
+        sexo: {{egresado.sexo}}
+      </div>  
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>Menu 2</h3>
+      <p>Some content in menu 2.</p>
+    </div>
+  </div>

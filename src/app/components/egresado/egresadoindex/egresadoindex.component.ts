@@ -13,17 +13,13 @@ export class EgresadoindexComponent implements OnInit {
   egresados;
   ngOnInit() {
     this.egresadosList();
-    this.egresado();
   }
+
   egresadosList(){
     this.egresadosService.getlist().subscribe(response=>{
       this.egresados= response;
       console.log(response)
     })
   }
-  egresado(){
-    this.egresadosService.egresados(this.token.get()).subscribe(response=>{
-      console.log("datos: ",response)
-    })
-  }
+ 
 }

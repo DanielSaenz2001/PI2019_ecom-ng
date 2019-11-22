@@ -62,7 +62,7 @@ export class PersonaDependienteComponent implements OnInit {
       this.personaServices.add(this.personaForm.value).subscribe();
     }
     
-    this.router.navigate(['/persona']);
+    this.router.navigate(['/profile']);
   }
   pais(){
     this.paisesService.getlist().subscribe(response => {
@@ -82,7 +82,6 @@ export class PersonaDependienteComponent implements OnInit {
   usuario(){
     this.Jarwis.me(this.token.get()).subscribe(response => {
       this.usuarios= response;
-      console.log(this.usuarios)
     });
   }
 }
