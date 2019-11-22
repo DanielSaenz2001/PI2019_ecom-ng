@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
 import { JarwisService } from 'src/app/services/jarwis.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,6 +19,8 @@ export class SidebarComponent implements OnInit {
     private Jarwis: JarwisService
   ) { }
   list;
+  
+  USERID;
   ngOnInit() {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
     this.listar();
@@ -44,4 +47,18 @@ export class SidebarComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
   public error = null;
+  filedata:any;
+  fileEvent(e){
+        this.filedata = e.target.files[0];
+  }
+  onSubmit(f: NgForm) {
+    var myFormData = new FormData();
+    myFormData.append('id', this.USERID);
+    myFormData.append('image', this.filedata);
+    this.Jarwis.profile(myFormData);
+    this.listar();
+  } 
+  userProfile(id){
+    this.USERID = id;
+  }
 }

@@ -5,14 +5,7 @@
       <div class="row">
         <div class="col-10 col-sm-10  col-md-7  col-lg-5 col-xl-5 mx-auto main-section text-center card">
           <div class="row">
-            <div class="col-lg-12 col-sm-12 col-12 profile-header user-details">
-              <div class="row">
-                  <div class="col-lg-12 col-sm-12 col-12" id="foto">
-                    <img src='http://localhost:8000/uploads/avatars/{{list.avatar}}' alt="img user" style="width: 150px; height: 150px; border-radius: 50%; " 
-                    data-toggle="modal" data-target="#Usuario" (click)="userProfile(list.user_ID);">
-                  </div>    
-              </div>
-            </div>
+
           </div>
           <div class="row user-details">
             <div class="col-12 col-lg-12 col-sm-12">
@@ -92,29 +85,6 @@
     </tbody>
 </table>
 <app-egresadoform [ID]="list.persona_ID"></app-egresadoform>
-</div>
-<div class="modal fade" id="Usuario">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Facultad</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <h2>UPDATE USER IMAGE</h2>
-        <div>
-          <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
-            <input type="file" #fileupload [(ngModel)]="myFile" name="myFile" (change)="fileEvent($event)"/>
-            <button>Upload Image</button>
-            </form>
-        </div>
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal" >Close</button>
-      </div>
-      
-    </div>
-  </div>
 </div>
 
 

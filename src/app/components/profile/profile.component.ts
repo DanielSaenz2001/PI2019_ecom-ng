@@ -15,7 +15,6 @@ export class ProfileComponent implements OnInit {
     , private personaServices: PersonaService,
     private formBuilder: FormBuilder) { }
   dependientes;
-  USERID;
   PERSONAID;
   public list;
   personaForm: FormGroup;
@@ -42,9 +41,7 @@ export class ProfileComponent implements OnInit {
       this.list= response;
     });
   }
-  userProfile(id){
-    this.USERID = id;
-  }
+  
   persona(id){
     this.PERSONAID = id;
     this.personaServices.getById(this.PERSONAID).subscribe(response =>{
@@ -57,17 +54,7 @@ export class ProfileComponent implements OnInit {
     });
   }
   //-------------------------------------------------------------------------
-  filedata:any;
-  fileEvent(e){
-        this.filedata = e.target.files[0];
-  }
-  onSubmit(f: NgForm) {
-    var myFormData = new FormData();
-    myFormData.append('id', this.USERID);
-    myFormData.append('image', this.filedata);
-    this.Jarwis.profile(myFormData);
-    this.PersonaList();
-  }   
+    
   save(){
     this.personaServices.update(this.PERSONAID, this.personaForm.value).subscribe(response => {
       this.PersonaList();
