@@ -19,7 +19,7 @@ export class SidebarComponent implements OnInit {
     private Jarwis: JarwisService
   ) { }
   list;
-  
+  myFile;
   USERID;
   ngOnInit() {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);

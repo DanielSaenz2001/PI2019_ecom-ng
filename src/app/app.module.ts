@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { JarwisService } from './services/jarwis.service';
 import { TokenService } from './services/token.service';
 import { PersonaService } from './services/persona.service';
+import { EmpresasService} from './services/empresas.service';
 import { SugerenciasService } from './services/sugerencias.service';
 import { PaisesService } from './services/paises.service';
 import { DepartamentosService } from './services/departamentos.service';
@@ -33,10 +34,8 @@ import { FacultadComponent } from './components/facultad/facultad.component';
 import { EscuelasComponent } from './components/facultad/escuelas/escuelas.component';
 import { EventosComponent } from './components/eventos/eventos.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { SugerenciasformComponent } from './components/sugerencias/sugerenciasform/sugerenciasform.component';
 import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasindex/sugerenciasindex.component';
 import { EmpresasindexComponent } from './components/empresas/empresasindex/empresasindex.component';
-import { EmpresasformComponent } from './components/empresas/empresasform/empresasform.component';
 import { EgresadoescuelaComponent } from './components/egresado/egresadoescuela/egresadoescuela.component';
 import { CapacitacionesfromComponent } from './components/capacitaciones/capacitacionesfrom/capacitacionesfrom.component';
 import { CapacitacionesindexComponent } from './components/capacitaciones/capacitacionesindex/capacitacionesindex.component';
@@ -63,10 +62,8 @@ import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoper
     EscuelasComponent,
     EventosComponent,
     SidebarComponent,
-    SugerenciasformComponent,
     SugerenciasindexComponent,
     EmpresasindexComponent,
-    EmpresasformComponent,
     EgresadoescuelaComponent,
     CapacitacionesfromComponent,
     CapacitacionesindexComponent,
@@ -81,7 +78,7 @@ import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoper
     SnotifyModule
   ],
   providers: [JarwisService, TokenService, AuthService, AfterLoginService, BeforeLoginService,
-    PersonaService, PaisesService,DepartamentosService,FacultadesService, SugerenciasService,
+    PersonaService, PaisesService,DepartamentosService,FacultadesService, SugerenciasService, EmpresasService,
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
     SnotifyService],
   bootstrap: [AppComponent]

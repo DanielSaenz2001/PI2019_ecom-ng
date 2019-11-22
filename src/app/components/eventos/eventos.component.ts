@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { EventosService } from 'src/app/services/eventos.service';
+import { EmpresasService } from 'src/app/services/empresas.service';
 
 @Component({
   selector: 'app-eventos',
@@ -9,8 +10,11 @@ import { EventosService } from 'src/app/services/eventos.service';
 })
 export class EventosComponent implements OnInit {
   evento: any;
-  constructor( private formBuilder: FormBuilder, private eventosService:EventosService) { }
+  constructor( private formBuilder: FormBuilder, private eventosService:EventosService, private empresasService:EmpresasService) { }
   eventoForm: FormGroup;
+  myFile;
+  f;
+  empresas;
   ngOnInit() {
     this.eventos();
     this.eventoForm = this.formBuilder.group({
@@ -60,5 +64,9 @@ export class EventosComponent implements OnInit {
       this.eventos();
     });
   }
-
+  empresasList(){
+    this.empresasService.getlist().subscribe(response=>{
+      this.empresas= response;
+    })
+  }
 }

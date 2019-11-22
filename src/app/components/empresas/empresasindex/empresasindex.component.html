@@ -1,4 +1,4 @@
-
+<button (click)="generar('1');" data-toggle="modal" data-target="#empresas">Agregar</button>
 
 
 <div class="row">
@@ -25,9 +25,8 @@
               <td>{{d.correo}}</td>
               <td > 
                 <div class="row" id="ad">
-                    <a routerLink="/empresasfrom" routerLinkActive="active" id="ga">
-                        <!--<button type="button" class="btn btn-warning align-content-start" (click)="detalles(s.id)" >Actualizar</button>-->
-                    </a>
+                    <button type="button" class="btn btn-warning align-content-start" (click)="detalles(d.id)" data-toggle="modal" data-target="#empresas">Actualizar</button>
+                    <button type="button" class="btn btn-danger align-content-start" (click)="delete(d.id)">Eliminar</button>
                 </div>
             </td>
           </tr>
@@ -35,3 +34,61 @@
   </table>
 </div>
 
+
+
+<div class="modal fade" id="empresas">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Agregar Empresa</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="empresaForm" id="FO">
+                    <div class="row">
+                      <label for="basic-url">Nombre:</label> <br>
+                          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="nombre" >     
+                        <br>
+                        <label for="basic-url">Teléfono:</label>
+                            <input type="text" class="form-control" id="basic-url" maxlength="9" aria-describedby="basic-addon3" formControlName="telefono" >
+                        <br>
+                        <label for="basic-url">Tipo:</label>
+                        <select class="form-control form-control-lg" formControlName="tipo" >
+                          <option>seleccionar tipo</option>
+                          <option>Uno</option>
+                          <option>dos</option>
+                        </select>
+                  
+                        <label for="basic-url">Dirección:</label>
+                        <div class="input-group">
+                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="direccion" >
+                        </div>
+                        
+                        <label for="basic-url">Email:</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="correo electronico" formControlName="correo"  aria-label="correo electronico" aria-describedby="basic-addon2">
+                         
+                          <div [hidden]="empresaForm.get('correo').valid || 
+                          empresaForm.get('correo').pristine" class="alert alert-danger">
+                            Su Email es importante
+                          </div>                                        
+                          <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">@example.com</span>
+                          </div>
+                        </div>
+                       
+                  
+                    </div><br>
+                      
+                    
+                  </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-secondary btn-lg "[disabled]="!empresaForm.valid"  (click)="save()" data-dismiss="modal" >Guardar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="borrar()">Close</button>
+            </div>
+            
+          </div>
+        </div>
+</div>
+      

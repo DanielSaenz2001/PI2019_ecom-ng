@@ -14,7 +14,6 @@ export class EmpresasService {
     return this.http.get<any>(`${this.endPoint}`)
   }
   public getById(id): Observable<any> {
-    console.log(id)
     return this.http.get<any>(`${this.endPoint}/${id}`);
   }
   public add(data): Observable<any> {
