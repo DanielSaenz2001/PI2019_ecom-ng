@@ -24,5 +24,13 @@ export class PersonaService {
       
       return this.http.delete<any>(`${this.endPoint}/${id}`);
   }
-
+  public getlistUsuarios(): Observable<any>{
+    return this.http.get<any>(`${this.endPoint}Usuarios`)
+  }
+  public updateuser(id, data): Observable<any> {
+    return this.http.put<any>(`${this.endPoint}Usuarios/${id}`, data);
+  }
+  public updateuserol(id, data): Observable<any> {
+    return this.http.put<any>(`${this.endPoint}Usuarioss/${id}`, data);
+  }
 }

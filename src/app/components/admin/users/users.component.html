@@ -1,3 +1,19 @@
-<p>
-  users works!
-</p>
+<h2>Listas de usuarios</h2>
+<table class="table table-light">
+  <thead class="thead-light">
+    <tr>
+      <th>#</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of usuarios; index as i">
+      <td>{{i+1}}</td>
+      <td>{{u.nombre}}</td>
+      <td>{{u.email}}</td>
+      <td>{{u.activo}}</td>
+      <td>{{u.rol}}</td>
+      <td><button (click)="actu(u.id,u.activo)">Cambiar estado</button></td>
+      <td><button (click)="rol(u.id,u.rol)">Cambiar rol</button></td>
+    </tr>
+  </tbody>
+</table>

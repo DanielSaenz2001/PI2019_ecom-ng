@@ -7,7 +7,6 @@ import { ResponseResetComponent } from './components/password/response-reset/res
 import { BeforeLoginService } from './services/before-login.service';
 import { AfterLoginService } from './services/after-login.service';
 
-import { PersonaIndexComponent } from './components/persona/persona-index/persona-index.component';
 import { PersonaFormComponent } from './components/persona/persona-form/persona-form.component';
 import { PersonaDependienteComponent } from './components/persona/persona-dependiente/persona-dependiente.component';
 
@@ -22,11 +21,9 @@ import { EventosComponent } from './components/others/eventos/eventos.component'
 
 import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasindex/sugerenciasindex.component';
 
-import { EmpresasindexComponent } from './components/admin/empresasindex/empresasindex.component';
-
-
 import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoperfil.component';
 
+import { UsersComponent } from './components/admin/users/users.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -34,8 +31,8 @@ const routes: Routes = [
     canActivate: [BeforeLoginService]
   },
   {
-    path: 'holamundo',
-    component: LoginComponent
+    path: 'usuarios',
+    component: UsersComponent
   },
   {
     path: '',
@@ -45,12 +42,6 @@ const routes: Routes = [
     path: 'signup',
     component: SignupComponent,
     canActivate: [BeforeLoginService]
-  },
-
-  {
-    path: 'persona',
-    component: PersonaIndexComponent,
-    canActivate: [AfterLoginService]
   },
   {
     path: 'personaform',
@@ -89,11 +80,6 @@ const routes: Routes = [
   {
     path: 'sugerencias',
     component: SugerenciasindexComponent,
-    canActivate: [AfterLoginService]
-  },
-  {
-    path: 'empresas',
-    component: EmpresasindexComponent,
     canActivate: [AfterLoginService]
   },
   {

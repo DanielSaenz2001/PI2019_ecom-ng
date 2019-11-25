@@ -24,7 +24,6 @@ import { AfterLoginService } from './services/after-login.service';
 import { BeforeLoginService } from './services/before-login.service';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PersonaIndexComponent } from './components/persona/persona-index/persona-index.component';
 import { PersonaFormComponent } from './components/persona/persona-form/persona-form.component';
 import { PersonaDependienteComponent } from './components/persona/persona-dependiente/persona-dependiente.component';
 import { HomeComponent } from './components/home/home.component';
@@ -35,7 +34,6 @@ import { EscuelasComponent } from './components/admin/facultad/escuelas/escuelas
 import { EventosComponent } from './components/others/eventos/eventos.component';
 import { SidebarComponent } from './components/sistem/sidebar/sidebar.component';
 import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasindex/sugerenciasindex.component';
-import { EmpresasindexComponent } from './components/admin/empresasindex/empresasindex.component';
 import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoperfil.component';
 import { EgresadoComponent } from './components/users/egresado/egresado.component';
 import { FormacionesComponent } from './components/users/formaciones/formaciones.component';
@@ -54,7 +52,6 @@ import { UsersComponent } from './components/admin/users/users.component';
     PersonaComponent,
     RequestResetComponent,
     ResponseResetComponent,
-    PersonaIndexComponent,
     PersonaFormComponent,
     PersonaDependienteComponent,
     HomeComponent,
@@ -65,7 +62,6 @@ import { UsersComponent } from './components/admin/users/users.component';
     EventosComponent,
     SidebarComponent,
     SugerenciasindexComponent,
-    EmpresasindexComponent,
     EgresadoperfilComponent,
     EgresadoComponent,
     FormacionesComponent,
