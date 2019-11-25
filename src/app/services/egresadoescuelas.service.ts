@@ -26,4 +26,11 @@ export class EgresadoescuelasService {
       
       return this.http.delete<any>(`${this.endPoint}/${id}`);
   }
+  
+  getlist2(data) {
+    return this.http.get(`${this.endPoint}2`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    })
+  }
 }

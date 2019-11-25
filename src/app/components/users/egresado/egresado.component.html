@@ -1,0 +1,97 @@
+<div *ngIf="egresado">
+  <h3>Menu 1</h3>
+  ap_materno: {{egresado.ap_materno}}
+ap_paterno: {{egresado.ap_paterno}}
+celular: {{egresado.celular}}
+codigo: {{egresado.codigo}}
+departamentos: {{egresado.departamentos}}
+email: {{egresado.email}}
+nombre: {{egresado.nombre}}
+pais: {{egresado.pais}}
+provincia: {{egresado.provincia}}
+sexo: {{egresado.sexo}}
+
+<button data-toggle="modal" data-target="#Escuela" (click)="EGRESADOID(egresado.id)"> Agregar Escuela</button>
+</div>  
+<table class="table table-light">
+<thead class="thead-light">
+  <tr>
+    <th>#</th>
+    <th>Facultad</th>
+    <th>Escuela</th>
+    <th>F egreso</th>
+    <th>F ingreso</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let eg of egresadosescuelas; index as i">
+    <td>{{i+1}}</td>
+    <td>{{eg.facultad}}</td>
+    <td>{{eg.escuela}}</td>
+    <td>{{eg.fecha_egreso}}</td>
+    <td>{{eg.fecha_ingreso}}</td>
+  </tr>
+</tbody>
+</table>
+<div class="modal fade" id="Escuela">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Escuela Profecional</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="escuelaForm" id="FO">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">Comentario:</div> <br>
+                        <div class="col-lg-8 col-8 col-md-8 col-sm-8 col-xl-8">
+                                <textarea cols="300" rows="3"  formControlName="descripcion" required id="descripcion" name="descripcion" class="form-control">
+                                  </textarea> 
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <br>
+                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">Fecha de Egreso:</div>
+                        <div class="col-lg-8 col-8 col-md-8 col-sm-8 col-xl-8">
+                            <input type="date" formControlName="fecha_ingreso" id="fecha_ingreso" name="fecha_ingreso"class="form-control">       
+                        </div>
+                        <br>
+                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">Fecha de Egreso:</div>
+                        <div class="col-lg-8 col-8 col-md-8 col-sm-8 col-xl-8">
+
+                            <input type="date" formControlName="fecha_egreso" id="fecha_egreso" name="fecha_egreso" class="form-control"> 
+                        </div>
+                    </div>
+                    <br>
+                      <div class="row">
+                        <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Facultad:</div>
+                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                                <select class="form-control" id="sel1" formControlName="facultad" id="facultad" name="facultad" >
+                                        <option *ngFor="let p of facultades" [ngValue]="p.id">{{p.nombre}}</option>
+                                </select>
+                        </div>
+                        <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Escuela:</div>
+                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                                <select class="form-control" id="sel1" size="2" formControlName="escuela_profesiona_id" id="escuela_profesiona_id" name="escuela_profesiona_id" >
+                                        <ng-container *ngFor="let d of escuelas">
+                                        <option  [ngValue]="d.id" *ngIf="d.facultad_id == escuelaForm.value.facultad">          
+                                                {{d.nombre}}               
+                                        </option>
+                                </ng-container> 
+                                </select>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+          <button type="submit" [disabled]="!escuelaForm.valid" class="form-control alert-success" (click)="save()" id="ad"  data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" >Close</button>
+      </div>
+    </div>
+  </div>
+</div>

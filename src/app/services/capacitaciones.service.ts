@@ -10,8 +10,11 @@ export class CapacitacionesService {
   endPoint ='http://localhost:8000/api/capacitaciones'
   constructor(private http:HttpClient) { }
 
-  public getlist(): Observable<any>{
-    return this.http.get<any>(`${this.endPoint}`)
+  public getlist(data): Observable<any>{
+    return this.http.get(`${this.endPoint}`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    })
   }
   public getById(id): Observable<any> {
     return this.http.get<any>(`${this.endPoint}/${id}`);

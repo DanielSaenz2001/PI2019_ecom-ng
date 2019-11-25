@@ -2,8 +2,10 @@
     <div class="wrapper">
         <nav id="sidebar">
             <div class="sidebar-header" *ngIf="list">
-                <img src='http://localhost:8000/uploads/avatars/{{list.avatar}}' alt="img user" style="width: 150px; height: 150px; border-radius: 50%;  display: block;
+              <!-- 
+<img src='http://localhost:8000/uploads/avatars/{{list.avatar}}' alt="img user" style="width: 150px; height: 150px; border-radius: 50%;  display: block;
                 margin: auto;" data-toggle="modal" data-target="#Usuario" (click)="userProfile(list.user_ID);">
+              -->  
                 <div style="text-align: center;">
                     {{list.ap_paterno}} {{list.ap_materno}} <br>
                     {{list.nombre}}
@@ -11,43 +13,40 @@
             </div>
             <ul class="list-unstyled components"> 
                 <li class="nav-item">
-                    <a class="navbar-brand" href="#" *ngIf="loggedIn"  routerLink="/"  routerLinkActive="active" > <i class="fa fa-home"></i>  Home</a>
+                    <a class="nav-link" href="#" *ngIf="loggedIn"  routerLink="/"  routerLinkActive="active" > <i class="fa fa-home"></i>  Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/profile" routerLinkActive="active">Profile</a>
+                    <a class="nav-link" href="#" *ngIf="loggedIn"   routerLink="/persona" routerLinkActive="active">Persona</a>
                 </li>
                 <li class="nav-item">
-                    <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/persona" routerLinkActive="active">Persona</a>
+                        <a class="nav-link" href="#" *ngIf="loggedIn"   routerLink="/eventos" routerLinkActive="active">Eventos</a>
                 </li>
                 <li class="nav-item">
-                        <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/eventos" routerLinkActive="active">Eventos</a>
+                        <a class="nav-link" href="#" *ngIf="loggedIn"   routerLink="/facultades" routerLinkActive="active">Facultades</a>
                 </li>
                 <li class="nav-item">
-                        <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/facultades" routerLinkActive="active">Facultades</a>
+                        <a class="nav-link" href="#" *ngIf="loggedIn"   routerLink="/egresado" routerLinkActive="active">Egresado</a>
                 </li>
                 <li class="nav-item">
-                        <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/egresado" routerLinkActive="active">Egresado</a>
+                        <a class="nav-link" href="#" *ngIf="loggedIn"   routerLink="/egresadoform" routerLinkActive="active">EgresadoForm</a>
                 </li>
                 <li class="nav-item">
-                        <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/egresadoform" routerLinkActive="active">EgresadoForm</a>
+                        <a class="nav-link" href="#" *ngIf="loggedIn"   routerLink="/sugerencias" routerLinkActive="active">Segurencias</a>
                 </li>
                 <li class="nav-item">
-                        <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/sugerencias" routerLinkActive="active">Segurencias</a>
-                </li>
-                <li class="nav-item">
-                        <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/perfilegresados" routerLinkActive="active">Perfil Egresado</a>
+                        <a class="nav-link" href="#" *ngIf="loggedIn"   routerLink="/perfilegresados" routerLinkActive="active">Perfil Egresado</a>
                 </li>
                  <li class="nav-item">
-                        <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/empresas" routerLinkActive="active">Empresas</a>
+                        <a class="nav-link" href="#" *ngIf="loggedIn"   routerLink="/empresas" routerLinkActive="active">Empresas</a>
                 </li>
                 <li class="nav-item">
-                        <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/capacitaciones" routerLinkActive="active">Capacitaciones</a>
+                        <a class="nav-link" href="#" *ngIf="loggedIn"   routerLink="/capacitaciones" routerLinkActive="active">Capacitaciones</a>
                 </li>
                 <li class="nav-item">
-                        <a class="navbar-brand" href="#" *ngIf="loggedIn"   routerLink="/capacitacionesfrom" routerLinkActive="active">CapacitacionesForm</a>
+                        <a class="nav-link" href="#" *ngIf="loggedIn"   routerLink="/capacitacionesfrom" routerLinkActive="active">CapacitacionesForm</a>
                 </li>
                 <li class="nav-item">
-                    <a class="navbar-brand" href="#" *ngIf="loggedIn"   (click)="logout($event)" >Logout</a>
+                    <a class="nav-link" href="#" *ngIf="loggedIn"   (click)="logout($event)" >Logout</a>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Page</a>

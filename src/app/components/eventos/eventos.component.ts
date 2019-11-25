@@ -64,9 +64,4 @@ export class EventosComponent implements OnInit {
       this.eventos();
     });
   }
-  empresasList(){
-    this.empresasService.getlist().subscribe(response=>{
-      this.empresas= response;
-    })
-  }
 }

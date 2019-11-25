@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
 @Injectable({
   providedIn: 'root'
 })
-export class EgresadosService {
+export class ExperienciasService {
 
-  endPoint ='http://localhost:8000/api/egresados';
+  endPoint ='http://localhost:8000/api/experiencias'
   constructor(private http:HttpClient) { }
 
-  public getlist(): Observable<any>{
-    return this.http.get<any>(`${this.endPoint}`)
+  public getlist(data): Observable<any>{
+    return this.http.get(`${this.endPoint}`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    })
   }
   public add(data): Observable<any> {
     return this.http.post<any>(`${this.endPoint}`, data);
@@ -24,14 +26,6 @@ export class EgresadosService {
       return this.http.delete<any>(`${this.endPoint}/${id}`);
   }
   public getById(id): Observable<any> {
-    console.log(id)
     return this.http.get<any>(`${this.endPoint}/${id}`);
   }
-  egresados(data) {
-    return this.http.get(`${this.endPoint}datos`,{ headers:{
-      'Authorization': "Bearer " + data,
-      }
-    })
-  }
-  
 }

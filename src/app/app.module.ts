@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './components/sistem/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { PersonaComponent } from './components/users/persona/persona.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -28,18 +28,22 @@ import { PersonaIndexComponent } from './components/persona/persona-index/person
 import { PersonaFormComponent } from './components/persona/persona-form/persona-form.component';
 import { PersonaDependienteComponent } from './components/persona/persona-dependiente/persona-dependiente.component';
 import { HomeComponent } from './components/home/home.component';
-import { EgresadoformComponent } from './components/egresado/egresadoform/egresadoform.component';
-import { EgresadoindexComponent } from './components/egresado/egresadoindex/egresadoindex.component';
-import { FacultadComponent } from './components/facultad/facultad.component';
-import { EscuelasComponent } from './components/facultad/escuelas/escuelas.component';
+import { EgresadoformComponent } from './components/admin/egresado/egresadoform/egresadoform.component';
+import { EgresadoindexComponent } from './components/admin/egresado/egresadoindex/egresadoindex.component';
+import { FacultadComponent } from './components/admin/facultad/facultad.component';
+import { EscuelasComponent } from './components/admin/facultad/escuelas/escuelas.component';
 import { EventosComponent } from './components/eventos/eventos.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarComponent } from './components/sistem/sidebar/sidebar.component';
 import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasindex/sugerenciasindex.component';
-import { EmpresasindexComponent } from './components/empresas/empresasindex/empresasindex.component';
-import { EgresadoescuelaComponent } from './components/egresado/egresadoescuela/egresadoescuela.component';
+import { EmpresasindexComponent } from './components/admin/empresasindex/empresasindex.component';
 import { CapacitacionesfromComponent } from './components/capacitaciones/capacitacionesfrom/capacitacionesfrom.component';
 import { CapacitacionesindexComponent } from './components/capacitaciones/capacitacionesindex/capacitacionesindex.component';
 import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoperfil.component';
+import { EgresadoComponent } from './components/users/egresado/egresado.component';
+import { FormacionesComponent } from './components/users/formaciones/formaciones.component';
+import { CapacitacionesComponent } from './components/users/capacitaciones/capacitaciones.component';
+import { EmpresasComponent } from './components/users/empresas/empresas.component';
+import { ExperienciaComponent } from './components/users/experiencia/experiencia.component';
 
 
 
@@ -49,7 +53,7 @@ import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoper
     NavbarComponent,
     LoginComponent,
     SignupComponent,
-    ProfileComponent,
+    PersonaComponent,
     RequestResetComponent,
     ResponseResetComponent,
     PersonaIndexComponent,
@@ -64,10 +68,14 @@ import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoper
     SidebarComponent,
     SugerenciasindexComponent,
     EmpresasindexComponent,
-    EgresadoescuelaComponent,
     CapacitacionesfromComponent,
     CapacitacionesindexComponent,
-    EgresadoperfilComponent
+    EgresadoperfilComponent,
+    EgresadoComponent,
+    FormacionesComponent,
+    CapacitacionesComponent,
+    EmpresasComponent,
+    ExperienciaComponent
   ],
   imports: [
     BrowserModule,

@@ -14,20 +14,7 @@ a:focus{
 	text-decoration: none;
 	transition: all 0.3s;
 }
-.navbar{
-	padding: 15px 10px;
-	background: #fff;
-	border: none;
-	border-radius: 0;
-	margin-bottom: 40px;
-	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-}
 
-.navbar-btn{
-	box-shadow: none;
-	outline: none!important;
-	border: none;
-}
 
 .line{
 	width: 100%;
@@ -75,7 +62,11 @@ a:focus{
     color: #7386D5;
     background: #fff;
 }
-
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
@@ -92,10 +83,8 @@ a[data-toggle="collapse"] {
     transform: translateY(-50%);
 }
 
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
+.nav-link.active {
+    color: rgba(0, 0, 0, 0.9);
 }
 
 ul.CTAs {
@@ -109,15 +98,7 @@ ul.CTAs a {
     border-radius: 5px;
     margin-bottom: 5px;
 }
-a.download{
-	background: #fff;
-	color: #7386D5;
-}
-a.article,
-a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
-}
+
 
 #content {
     width: 100%;

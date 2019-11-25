@@ -26,9 +26,9 @@ export class EmpresasindexComponent implements OnInit {
     });
   }
   empresasList(){
-    this.empresasService.getlist().subscribe(response=>{
+  /*  this.empresasService.getlist().subscribe(response=>{
       this.empresas= response;
-    })
+    })*/
   }
   detalles(ids){
     this.empresasService.getById(ids).subscribe(response =>{

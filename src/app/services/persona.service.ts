@@ -24,4 +24,5 @@ export class PersonaService {
       
       return this.http.delete<any>(`${this.endPoint}/${id}`);
   }
+
 }

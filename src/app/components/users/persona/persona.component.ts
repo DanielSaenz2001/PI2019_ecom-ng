@@ -5,11 +5,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-persona',
+  templateUrl: './persona.component.html',
+  styleUrls: ['./persona.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class PersonaComponent implements OnInit {
   myFile;
   constructor(private Jarwis: JarwisService, private token:TokenService
     , private personaServices: PersonaService,
@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
   public list;
   personaForm: FormGroup;
   ngOnInit() {
-    this.dependientesList();
+    /*this.dependientesList();*/
     this.PersonaList();
     this.personaForm = this.formBuilder.group({
       id:  [''],
@@ -66,4 +66,5 @@ export class ProfileComponent implements OnInit {
       this.dependientesList();
     });
   }
+
 }

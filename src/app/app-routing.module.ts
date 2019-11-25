@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { BeforeLoginService } from './services/before-login.service';
@@ -14,16 +13,16 @@ import { PersonaDependienteComponent } from './components/persona/persona-depend
 
 import { HomeComponent } from './components/home/home.component';
 
-import { EgresadoformComponent } from './components/egresado/egresadoform/egresadoform.component';
-import { EgresadoindexComponent } from './components/egresado/egresadoindex/egresadoindex.component';
+import { EgresadoformComponent } from './components/admin/egresado/egresadoform/egresadoform.component';
+import { EgresadoindexComponent } from './components/admin/egresado/egresadoindex/egresadoindex.component';
 
-import { FacultadComponent } from './components/facultad/facultad.component';
+import { FacultadComponent } from './components/admin/facultad/facultad.component';
 
 import { EventosComponent } from './components/eventos/eventos.component';
 
 import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasindex/sugerenciasindex.component';
 
-import { EmpresasindexComponent } from './components/empresas/empresasindex/empresasindex.component';
+import { EmpresasindexComponent } from './components/admin/empresasindex/empresasindex.component';
 import { CapacitacionesfromComponent } from './components/capacitaciones/capacitacionesfrom/capacitacionesfrom.component';
 import { CapacitacionesindexComponent } from './components/capacitaciones/capacitacionesindex/capacitacionesindex.component';
 
@@ -37,6 +36,10 @@ const routes: Routes = [
     canActivate: [BeforeLoginService]
   },
   {
+    path: 'holamundo',
+    component: LoginComponent
+  },
+  {
     path: '',
     component: HomeComponent
   },
@@ -45,11 +48,7 @@ const routes: Routes = [
     component: SignupComponent,
     canActivate: [BeforeLoginService]
   },
-  {
-    path: 'profile',
-    component: ProfileComponent,
-    canActivate: [AfterLoginService]
-  },
+
   {
     path: 'persona',
     component: PersonaIndexComponent,
