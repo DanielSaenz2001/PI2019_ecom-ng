@@ -1,25 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { JarwisService } from 'src/app/services/jarwis.service';
-import { TokenService } from 'src/app/services/token.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersonaService } from 'src/app/services/persona.service';
-
+import { AdminService } from 'src/app/services/admin.service';
 @Component({
-  selector: 'app-persona',
-  templateUrl: './persona.component.html',
-  styleUrls: ['./persona.component.css']
+  selector: 'app-egrepersona',
+  templateUrl: './egrepersona.component.html',
+  styleUrls: ['./egrepersona.component.css']
 })
-export class PersonaComponent implements OnInit {
-  constructor(private Jarwis: JarwisService, private token:TokenService
+export class EgrepersonaComponent implements OnInit {
+  @Input() ID;
+  constructor(private Jarwis: JarwisService
     , private personaServices: PersonaService,
-    private formBuilder: FormBuilder) { }
-  dependientes;
-  PERSONAID;
-  public list;
-  personaForm: FormGroup;
+    private formBuilder: FormBuilder,private adminService:AdminService) { }
+    dependientes;
+    PERSONAID;
+    public list;
+    personaForm: FormGroup;
   ngOnInit() {
-    /*this.dependientesList();*/
+    
     this.PersonaList();
+    this.dependientesList();
     this.personaForm = this.formBuilder.group({
       id:  [''],
       nombre: ['', [Validators.required]],
@@ -36,8 +37,9 @@ export class PersonaComponent implements OnInit {
     });
   }
   PersonaList(){
-    this.Jarwis.me(this.token.get()).subscribe(response => {
+    this.adminService.persona(this.ID).subscribe(response => {
       this.list= response;
+      console.log("persona: ", response)
     });
   }
   
@@ -48,8 +50,9 @@ export class PersonaComponent implements OnInit {
     })
   }
   dependientesList(){
-    this.Jarwis.users(this.token.get()).subscribe(response => {
+    this.adminService.dependiente(this.ID).subscribe(response => {
       this.dependientes= response;
+      console.log("dependientes: ", response)
     });
   }
   //-------------------------------------------------------------------------
@@ -65,5 +68,4 @@ export class PersonaComponent implements OnInit {
       this.dependientesList();
     });
   }
-
 }

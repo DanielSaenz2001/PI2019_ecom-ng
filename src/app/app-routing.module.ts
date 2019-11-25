@@ -24,6 +24,7 @@ import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasi
 import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoperfil.component';
 
 import { UsersComponent } from './components/admin/users/users.component';
+import { VeregresadoComponent } from './components/admin/egresado/veregresado/veregresado.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -34,6 +35,7 @@ const routes: Routes = [
     path: 'usuarios',
     component: UsersComponent
   },
+  { path: 'veregresado/:id',  component: VeregresadoComponent },
   {
     path: '',
     component: HomeComponent

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class ExperienciasService {
 
-  endPoint ='http://localhost:8000/api/experiencias'
+  endPoint ='https://serve-ecom.herokuapp.com/api/experiencias'
   constructor(private http:HttpClient) { }
 
   public getlist(data): Observable<any>{

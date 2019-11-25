@@ -1,0 +1,136 @@
+
+<div *ngIf="list">
+  <div class="container" id="perfil">
+    <section id="profile" class="mt-5" >
+      <div class="row">
+        <div class="col-10 col-sm-10  col-md-7  col-lg-5 col-xl-5 mx-auto main-section text-center card">
+          <div class="row">
+
+          </div>
+          <div class="row user-details">
+            <div class="col-12 col-lg-12 col-sm-12">
+              <span>
+                  {{list.avatar}}
+               Usuario: {{list.usuario}}
+               Sexo: {{list.sexo}}
+               Role: {{list.rol}}
+               Pais: {{list.pais}}
+               Nombre: {{list.nombre}}
+               Fech_nacimiento: {{list.fec_nacimiento}}
+               Estado Civil: {{list.est_civil}}
+               Email: {{list.email}}
+               Dni: {{list.dni}}
+               Departamento: {{list.departamentos}}
+               Materno: {{list.ap_materno}}
+               Paterno: {{list.ap_paterno}}
+               Provincia: {{list.provincia}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="col-10 col-sm-10  col-md-7  col-lg-5 col-xl-5 mx-auto main-section text-center card">
+              <button class="button-red" class="btn btn-dark mt-2 form-control" data-toggle="modal" data-target="#Persona" (click)="persona(list.persona_ID);">Actualizar</button>
+          </div>
+      </div>
+    </section>
+  </div>  
+  <hr>
+  <div *ngIf="list.activo == false">
+    <button data-toggle="modal" data-target="#Egresados"> AGREGAR</button>
+  </div>
+  <div class="row ">
+    <div class="m-auto">
+        <h2>
+            <a routerLink="/personadependiente/{{list.persona_ID}}" routerLinkActive="active" id="ga">
+                <button class="button-red" class="form-control alert-success"id="ad" >Agregar</button>
+            </a>
+        </h2>
+    </div>
+  </div>
+  <hr>
+  <table class="table table-light" >
+    <thead class="thead-light">
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Celular</th>
+            <th>Est. Civil</th>
+            <th>Genero</th>       
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let d of dependientes; index as i ">
+        <tr>
+            <td>{{i+1}}</td>
+            <td>{{d.nombre}}</td>
+            <td>{{d.ap_paterno}} {{d.ap_materno}}</td>
+            <td>{{d.celular}}</td>
+            <td>{{d.est_civil}}</td>
+            <td>{{d.sexo}}</td>
+            <td > 
+                <div class="row" id="ad">
+                    <a routerLink="/personaform/{{d.id}}" routerLinkActive="active" id="ga">
+                        <button class="button-red" class="form-control alert-warning"id="ad" >Edit</button>
+                    </a>
+                </div>
+                <div class="row">
+                    <button class="button-red" class="form-control alert-danger" id="ad" (click)="deleteDependiente(d.id)">Delete</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<app-egresadoform [ID]="list.persona_ID"></app-egresadoform>
+</div>
+
+
+<div class="modal fade" id="Persona">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Actualizar el E.C</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="personaForm" id="FO">
+          <div >
+              <div class="row"> 
+              <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Estado civil:</div>
+              <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                      <select class="form-control" id="sel1" formControlName="est_civil" id="est_civil" name="est_civil">
+                              <option value="Soltero">Soltero</option>
+                              <option value="Casado">Casado</option>
+                              <option value="Divorciado">Divorciado</option>
+                              <option value="Viudo">Viudo</option>
+                      </select>
+                      <div [hidden]="personaForm.get('est_civil').valid || 
+                      personaForm.get('est_civil').pristine" class="alert alert-danger">
+                              Su Estado Civil es importante
+                      </div>
+              </div>
+              <br>
+              <div class="row">
+                      
+                      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                      </div>
+                      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                      
+              </div>
+              <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+          <button type="submit" [disabled]="!personaForm.valid" class="form-control alert-success" (click)="save()" id="ad"  data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" >Close</button>
+      </div>
+    </div>
+  </div>
+</div>

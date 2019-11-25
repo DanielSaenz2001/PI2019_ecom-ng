@@ -41,6 +41,13 @@ import { CapacitacionesComponent } from './components/users/capacitaciones/capac
 import { EmpresasComponent } from './components/users/empresas/empresas.component';
 import { ExperienciaComponent } from './components/users/experiencia/experiencia.component';
 import { UsersComponent } from './components/admin/users/users.component';
+import { VeregresadoComponent } from './components/admin/egresado/veregresado/veregresado.component';
+import { EgrepersonaComponent } from './components/admin/egresado/veregresado/datosegresados/egrepersona/egrepersona.component';
+import { EgreegresadosComponent } from './components/admin/egresado/veregresado/datosegresados/egreegresados/egreegresados.component';
+import { EgreformacionesComponent } from './components/admin/egresado/veregresado/datosegresados/egreformaciones/egreformaciones.component';
+import { EgrecapacitacionesComponent } from './components/admin/egresado/veregresado/datosegresados/egrecapacitaciones/egrecapacitaciones.component';
+import { EgreempresasComponent } from './components/admin/egresado/veregresado/datosegresados/egreempresas/egreempresas.component';
+import { EgreexperienciaComponent } from './components/admin/egresado/veregresado/datosegresados/egreexperiencia/egreexperiencia.component';
 
 
 @NgModule({
@@ -69,6 +76,13 @@ import { UsersComponent } from './components/admin/users/users.component';
     EmpresasComponent,
     ExperienciaComponent,
     UsersComponent,
+    VeregresadoComponent,
+    EgrepersonaComponent,
+    EgreegresadosComponent,
+    EgreformacionesComponent,
+    EgrecapacitacionesComponent,
+    EgreempresasComponent,
+    EgreexperienciaComponent,
   ],
   imports: [
     BrowserModule,
