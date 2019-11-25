@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TokenService } from 'src/app/services/token.service';
 import { ExperienciasService } from 'src/app/services/experiencias.service';
 import { EgresadosService } from 'src/app/services/egresados.service';
+import { HistoryService } from 'src/app/services/history.service';
 @Component({
   selector: 'app-experiencia',
   templateUrl: './experiencia.component.html',
@@ -13,7 +14,7 @@ export class ExperienciaComponent implements OnInit {
   EX: any;
 
   constructor(private empresasService:EmpresasService,private formBuilder: FormBuilder, private token:TokenService
-    , private experienciasService:ExperienciasService,private egresadosService: EgresadosService) { }
+    , private experienciasService:ExperienciasService,private egresadosService: EgresadosService, private historyService:HistoryService) { }
   empresas;
   egresado;
   expe;
@@ -87,19 +88,29 @@ export class ExperienciaComponent implements OnInit {
   save2(){
     this.historyForm.value.experiencia_laboral_id=this.EX;
     console.log(this.historyForm.value)
-    /*console.log("ID: ",this.expForm.value.id)
-    if(this.expForm.value.id == null){
+    console.log("ID: ",this.historyForm.value.id)
+    if(this.historyForm.value.id == null){
       console.log("add")
-      this.expForm.value.egresado_id=this.egresado.id;
-      this.experienciasService.add(this.expForm.value).subscribe(response=>{
+      this.historyService.add(this.historyForm.value).subscribe(response=>{
         this.ExpList();
       });
     }else{
       console.log("update")
-      this.experienciasService.update(this.expForm.value.id ,this.expForm.value).subscribe(response=>{
+      this.historyService.update(this.historyForm.value.id ,this.expForm.value).subscribe(response=>{
         this.ExpList();
       });
     }
-   this.borrar();*/
+   this.borrar2();
+  }
+  detalles2(id){
+    this.historyService.getById(id).subscribe(response =>{
+      this.historyForm.setValue(response);
+    });
+  }
+  verdatos(id){
+    this.experienciasService.getlist(id).subscribe(response=>{
+      this.expe= response;
+      console.log(this.expe)
+    })
   }
 }

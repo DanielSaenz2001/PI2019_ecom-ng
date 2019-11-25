@@ -11,7 +11,7 @@
     <tr *ngFor="let e of expe; index as i">
       <td>{{i+1}}</td>
       <td>{{e.empresa}}</td>
-      <td><button  data-toggle="modal" data-target="#expdeta" data-toggle="modal" (click)="detalles(e.id)" data-backdrop=static data-keyboard=false>Mostrar</button></td>
+      <td><button  data-toggle="modal" data-target="#expdata" data-toggle="modal" (click)="detalles(e.id)" data-backdrop=static data-keyboard=false>Mostrar</button></td>
       <td><button  data-toggle="modal" data-target="#histoexp" data-toggle="modal" (click)="histo(e.id)" data-backdrop=static data-keyboard=false>Agregar Datos a exp</button></td>
     </tr>
   </tbody>
@@ -47,7 +47,7 @@
     </div>
   </div>
 </div>
-<div class="modal fade" id="expdeta">
+<div class="modal fade" id="expdata">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -145,7 +145,64 @@
         </div>
         <div class="modal-footer">
           <button type="submit" [disabled]="!historyForm.valid" class="form-control alert-success" (click)="save2()" id="ad"  data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="borrar2()">Close</button>
         </div>
       </div>
     </div>
+</div> 
+
+<div class="modal fade" id="histoexpdata">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Datos de Experiencia Laboral</h4>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="historyForm" id="FO">
+            <div class="row">
+                <div class="col-12">
+                      <div class="row">
+                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">Descripcion:</div>
+                        <div class="col-lg-7 col-7 col-md-7 col-sm-7 col-xl-7">
+                            <input type="text" formControlName="descripccion" id="descripccion" name="descripccion" class="form-control">
+                        </div>
+                        
+                      </div>
+                      <div class="row">
+                          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">Estado:</div>
+                          <div class="col-lg-7 col-7 col-md-7 col-sm-7 col-xl-7">
+                              <select class="form-control form-control-lg" formControlName="estado" >
+                                  <option>Contento</option>
+                                  <option>Regular</option>
+                                  <option>Descontento</option>
+                                </select>
+                          </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">Cargo:</div>
+                        <div class="col-lg-7 col-7 col-md-7 col-sm-7 col-xl-7">
+                            <input type="text" formControlName="cargo" id="cargo" name="cargo" class="form-control">
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">inicio de trabajo:</div>
+                          <div class="col-lg-7 col-7 col-md-7 col-sm-7 col-xl-7">
+                              <input type="date" formControlName="fech_inicio" id="fech_inicio" name="fech_inicio" class="form-control">
+                          </div>     
+                      </div>
+                      <div class="row">
+                          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">fin de trabajo:</div>
+                          <div class="col-lg-7 col-7 col-md-7 col-sm-7 col-xl-7">
+                              <input type="date" formControlName="fech_fin" id="fech_fin" name="fech_fin" class="form-control">
+                          </div>     
+                      </div>
+                </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="borrar2()">Close</button>
+      </div>
+    </div>
+  </div>
 </div> 
