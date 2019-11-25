@@ -12,18 +12,21 @@ import { HistoryService } from 'src/app/services/history.service';
 })
 export class ExperienciaComponent implements OnInit {
   EX: any;
+  DA: any;
 
   constructor(private empresasService:EmpresasService,private formBuilder: FormBuilder, private token:TokenService
-    , private experienciasService:ExperienciasService,private egresadosService: EgresadosService, private historyService:HistoryService) { }
+    , private experienciasService:ExperienciasService,private egresadosService: EgresadosService, 
+    private historyService:HistoryService) { }
   empresas;
   egresado;
   expe;
+  datos;
   expForm: FormGroup;
   historyForm: FormGroup;
   ngOnInit() {
-    /*this.ExpList();
-    this.empresasList();*/
-    this. PersonaList();
+    this.ExpList();
+    this.empresasList();
+    this.PersonaList();
     this.expForm = this.formBuilder.group({
       id:  [''],
       validacion_fecha: [''],
@@ -51,10 +54,6 @@ export class ExperienciaComponent implements OnInit {
     if(this.expForm.value.id == null){
       this.expForm.value.egresado_id=this.egresado.id;
       this.experienciasService.add(this.expForm.value).subscribe(response=>{
-        this.ExpList();
-      });
-    }else{
-      this.experienciasService.update(this.expForm.value.id ,this.expForm.value).subscribe(response=>{
         this.ExpList();
       });
     }
@@ -88,18 +87,9 @@ export class ExperienciaComponent implements OnInit {
   save2(){
     this.historyForm.value.experiencia_laboral_id=this.EX;
     console.log(this.historyForm.value)
-    console.log("ID: ",this.historyForm.value.id)
-    if(this.historyForm.value.id == null){
-      console.log("add")
       this.historyService.add(this.historyForm.value).subscribe(response=>{
         this.ExpList();
       });
-    }else{
-      console.log("update")
-      this.historyService.update(this.historyForm.value.id ,this.expForm.value).subscribe(response=>{
-        this.ExpList();
-      });
-    }
    this.borrar2();
   }
   detalles2(id){
@@ -108,9 +98,9 @@ export class ExperienciaComponent implements OnInit {
     });
   }
   verdatos(id){
-    this.experienciasService.getlist(id).subscribe(response=>{
-      this.expe= response;
-      console.log(this.expe)
+    this.historyService.getById(id).subscribe(response=>{
+      this.datos= response;
+      console.log(response)
     })
   }
 }

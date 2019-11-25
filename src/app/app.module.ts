@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/sistem/navbar/navbar.component';
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/sistem/login/login.component';
+import { SignupComponent } from './components/sistem/signup/signup.component';
 import { PersonaComponent } from './components/users/persona/persona.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
@@ -32,19 +32,17 @@ import { EgresadoformComponent } from './components/admin/egresado/egresadoform/
 import { EgresadoindexComponent } from './components/admin/egresado/egresadoindex/egresadoindex.component';
 import { FacultadComponent } from './components/admin/facultad/facultad.component';
 import { EscuelasComponent } from './components/admin/facultad/escuelas/escuelas.component';
-import { EventosComponent } from './components/eventos/eventos.component';
+import { EventosComponent } from './components/others/eventos/eventos.component';
 import { SidebarComponent } from './components/sistem/sidebar/sidebar.component';
 import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasindex/sugerenciasindex.component';
 import { EmpresasindexComponent } from './components/admin/empresasindex/empresasindex.component';
-import { CapacitacionesfromComponent } from './components/capacitaciones/capacitacionesfrom/capacitacionesfrom.component';
-import { CapacitacionesindexComponent } from './components/capacitaciones/capacitacionesindex/capacitacionesindex.component';
 import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoperfil.component';
 import { EgresadoComponent } from './components/users/egresado/egresado.component';
 import { FormacionesComponent } from './components/users/formaciones/formaciones.component';
 import { CapacitacionesComponent } from './components/users/capacitaciones/capacitaciones.component';
 import { EmpresasComponent } from './components/users/empresas/empresas.component';
 import { ExperienciaComponent } from './components/users/experiencia/experiencia.component';
-
+import { UsersComponent } from './components/admin/users/users.component';
 
 
 @NgModule({
@@ -68,14 +66,13 @@ import { ExperienciaComponent } from './components/users/experiencia/experiencia
     SidebarComponent,
     SugerenciasindexComponent,
     EmpresasindexComponent,
-    CapacitacionesfromComponent,
-    CapacitacionesindexComponent,
     EgresadoperfilComponent,
     EgresadoComponent,
     FormacionesComponent,
     CapacitacionesComponent,
     EmpresasComponent,
-    ExperienciaComponent
+    ExperienciaComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

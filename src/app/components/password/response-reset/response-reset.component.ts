@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { JarwisService } from '../../../services/jarwis.service';
 import {  SnotifyService } from 'ng-snotify';

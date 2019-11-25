@@ -43,7 +43,6 @@ export class EgresadoComponent implements OnInit {
   egresadoPerfil(){
     this.egresadosService.egresados(this.token.get()).subscribe(response=>{
       this.egresado=response
-      console.log(response)
     })
   }
   save(){

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/sistem/login/login.component';
+import { SignupComponent } from './components/sistem/signup/signup.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { BeforeLoginService } from './services/before-login.service';
@@ -18,13 +18,11 @@ import { EgresadoindexComponent } from './components/admin/egresado/egresadoinde
 
 import { FacultadComponent } from './components/admin/facultad/facultad.component';
 
-import { EventosComponent } from './components/eventos/eventos.component';
+import { EventosComponent } from './components/others/eventos/eventos.component';
 
 import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasindex/sugerenciasindex.component';
 
 import { EmpresasindexComponent } from './components/admin/empresasindex/empresasindex.component';
-import { CapacitacionesfromComponent } from './components/capacitaciones/capacitacionesfrom/capacitacionesfrom.component';
-import { CapacitacionesindexComponent } from './components/capacitaciones/capacitacionesindex/capacitacionesindex.component';
 
 
 import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoperfil.component';
@@ -111,16 +109,6 @@ const routes: Routes = [
   {
     path: 'facultades',
     component: FacultadComponent,
-    canActivate: [AfterLoginService]
-  },
-  {
-    path: 'capacitaciones',
-    component: CapacitacionesindexComponent,
-    canActivate: [AfterLoginService]
-  },
-  {
-    path: 'capacitacionesfrom',
-    component: CapacitacionesfromComponent,
     canActivate: [AfterLoginService]
   }
 ];

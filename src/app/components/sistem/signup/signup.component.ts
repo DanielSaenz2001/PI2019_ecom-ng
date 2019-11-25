@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { JarwisService } from '../../services/jarwis.service';
-import { TokenService } from '../../services/token.service';
+import { JarwisService } from '../../../services/jarwis.service';
+import { TokenService } from '../../../services/token.service';
 import { Router } from '@angular/router';
 
 @Component({

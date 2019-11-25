@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { JarwisService } from '../../services/jarwis.service';
-import { TokenService } from '../../services/token.service';
+import { JarwisService } from '../../../services/jarwis.service';
+import { TokenService } from '../../../services/token.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
