@@ -13,6 +13,9 @@ export class SugerenciasService {
   public getlist(): Observable<any>{
     return this.http.get<any>(`${this.endPoint}`)
   }
+  public getlist2(): Observable<any>{
+    return this.http.get<any>(`${this.endPoint}2`)
+  }
   public getById(id): Observable<any> {
     console.log(id)
     return this.http.get<any>(`${this.endPoint}/${id}`);
@@ -23,6 +26,9 @@ export class SugerenciasService {
   public update(id, data): Observable<any> {
       return this.http.put<any>(`${this.endPoint}/${id}`, data);
   }
+  public update2(id, data): Observable<any> {
+    return this.http.put<any>(`${this.endPoint}2/${id}`, data);
+}
   public delete(id): Observable<any> {
       
       return this.http.delete<any>(`${this.endPoint}/${id}`);

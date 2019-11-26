@@ -65,6 +65,7 @@ export class EgreexperienciaComponent implements OnInit {
       this.expForm.value.egresado_id=this.egresado.id;
       this.experienciasService.add(this.expForm.value).subscribe(response=>{
         this.ExpList();
+        console.log(response)
       });
       this.myDate = new Date();
       this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
@@ -105,6 +106,7 @@ export class EgreexperienciaComponent implements OnInit {
     this.historyForm.value.experiencia_laboral_id=this.EX;
       this.historyService.add(this.historyForm.value).subscribe(response=>{
         this.ExpList();
+        console.log(response)
       });
       this.egresadoform.value.fec_actualizacion=this.myDate;
       this.egresadoform.value.estado_actualizaciones='2';

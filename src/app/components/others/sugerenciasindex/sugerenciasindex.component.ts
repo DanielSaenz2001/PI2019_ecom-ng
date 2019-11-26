@@ -59,7 +59,9 @@ export class SugerenciasindexComponent implements OnInit {
     });
   }
   save(){
+    console.log(this.sugerenciaForm.value)
     if(this.sugerenciaForm.value.id == null){
+      console.log("add")
       this.myDate = new Date();
       this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
       this.sugerenciaForm.value.fecha_creacion=this.myDate;
@@ -69,6 +71,7 @@ export class SugerenciasindexComponent implements OnInit {
       });
       
     }else{
+      console.log("update")
       this.sugerenciasService.update(this.sugerenciaForm.value.id ,this.sugerenciaForm.value).subscribe(response=>{
         this.sugerenciasList();
       });

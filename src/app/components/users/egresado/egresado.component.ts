@@ -78,7 +78,7 @@ export class EgresadoComponent implements OnInit {
     })
   }
   EscuelasList(){
-    this.escuelasService.getlist().subscribe(response=>{
+    this.escuelasService.getlist2().subscribe(response=>{
       this.escuelas= response;
     })
   }

@@ -51,10 +51,6 @@ export class EgreegresadosComponent implements OnInit {
     })
   }
   save(){
-    const myDate = new Date(this.escuelaForm.value.fecha_ingreso);
-    this.escuelaForm.value.fecha_ingreso = this.datePipe.transform(myDate, 'yyyy');
-    const myDate2 = new Date(this.escuelaForm.value.fecha_egreso);
-    this.escuelaForm.value.fecha_egreso = this.datePipe.transform(myDate2, 'yyyy');
     this.escuelaForm.value.egresado_id=this.IDEGRESADO
     this.egresadoescuelasService.add(this.escuelaForm.value).subscribe(response=>{
       this.EgresadoEscuelaList();
@@ -76,7 +72,7 @@ export class EgreegresadosComponent implements OnInit {
     })
   }
   EscuelasList(){
-    this.escuelasService.getlist().subscribe(response=>{
+    this.escuelasService.getlist2().subscribe(response=>{
       this.escuelas= response;
     })
   }

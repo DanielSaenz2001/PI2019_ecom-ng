@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CapacitacionesService } from 'src/app/services/capacitaciones.service';
-import { EmpresasService } from 'src/app/services/empresas.service';
-import { EgresadosService } from 'src/app/services/egresados.service';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({

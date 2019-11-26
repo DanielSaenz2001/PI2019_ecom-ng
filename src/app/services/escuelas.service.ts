@@ -12,6 +12,9 @@ export class EscuelasService {
   public getlist(): Observable<any>{
     return this.http.get<any>(`${this.endPoint}`)
   }
+  public getlist2(): Observable<any>{
+    return this.http.get<any>(`${this.endPoint}2`)
+  }
   public add(data): Observable<any> {
     return this.http.post<any>(`${this.endPoint}`, data);
   }

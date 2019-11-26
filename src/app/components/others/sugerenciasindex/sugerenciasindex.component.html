@@ -1,11 +1,16 @@
 <h2> Lista de Comentarios</h2>
 
-<div class="row mt-5" *ngIf="list">
+<div class="row mt-5 mb-3" *ngIf="list">
     <div class="col-12">
-      <div class="row">
+      <div class="row mb-2">
         <div class="col-12" style="text-align: center;">
             <button  class="btn btn-primary" data-toggle="modal" data-target="#comentario" (click)="generar(list.user_ID)"
              style="padding-right: 25px; padding-left: 25px;">Agregar Comentario</button>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-12" style="text-align: center;">
+            <button  class="btn btn-primary" routerLink="/sugerencias/responder" routerLinkActive="active" style="padding-right: 25px; padding-left: 25px;">Comentarios sin responder</button>
         </div>
       </div>
       <div class="row">
@@ -22,8 +27,10 @@
                       </div>
                     <div class="row">
                       <div class="col-12">
-                          <div *ngIf="s.comentario_respuesta !== null">
-                              Comentario de administrador
+                          <div *ngIf="s.comentario_respuesta !== null" style="    margin-left: 90px;">
+                              {{s.comentario_respuesta}} <br>
+                              {{s.fecha_atencion}} <br>
+                              {{s.user_administrador}}
                           </div>
                       </div>
                     </div>

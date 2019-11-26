@@ -25,6 +25,9 @@ import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoper
 
 import { UsersComponent } from './components/admin/users/users.component';
 import { VeregresadoComponent } from './components/admin/egresado/veregresado/veregresado.component';
+
+import { ResponderSugerenciasComponent } from './components/others/sugerenciasindex/responder-sugerencias/responder-sugerencias.component';
+
 const routes: Routes = [
   {
     path: 'login',
@@ -77,6 +80,11 @@ const routes: Routes = [
   {
     path: 'sugerencias',
     component: SugerenciasindexComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'sugerencias/responder',
+    component: ResponderSugerenciasComponent,
     canActivate: [AfterLoginService]
   },
   {
