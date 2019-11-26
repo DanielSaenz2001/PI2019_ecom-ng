@@ -1,27 +1,47 @@
 <h2> Lista de Comentarios</h2>
-<div *ngIf="list">
-    <button type="submit" class="form-control alert-success" data-toggle="modal" data-target="#comentario" (click)="generar(list.user_ID)">Submit</button>
-</div>
 
-
-
-<div class="container">
-    <div class="" *ngFor="let s of sugerencias">
-      <div class="border-1"> 
-        <input type="text" value="{{s.comentario_egresado}} " disabled>
-          Comentario: {{s.comentario_egresado}} <br>
-          fecha: {{s.fecha_creacion}} <br>
-         tipo: {{s.tipo_comentario}}
-          <div *ngIf="s.comentario_respuesta == null">
-              Comentario de administrador
-          </div>
-          <button type="button" class="btn btn-warning align-content-start" data-toggle="modal" data-target="#comentario" (click)="detalles(s.id)">Actualizar</button>
-        <button type="button" class="btn btn-danger ml-2" (click)="delete(s.id)"> Eliminar</button>
+<div class="row mt-5" *ngIf="list">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12" style="text-align: center;">
+            <button  class="btn btn-primary" data-toggle="modal" data-target="#comentario" (click)="generar(list.user_ID)"
+             style="padding-right: 25px; padding-left: 25px;">Agregar Comentario</button>
+        </div>
       </div>
-       
+      <div class="row">
+        <div class="col-12">
+            <div class="container">
+                <div class="" *ngFor="let s of sugerencias">
+                  <div class="border-1"> 
+                      <div class="row">
+                        <div class="col-12">
+                            Comentario: {{s.comentario_egresado}} <br>
+                            fecha: {{s.fecha_creacion}} <br>
+                            tipo: {{s.tipo_comentario}}
+                        </div>
+                      </div>
+                    <div class="row">
+                      <div class="col-12">
+                          <div *ngIf="s.comentario_respuesta !== null">
+                              Comentario de administrador
+                          </div>
+                      </div>
+                    </div>
+                      <div class="row">
+                        <div class="col-8" style="margin: auto;">
+                            <button type="button" class="btn btn-warning align-content-start"  *ngIf="list.rol == 1 || list.user_ID == s.user_creador" data-toggle="modal" data-target="#comentario" (click)="detalles(s.id)" style="float: left;">
+                                Actualizar</button>
+                              <button type="button" class="btn btn-danger ml-2" (click)="delete(s.id)"  *ngIf="list.rol == 1 || list.user_ID == s.user_creador" style="float: right ;"> Eliminar</button>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
     </div>
-</div>
-
+  </div>
+  
 <div class="modal fade" id="comentario">
   <div class="modal-dialog">
     <div class="modal-content">

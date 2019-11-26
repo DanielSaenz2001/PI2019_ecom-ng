@@ -3,3 +3,43 @@ img{
     height: 400px; 
     border-radius: 5%; 
 }
+
+.producto{
+    flex: 20%;
+	text-align: center;
+	margin: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.lista-productos{
+	width: 98%;
+	display: flex;
+	flex-flow: row wrap;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+@media (min-width: 0px) and (max-width:600px){
+	.producto{
+		flex: 40%;
+	}
+	.ocultar{
+		display: none;
+	}
+	.cart{
+		margin-left: 60%;
+	}
+
+}
+
+@media (min-width: 601px) and (max-width:991px){
+	.producto{
+		flex: 30%;
+	}
+	.ocultar{
+		display: none;
+	}
+	.cart{
+		margin-left: 70%;
+	}
+}

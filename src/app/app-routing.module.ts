@@ -19,7 +19,7 @@ import { FacultadComponent } from './components/admin/facultad/facultad.componen
 
 import { EventosComponent } from './components/others/eventos/eventos.component';
 
-import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasindex/sugerenciasindex.component';
+import { SugerenciasindexComponent } from './components/others/sugerenciasindex/sugerenciasindex.component';
 
 import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoperfil.component';
 

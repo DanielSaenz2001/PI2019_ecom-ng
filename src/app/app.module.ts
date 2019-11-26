@@ -33,7 +33,7 @@ import { FacultadComponent } from './components/admin/facultad/facultad.componen
 import { EscuelasComponent } from './components/admin/facultad/escuelas/escuelas.component';
 import { EventosComponent } from './components/others/eventos/eventos.component';
 import { SidebarComponent } from './components/sistem/sidebar/sidebar.component';
-import { SugerenciasindexComponent } from './components/sugerencias/sugerenciasindex/sugerenciasindex.component';
+import { SugerenciasindexComponent } from './components/others/sugerenciasindex/sugerenciasindex.component';
 import { EgresadoperfilComponent } from './components/egresadoperfil/egresadoperfil.component';
 import { EgresadoComponent } from './components/users/egresado/egresado.component';
 import { FormacionesComponent } from './components/users/formaciones/formaciones.component';
