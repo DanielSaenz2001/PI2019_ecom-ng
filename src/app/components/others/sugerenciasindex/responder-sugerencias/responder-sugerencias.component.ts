@@ -5,6 +5,7 @@ import { TokenService } from 'src/app/services/token.service';
 import { DatePipe } from '@angular/common';
 import { SugerenciasService } from 'src/app/services/sugerencias.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-responder-sugerencias',
   templateUrl: './responder-sugerencias.component.html',
@@ -12,13 +13,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   providers: [DatePipe]
 })
 export class ResponderSugerenciasComponent implements OnInit {
+  user
   list;
   myDate;
   ID;
   sugerenciaForm: FormGroup;
   sugerencias;
   constructor(private Jarwis: JarwisService, private token:TokenService, private sugerenciasService:SugerenciasService
-    ,private formBuilder: FormBuilder,private datePipe: DatePipe) { }
+    ,private formBuilder: FormBuilder,private datePipe: DatePipe, public router: Router) { }
   listar(){
     this.Jarwis.me(this.token.get()).subscribe(response => {
       this.list= response;
@@ -34,6 +36,7 @@ export class ResponderSugerenciasComponent implements OnInit {
     })
   }
   ngOnInit() {
+    this.persona();
     this.listar();
     this.sugerenciasList();
     this.sugerenciaForm = this.formBuilder.group({
@@ -71,5 +74,13 @@ export class ResponderSugerenciasComponent implements OnInit {
   }
   borrar(){
     this.sugerenciaForm.reset();
+  }
+  persona(){
+    this.Jarwis.me(this.token.get()).subscribe(response=>{
+       this.user= response;
+      if(this.user.rol == 0){
+        this.router.navigate(['']);
+      }
+    })
   }
 }

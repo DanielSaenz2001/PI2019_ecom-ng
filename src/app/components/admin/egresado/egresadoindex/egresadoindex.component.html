@@ -1,28 +1,31 @@
-<h2>Egresados</h2>
-<table class="table table-light">
-  <thead class="thead-light">
-    <tr>
-      <th>#</th>  
-      <th>Est.</th>
-      <th>Cod.</th>
-      <th>Nombre</th>
-      <th>Celular</th>
-      <th>Fec. Actu</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let e of egresados; index as i">
-      <td>{{i+1}}</td>
-      <td *ngIf="e.estado_actualizaciones == 0"> <img src="../../../../../assets/rojo.png" alt="rojo" width="20px" height="20px"></td>
-      <td *ngIf="e.estado_actualizaciones == 1"> <img src="../../../../../assets/amarillo.png" alt="amarillo" width="20px" height="20px"></td>
-      <td *ngIf="e.estado_actualizaciones == 2"> <img src="../../../../../assets/verde.png" alt="verde" width="20px" height="20px"></td>
-      <td>{{e.codigo}}</td>
-      <td>{{e.nombre}} {{e.ap_paterno}} {{e.ap_materno}}</td>
-      <td>{{e.celular}}</td>
-      <td> {{e.fec_actualizacion}}</td>
-      <td><a routerLink="/veregresado/{{ e.userid }}" routerLinkActive="active"><i class="fa fa-eye"></i></a></td>
-      <td><a routerLink="/veregresado/{{ e.userid }}" routerLinkActive="active"><i class="fa fa-print"></i></a></td>
-    </tr>
-  </tbody>
-</table>
+
+<div *ngIf="user">
+  <h2>Egresados</h2>
+  <table class="table table-light">
+    <thead class="thead-light">
+      <tr>
+        <th>#</th>  
+        <th>Est.</th>
+        <th>Cod.</th>
+        <th>Nombre</th>
+        <th>Celular</th>
+        <th>Fec. Actu</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of egresados; index as i">
+        <td>{{i+1}}</td>
+        <td *ngIf="e.estado_actualizaciones == 0"> <img src="../../../../../assets/rojo.png" alt="rojo" width="20px" height="20px"></td>
+        <td *ngIf="e.estado_actualizaciones == 1"> <img src="../../../../../assets/amarillo.png" alt="amarillo" width="20px" height="20px"></td>
+        <td *ngIf="e.estado_actualizaciones == 2"> <img src="../../../../../assets/verde.png" alt="verde" width="20px" height="20px"></td>
+        <td>{{e.codigo}}</td>
+        <td>{{e.nombre}} {{e.ap_paterno}} {{e.ap_materno}}</td>
+        <td>{{e.celular}}</td>
+        <td> {{e.fec_actualizacion}}</td>
+        <td><a routerLink="/veregresado/{{ e.userid }}" routerLinkActive="active"><i class="fa fa-eye"></i></a></td>
+        <td><a routerLink="/veregresado/{{ e.userid }}" routerLinkActive="active"><i class="fa fa-print"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

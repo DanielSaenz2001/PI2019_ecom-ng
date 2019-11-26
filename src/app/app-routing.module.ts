@@ -7,6 +7,7 @@ import { ResponseResetComponent } from './components/password/response-reset/res
 
 import { BeforeLoginService } from './guards/before-login.service';
 import { AfterLoginService } from './guards/after-login.service';
+import { HomeGuard } from './guards/home.guard';
 
 
 
@@ -35,15 +36,21 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     canActivate: [BeforeLoginService]
+    
   },
   {
     path: 'usuarios',
-    component: UsersComponent
+    component: UsersComponent,
+    canActivate: [AfterLoginService]
   },
-  { path: 'veregresado/:id',  component: VeregresadoComponent },
+  { path: 'veregresado/:id',  
+  component: VeregresadoComponent,
+  canActivate: [AfterLoginService] 
+  },
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [HomeGuard]
   },
   {
     path: 'signup',
@@ -62,7 +69,8 @@ const routes: Routes = [
   },
   {
     path: 'eventos',
-    component: EventosComponent
+    component: EventosComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: 'personadependiente/:id',
