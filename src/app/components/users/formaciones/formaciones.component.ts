@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TokenService } from 'src/app/services/token.service';
 import { FormacionesService } from 'src/app/services/formaciones.service';
@@ -7,8 +6,7 @@ import { EgresadosService } from 'src/app/services/egresados.service';
 @Component({
   selector: 'app-formaciones',
   templateUrl: './formaciones.component.html',
-  styleUrls: ['./formaciones.component.css'],
-  providers: [DatePipe]
+  styleUrls: ['./formaciones.component.css']
 })
 export class FormacionesComponent implements OnInit {
 

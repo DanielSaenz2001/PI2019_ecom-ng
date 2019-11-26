@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class HistoryService {
 
-  endPoint ='https://serve-ecom.herokuapp.com/api/history'
+  endPoint ='http://localhost:8000/api/history'
   constructor(private http:HttpClient) { }
 
   public getlist(data): Observable<any>{

@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SugerenciasService {
 
-  endPoint ='https://serve-ecom.herokuapp.com/api/sugerencias'
+  endPoint ='http://localhost:8000/api/sugerencias'
   constructor(private http:HttpClient) { }
 
   public getlist(): Observable<any>{

@@ -3,6 +3,11 @@
   <thead class="thead-light">
     <tr>
       <th>#</th>
+      <th>nombre</th>
+      <th>email</th>
+      <th>Valido</th>
+      <th>rol</th>
+      <th colspan="2">Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -12,8 +17,18 @@
       <td>{{u.email}}</td>
       <td>{{u.activo}}</td>
       <td>{{u.rol}}</td>
-      <td><button (click)="actu(u.id,u.activo)">Cambiar estado</button></td>
-      <td><button (click)="rol(u.id,u.rol)">Cambiar rol</button></td>
+      <td *ngIf="u.activo == true">
+          <i class="fa fa-user-lock" (click)="actu(u.id,u.activo)"></i>
+      </td>
+      <td *ngIf="u.activo == false ||  u.activo == null">
+          <i class="fa fa-user-graduate" (click)="actu(u.id,u.activo)"></i>
+      </td>
+      <td *ngIf="u.rol == 0">
+        <i class="fas fa-level-up-alt" (click)="rol(u.id,u.rol)"></i>
+      </td>
+      <td *ngIf="u.rol == 1">
+          <i class="fas fa-level-down-alt" (click)="rol(u.id,u.rol)"></i>
+      </td>
     </tr>
   </tbody>
 </table>

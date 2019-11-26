@@ -6,16 +6,17 @@
   </div>
 </div>
 <div class="row">
-<h2 class="m-auto">Facultades</h2>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Facultad">Agregar Facultad</button>
+    <h2 class="m-auto">Facultades</h2>
+    <div class="container" style="text-align: center;">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Facultad">Agregar Facultad</button>
+    </div>
 <table class="table table-light" >
     <thead class="thead-light">
         <tr>
             <th>#</th>
             <th>Nombre</th>
             <th>Acronimo</th>
-            <th colspan="1">Escuelas</th>
-            <th colspan="2">Acciones</th>
+            <th colspan="3">Acciones</th>
         </tr>
     </thead>
     <tbody *ngFor="let d of list; index as i">
@@ -24,18 +25,13 @@
             <td>{{d.nombre}}</td>
             <td>{{d.acronimo}}</td>
             <td>
-                <button class="button-red" class="form-control alert-success"id="ad" data-toggle="modal" data-target="#Escuelas" (click)="id(d.id);">Agregar</button>
+                <i class="fa fa-plus"   data-toggle="modal" data-target="#Escuelas" (click)="id(d.id);"></i>
             </td>
             <td > 
-                <div class="row" id="ad">
-                    <button class="button-red" class="form-control alert-warning"id="ad" (click)="updateFacultad(d.id)" data-toggle="modal" data-target="#Facultad">Edit</button>
-                </div>
-                
+                <i class="fa fa-pen"  (click)="updateFacultad(d.id)" data-toggle="modal" data-target="#Facultad"></i>
             </td>
             <td>
-              <div class="row">
-                <button class="button-red" class="form-control alert-danger" id="ad" (click)="delete(d.id)" >Delete</button>
-        </div>
+                <i class="fa fa-times"  (click)="delete(d.id)"></i>
             </td>
         </tr>
     </tbody>

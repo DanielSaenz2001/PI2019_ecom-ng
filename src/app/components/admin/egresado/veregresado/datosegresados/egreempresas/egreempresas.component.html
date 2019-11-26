@@ -1,3 +1,76 @@
-<p>
-  egreempresas works!
-</p>
+
+
+  <form [formGroup]="empresaForm" id="FO">
+    <div class="row">
+        <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Nombre:</div>
+        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                <input type="text" formControlName="nombre" required id="nombre" name="nombre" class="form-control">
+        </div>
+        <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Telefono:</div>
+        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                <input type="text" formControlName="telefono" id="telefono" name="telefono" class="form-control" maxlength="9">
+        </div>        
+    </div>
+    <br>  
+    <div class="row">
+        <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Dirección:</div>
+        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                <input type="text" formControlName="direccion" required id="direccion" name="direccion" class="form-control">
+        </div>
+        <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Tipo:</div>
+        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+          <select class="form-control form-control-lg" formControlName="tipo" >
+            <option value=null>seleccionar tipo</option>
+            <option>Uno</option>
+            <option>dos</option>
+          </select>
+        </div>        
+    </div>
+    <br> 
+    <div class="row">
+        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">Email:</div>
+        <div class="col-lg-8 col-8 col-md-8 col-sm-8 col-xl-8">
+                <input type="text" formControlName="correo" required id="correo" name="correo" class="form-control">
+        </div>       
+    </div>
+    <br> 
+    <div class="row">
+        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4"></div>
+        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+            <button type="submit" [disabled]="!empresaForm.valid" class="form-control alert-success" id="ad" (click)="save()">Submit</button>
+            <button type="submit" class="form-control alert-success" (click)="borrar();">Borrar</button>
+        </div>
+        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+        </div>
+    </div>
+      </form>
+  
+  <table class="table table-light" >
+      <thead class="thead-light">
+          <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Telefono</th>
+              <th>tipo</th>
+              <th>Dirección</th>
+              <th>correo</th>       
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let d of empresas; index as i">
+          <tr >
+              <td >{{i+1}}</td>
+              <td>{{d.nombre}}</td>
+              <td>{{d.telefono}}</td>
+              <td>{{d.tipo}}</td>
+              <td>{{d.direccion}}</td>
+              <td>{{d.correo}}</td>
+              <td > 
+                <div class="row" id="ad">
+                  <button (click)="actualizar(d.id)">Actualizar</button>
+                </div>
+            </td>
+          </tr>
+      </tbody>
+  </table>
+  

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class EgresadoescuelasService {
 
-  endPoint ='https://serve-ecom.herokuapp.com/api/egresadoescuelas'
+  endPoint ='http://localhost:8000/api/egresadoescuelas'
   constructor(private http:HttpClient) { }
 
   public getlist(): Observable<any>{

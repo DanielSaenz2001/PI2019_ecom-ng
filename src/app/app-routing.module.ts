@@ -70,11 +70,6 @@ const routes: Routes = [
     canActivate: [AfterLoginService]
   },
   {
-    path: 'egresadoform',
-    component: EgresadoformComponent,
-    canActivate: [AfterLoginService]
-  },
-  {
     path: 'perfilegresados',
     component: EgresadoperfilComponent,
     canActivate: [AfterLoginService]

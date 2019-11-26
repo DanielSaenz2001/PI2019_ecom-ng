@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { JarwisService } from 'src/app/services/jarwis.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersonaService } from 'src/app/services/persona.service';
 import { AdminService } from 'src/app/services/admin.service';
@@ -10,8 +9,7 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class EgrepersonaComponent implements OnInit {
   @Input() ID;
-  constructor(private Jarwis: JarwisService
-    , private personaServices: PersonaService,
+  constructor(private personaServices: PersonaService,
     private formBuilder: FormBuilder,private adminService:AdminService) { }
     dependientes;
     PERSONAID;
@@ -39,7 +37,6 @@ export class EgrepersonaComponent implements OnInit {
   PersonaList(){
     this.adminService.persona(this.ID).subscribe(response => {
       this.list= response;
-      console.log("persona: ", response)
     });
   }
   
@@ -52,7 +49,6 @@ export class EgrepersonaComponent implements OnInit {
   dependientesList(){
     this.adminService.dependiente(this.ID).subscribe(response => {
       this.dependientes= response;
-      console.log("dependientes: ", response)
     });
   }
   //-------------------------------------------------------------------------

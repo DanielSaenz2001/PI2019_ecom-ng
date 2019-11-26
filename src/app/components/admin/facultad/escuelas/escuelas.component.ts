@@ -29,18 +29,20 @@ export class EscuelasComponent implements OnInit {
   }
   saveEscuela(){
     this.escuelasForm.value.facultad_id= this.ID;
+    console.log(this.escuelasForm.value)
       if(this.escuelasForm.value.id !== null){
         this.escuelasService.update(this.escuelasForm.value.id, this.escuelasForm.value).subscribe(response=>{
           this.escuelas();
         });
-        this.escuelasForm.reset();
+        
       }else{
         
         this.escuelasService.add(this.escuelasForm.value).subscribe(response=>{
           this.escuelas();
         });
-        this.escuelasForm.reset();
+        
       }
+      this.borrar()
   }
   updateEscuela(id) {
     this.escuelasService.getById(id).subscribe(response =>{
@@ -54,8 +56,5 @@ export class EscuelasComponent implements OnInit {
   }
   borrar(){
     this.escuelasForm.reset();
-  }
-  id(id){
-    this.ID = id;
   }
 }

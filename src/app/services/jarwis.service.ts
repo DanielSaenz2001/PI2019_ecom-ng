@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class JarwisService {
-  private baseUrl = 'https://serve-ecom.herokuapp.com/api';
+  private baseUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) { }
 

@@ -40,6 +40,7 @@ export class SidebarComponent implements OnInit {
   }
   handleResponse(data) {
     this.list= data;
+    console.log(data)
   }
   handleError() {
     this.Token.remove();

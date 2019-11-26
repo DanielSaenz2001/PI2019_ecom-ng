@@ -47,7 +47,7 @@ facultadForm: FormGroup;
       });
       this.facultadForm.reset();
     }
-     
+     this.borrar()
   }
 
   updateFacultad(id) {

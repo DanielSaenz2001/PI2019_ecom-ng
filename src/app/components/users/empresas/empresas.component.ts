@@ -13,7 +13,6 @@ export class EmpresasComponent implements OnInit {
   constructor(private empresasService:EmpresasService,private formBuilder: FormBuilder, private token:TokenService
     ,private egresadosService: EgresadosService) { }
   empresas;
-  ID;
   egresado;
   empresaForm: FormGroup;
   ngOnInit() { 

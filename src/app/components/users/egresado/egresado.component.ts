@@ -4,7 +4,6 @@ import { TokenService } from 'src/app/services/token.service';
 import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EgresadoescuelasService } from 'src/app/services/egresadoescuelas.service';
-import { EmpresasService } from 'src/app/services/empresas.service';
 import { FacultadesService } from 'src/app/services/facultades.service';
 import { EscuelasService } from 'src/app/services/escuelas.service';
 
@@ -17,19 +16,21 @@ import { EscuelasService } from 'src/app/services/escuelas.service';
 export class EgresadoComponent implements OnInit {
 
   escuelaForm: FormGroup;
+  egresadoform: FormGroup;
   constructor(private egresadosService:EgresadosService, private token:TokenService,private formBuilder: FormBuilder
     ,private egresadoescuelasService:EgresadoescuelasService,private facultadesService:FacultadesService, private escuelasService:EscuelasService
     ,private datePipe: DatePipe) { }
   egresado;
   IDEGRESADO;
   facultades;
+  myDate;
   escuelas;
   egresadosescuelas;
   ngOnInit() {
     this.egresadoPerfil();
-   /* this.EgresadoEscuelaList();
+   this.EgresadoEscuelaList();
     this.facultadesList();
-    this.EscuelasList();*/
+    this.EscuelasList();
     this.escuelaForm = this.formBuilder.group({
       id:  [''],
       fecha_ingreso: ['', [Validators.required]],
@@ -38,6 +39,10 @@ export class EgresadoComponent implements OnInit {
       facultad: [''],
       escuela_profesiona_id: ['', [Validators.required]],
       egresado_id: [''],
+    });
+    this.egresadoform = this.formBuilder.group({
+      fec_actualizacion: ['',[Validators.required]],
+      estado_actualizaciones: ['',[Validators.required]],
     });
   }
   egresadoPerfil(){
@@ -50,12 +55,18 @@ export class EgresadoComponent implements OnInit {
     this.escuelaForm.value.fecha_ingreso = this.datePipe.transform(myDate, 'yyyy');
     const myDate2 = new Date(this.escuelaForm.value.fecha_egreso);
     this.escuelaForm.value.fecha_egreso = this.datePipe.transform(myDate2, 'yyyy');
+
+    this.myDate = new Date();
+    this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
+    this.egresadoform.value.fec_actualizacion=this.myDate;
+    this.egresadoform.value.estado_actualizaciones='1';
+
     this.escuelaForm.value.egresado_id=this.IDEGRESADO
-    console.log( this.escuelaForm.value)
+
     this.egresadoescuelasService.add(this.escuelaForm.value).subscribe(response=>{
       this.EgresadoEscuelaList();
     });
-
+    this.egresadosService.updateestado(this.IDEGRESADO,this.egresadoform.value).subscribe();
   }
   EGRESADOID(id){
     this.IDEGRESADO=id

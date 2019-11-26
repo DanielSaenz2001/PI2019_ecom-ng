@@ -7,7 +7,7 @@
               <th>Nombre</th>
               <th>Acreditado</th>
               <th>Facultad</th>
-              <th>Acciones</th>
+              <th colspan="2">Acciones</th>
           </tr>
       </thead>
       <tbody *ngFor="let d of list; index as i ">
@@ -19,12 +19,10 @@
                 {{d.facultad_id}}
               </td>
               <td> 
-                  <div class="row" id="ad">
-                        <button class="button-red" class="form-control alert-warning"id="ad" (click)="updateEscuela(d.id)" data-toggle="modal" data-target="#Escuelas">Edit</button>
-                  </div>
-                  <div class="row">
-                      <button class="button-red" class="form-control alert-danger" id="ad" (click)="delete(d.id)">Delete</button>
-                  </div>
+                <i class="fa fa-pen"  (click)="updateEscuela(d.id)" data-toggle="modal" data-target="#Escuelas"></i>
+              </td>
+              <td>
+                <i class="fa fa-times"  (click)="delete(d.id)"></i>
               </td>
           </tr>
       </tbody>

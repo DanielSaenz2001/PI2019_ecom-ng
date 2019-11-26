@@ -4,7 +4,6 @@ import { PaisesService } from 'src/app/services/paises.service';
 import { DepartamentosService } from 'src/app/services/departamentos.service';
 import { ProvinciasService } from 'src/app/services/provincias.service';
 import { EgresadosService } from 'src/app/services/egresados.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { PersonaService } from 'src/app/services/persona.service';
 
@@ -22,9 +21,7 @@ export class EgresadoformComponent implements OnInit {
     private departamentosService:DepartamentosService,
     private provinciasService:ProvinciasService,
     private personaServices: PersonaService,
-    private egresadosService:EgresadosService,
-    private router: Router,
-    private route: ActivatedRoute) { }
+    private egresadosService:EgresadosService) { }
     egresadoform: FormGroup;
     personaForm: FormGroup;
     paises;

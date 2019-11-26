@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class FormacionesService {
 
-  endPoint ='https://serve-ecom.herokuapp.com/api/formaciones'
+  endPoint ='http://localhost:8000/api/formaciones'
   constructor(private http:HttpClient) { }
 
   public getlist(data): Observable<any>{

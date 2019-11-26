@@ -8,7 +8,7 @@
       <th>Nombre</th>
       <th>Celular</th>
       <th>Fec. Actu</th>
-      <th></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
   <tbody>
@@ -21,7 +21,8 @@
       <td>{{e.nombre}} {{e.ap_paterno}} {{e.ap_materno}}</td>
       <td>{{e.celular}}</td>
       <td> {{e.fec_actualizacion}}</td>
-      <td><a routerLink="/veregresado/{{ e.userid }}" routerLinkActive="active"><button>ver</button></a></td>
+      <td><a routerLink="/veregresado/{{ e.userid }}" routerLinkActive="active"><i class="fa fa-eye"></i></a></td>
+      <td><a routerLink="/veregresado/{{ e.userid }}" routerLinkActive="active"><i class="fa fa-print"></i></a></td>
     </tr>
   </tbody>
 </table>
