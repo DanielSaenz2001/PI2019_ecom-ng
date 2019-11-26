@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CapacitacionesService } from 'src/app/services/capacitaciones.service';
 import { AdminService } from 'src/app/services/admin.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-egrecapacitaciones',
@@ -10,7 +11,8 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class EgrecapacitacionesComponent implements OnInit {
   @Input() ID;
-  constructor(private formBuilder: FormBuilder, private capacitacionesService:CapacitacionesService,private adminService:AdminService) { }
+  constructor(private formBuilder: FormBuilder, private capacitacionesService:CapacitacionesService,
+    private adminService:AdminService, private tokenService:TokenService) { }
   capacitacionesForm: FormGroup;
   empresas;
   egresado;
@@ -48,17 +50,17 @@ export class EgrecapacitacionesComponent implements OnInit {
     this.borrar();
   }
   empresasList(){
-    this.adminService.empresas(this.ID).subscribe(response=>{
+    this.adminService.empresas(this.ID,this.tokenService.get()).subscribe(response=>{
       this.empresas= response;
     })
   }
   PersonaList(){
-    this.adminService.egresado(this.ID).subscribe(response=>{
+    this.adminService.egresado(this.ID,this.tokenService.get()).subscribe(response=>{
       this.egresado=response
     })
   }
   capacitacionesList(){
-    this.adminService.capacitaciones(this.ID).subscribe(response=>{
+    this.adminService.capacitaciones(this.ID,this.tokenService.get()).subscribe(response=>{
       this.capacitaciones= response;
     })
   }

@@ -9,28 +9,52 @@ export class AdminService {
   endPoint ='http://localhost:8000/api/admin'
   constructor(private http:HttpClient) { }
 
-  public persona(id): Observable<any> {
-    return this.http.get<any>(`${this.endPoint}persona/${id}`);
+  public persona(id,data): Observable<any> {
+    return this.http.get<any>(`${this.endPoint}persona/${id}`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    });
   }
-  public dependiente(id): Observable<any> {
-    return this.http.get<any>(`${this.endPoint}dependiente/${id}`);
+  public dependiente(id,data): Observable<any> {
+    return this.http.get<any>(`${this.endPoint}dependiente/${id}`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    });
   }
-  public egresado(id): Observable<any> {
-    return this.http.get<any>(`${this.endPoint}egresado/${id}`);
+  public egresado(id,data): Observable<any> {
+    return this.http.get<any>(`${this.endPoint}egresado/${id}`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    });
   }
-  public egresadoescuela(id): Observable<any> {
-    return this.http.get<any>(`${this.endPoint}egresadoescuela/${id}`);
+  public egresadoescuela(id,data): Observable<any> {
+    return this.http.get<any>(`${this.endPoint}egresadoescuela/${id}`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    });
   }
-  public formaciones(id): Observable<any> {
-    return this.http.get<any>(`${this.endPoint}formaciones/${id}`);
+  public formaciones(id,data): Observable<any> {
+    return this.http.get<any>(`${this.endPoint}formaciones/${id}`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    });
   }
-  public capacitaciones(id): Observable<any> {
-    return this.http.get<any>(`${this.endPoint}capacitaciones/${id}`);
+  public capacitaciones(id,data): Observable<any> {
+    return this.http.get<any>(`${this.endPoint}capacitaciones/${id}`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    });
   }
-  public empresas(id): Observable<any> {
-    return this.http.get<any>(`${this.endPoint}empresas/${id}`);
+  public empresas(id,data): Observable<any> {
+    return this.http.get<any>(`${this.endPoint}empresas/${id}`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    });
   }
-  public experiencia(id): Observable<any> {
-    return this.http.get<any>(`${this.endPoint}experiencia/${id}`);
+  public experiencia(id,data): Observable<any> {
+    return this.http.get<any>(`${this.endPoint}experiencia/${id}`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    });
   }
 }

@@ -5,6 +5,7 @@ import { HistoryService } from 'src/app/services/history.service';
 import { AdminService } from 'src/app/services/admin.service';
 import { DatePipe } from '@angular/common';
 import { EgresadosService } from 'src/app/services/egresados.service';
+import { TokenService } from 'src/app/services/token.service';
 
 
 @Component({
@@ -18,8 +19,10 @@ export class EgreexperienciaComponent implements OnInit {
   EX: any;
   DA: any;
 
-  constructor(private formBuilder: FormBuilder,private experienciasService:ExperienciasService,private historyService:HistoryService,
-    private adminService:AdminService,private datePipe: DatePipe,private egresadosService: EgresadosService) { }
+  constructor(private formBuilder: FormBuilder,private experienciasService:ExperienciasService,
+    private historyService:HistoryService,
+    private adminService:AdminService,
+    private datePipe: DatePipe,private egresadosService: EgresadosService, private tokenService:TokenService) { }
   empresas;
   egresado;
   expe;
@@ -56,7 +59,7 @@ export class EgreexperienciaComponent implements OnInit {
     });
   }
   empresasList(){
-    this.adminService.empresas(this.ID).subscribe(response=>{
+    this.adminService.empresas(this.ID,this.tokenService.get()).subscribe(response=>{
       this.empresas= response;
     })
   }
@@ -82,12 +85,12 @@ export class EgreexperienciaComponent implements OnInit {
     this.historyForm.reset();
   }
   PersonaList(){
-    this.adminService.egresado(this.ID).subscribe(response=>{
+    this.adminService.egresado(this.ID,this.tokenService.get()).subscribe(response=>{
       this.egresado=response
     })
   }
   ExpList(){
-    this.adminService.experiencia(this.ID).subscribe(response=>{
+    this.adminService.experiencia(this.ID,this.tokenService.get()).subscribe(response=>{
       this.expe= response;
     })
   }

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersonaService } from 'src/app/services/persona.service';
 import { AdminService } from 'src/app/services/admin.service';
+import { TokenService } from 'src/app/services/token.service';
 @Component({
   selector: 'app-egrepersona',
   templateUrl: './egrepersona.component.html',
@@ -10,7 +11,7 @@ import { AdminService } from 'src/app/services/admin.service';
 export class EgrepersonaComponent implements OnInit {
   @Input() ID;
   constructor(private personaServices: PersonaService,
-    private formBuilder: FormBuilder,private adminService:AdminService) { }
+    private formBuilder: FormBuilder,private adminService:AdminService,private tokenService:TokenService) { }
     dependientes;
     PERSONAID;
     public list;
@@ -35,7 +36,7 @@ export class EgrepersonaComponent implements OnInit {
     });
   }
   PersonaList(){
-    this.adminService.persona(this.ID).subscribe(response => {
+    this.adminService.persona(this.ID,this.tokenService.get()).subscribe(response => {
       this.list= response;
     });
   }
@@ -47,7 +48,7 @@ export class EgrepersonaComponent implements OnInit {
     })
   }
   dependientesList(){
-    this.adminService.dependiente(this.ID).subscribe(response => {
+    this.adminService.dependiente(this.ID,this.tokenService.get()).subscribe(response => {
       this.dependientes= response;
     });
   }

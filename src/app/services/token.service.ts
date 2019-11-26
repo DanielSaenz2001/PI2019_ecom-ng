@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { JarwisService } from './jarwis.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable()
 export class TokenService {
@@ -6,9 +8,12 @@ export class TokenService {
     login: 'http://localhost:8000/api/login',
     signup: 'http://localhost:8000/api/signup'
   };
+  rol: any;
 
-  constructor() { }
+  constructor(private Jarwis:JarwisService) { 
+  }
 
+  list;
   handle(token) {
     this.set(token);
   }
@@ -24,8 +29,7 @@ export class TokenService {
     localStorage.removeItem('token');
   }
 
-  isValid() {
-
+  isValid() {;
     const token = this.get();
     if (token) {
       const payload = this.payload(token);
@@ -38,7 +42,7 @@ export class TokenService {
       return false;
     }
   }
-
+  
   payload(token) {
     const payload = token.split('.')[1];
     return this.decode(payload);
@@ -50,5 +54,7 @@ export class TokenService {
 
   loggedIn() {
     return this.isValid();
+    
   }
+  
 }

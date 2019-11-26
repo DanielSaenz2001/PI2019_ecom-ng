@@ -6,6 +6,7 @@ import { FacultadesService } from 'src/app/services/facultades.service';
 import { EscuelasService } from 'src/app/services/escuelas.service';
 import { AdminService } from 'src/app/services/admin.service';
 import { EgresadosService } from 'src/app/services/egresados.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-egreegresados',
@@ -19,7 +20,8 @@ export class EgreegresadosComponent implements OnInit {
   egresadoform: FormGroup;
   constructor(private formBuilder: FormBuilder
     ,private egresadoescuelasService:EgresadoescuelasService,private facultadesService:FacultadesService, private escuelasService:EscuelasService
-    ,private datePipe: DatePipe,private adminService:AdminService,private egresadosService: EgresadosService) { }
+    ,private datePipe: DatePipe,private adminService:AdminService,private egresadosService: EgresadosService,
+    private tokenService:TokenService) { }
   egresado;
   IDEGRESADO;
   facultades;
@@ -46,7 +48,7 @@ export class EgreegresadosComponent implements OnInit {
     });
   }
   egresadoPerfil(){
-    this.adminService.egresado(this.ID).subscribe(response=>{
+    this.adminService.egresado(this.ID,this.tokenService.get()).subscribe(response=>{
       this.egresado=response
     })
   }
@@ -78,7 +80,7 @@ export class EgreegresadosComponent implements OnInit {
   }
 
   EgresadoEscuelaList(){
-    this.adminService.egresadoescuela(this.ID).subscribe(response=>{
+    this.adminService.egresadoescuela(this.ID,this.tokenService.get()).subscribe(response=>{
       this.egresadosescuelas = response;
     })
   }

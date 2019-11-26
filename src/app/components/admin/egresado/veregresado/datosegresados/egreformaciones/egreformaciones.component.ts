@@ -11,7 +11,7 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class EgreformacionesComponent implements OnInit {
   @Input() ID;
-  constructor(private egresadosService: EgresadosService, private token:TokenService,private formBuilder: FormBuilder
+  constructor(private egresadosService: EgresadosService, private tokenService:TokenService,private formBuilder: FormBuilder
     ,private formacionesService:FormacionesService,private adminService:AdminService) { }
   formacionForm: FormGroup;
   formaciones;
@@ -50,7 +50,7 @@ export class EgreformacionesComponent implements OnInit {
     })
   }
   formacionesList(){
-    this.adminService.formaciones(this.ID).subscribe(response=>{
+    this.adminService.formaciones(this.ID,this.tokenService.get()).subscribe(response=>{
       this.formaciones = response;
     })
   }
@@ -58,7 +58,7 @@ export class EgreformacionesComponent implements OnInit {
     this.formacionForm.reset();
   }
   PersonaList(){
-    this.adminService.egresado(this.ID).subscribe(response=>{
+    this.adminService.egresado(this.ID,this.tokenService.get()).subscribe(response=>{
       this.egresado=response
     })
   }

@@ -5,12 +5,13 @@
       <div class="row mb-2">
         <div class="col-12" style="text-align: center;">
             <button  class="btn btn-primary" data-toggle="modal" data-target="#comentario" (click)="generar(list.user_ID)"
-             style="padding-right: 25px; padding-left: 25px;">Agregar Comentario</button>
+             style="padding-right: 25px; padding-left: 25px;" *ngIf="list.rol == 1">Agregar Comentario</button>
         </div>
       </div>
       <div class="row mb-2">
         <div class="col-12" style="text-align: center;">
-            <button  class="btn btn-primary" routerLink="/sugerencias/responder" routerLinkActive="active" style="padding-right: 25px; padding-left: 25px;">Comentarios sin responder</button>
+            <button  class="btn btn-primary" routerLink="/sugerencias/responder" routerLinkActive="active" 
+            style="padding-right: 25px; padding-left: 25px;">Comentarios sin responder</button>
         </div>
       </div>
       <div class="row">
@@ -36,9 +37,9 @@
                     </div>
                       <div class="row">
                         <div class="col-8" style="margin: auto;">
-                            <button type="button" class="btn btn-warning align-content-start"  *ngIf="list.rol == 1 || list.user_ID == s.user_creador" data-toggle="modal" data-target="#comentario" (click)="detalles(s.id)" style="float: left;">
+                            <button type="button" class="btn btn-warning align-content-start"  *ngIf="(list.rol == 1 || list.user_ID == s.user_creador) && s.comentario_respuesta == null " data-toggle="modal" data-target="#comentario" (click)="detalles(s.id)" style="float: left;">
                                 Actualizar</button>
-                              <button type="button" class="btn btn-danger ml-2" (click)="delete(s.id)"  *ngIf="list.rol == 1 || list.user_ID == s.user_creador" style="float: right ;"> Eliminar</button>
+                              <button type="button" class="btn btn-danger ml-2" (click)="delete(s.id)"  *ngIf="(list.rol == 1 || list.user_ID == s.user_creador) && s.comentario_respuesta == null " style="float: right ;"> Eliminar</button>
                         </div>
                       </div>
                   </div>

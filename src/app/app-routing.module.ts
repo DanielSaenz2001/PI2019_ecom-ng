@@ -4,15 +4,17 @@ import { LoginComponent } from './components/sistem/login/login.component';
 import { SignupComponent } from './components/sistem/signup/signup.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
-import { BeforeLoginService } from './services/before-login.service';
-import { AfterLoginService } from './services/after-login.service';
+
+import { BeforeLoginService } from './guards/before-login.service';
+import { AfterLoginService } from './guards/after-login.service';
+
+
 
 import { PersonaFormComponent } from './components/persona/persona-form/persona-form.component';
 import { PersonaDependienteComponent } from './components/persona/persona-dependiente/persona-dependiente.component';
 
 import { HomeComponent } from './components/home/home.component';
 
-import { EgresadoformComponent } from './components/admin/egresado/egresadoform/egresadoform.component';
 import { EgresadoindexComponent } from './components/admin/egresado/egresadoindex/egresadoindex.component';
 
 import { FacultadComponent } from './components/admin/facultad/facultad.component';

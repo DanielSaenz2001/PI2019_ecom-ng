@@ -11,7 +11,8 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class EgreempresasComponent implements OnInit {
   @Input() ID;
-  constructor(private empresasService:EmpresasService,private formBuilder: FormBuilder,private adminService:AdminService) { }
+  constructor(private empresasService:EmpresasService,private formBuilder: FormBuilder,private adminService:AdminService,
+    private tokenService:TokenService) { }
   empresas;
   egresado;
   empresaForm: FormGroup;
@@ -30,7 +31,7 @@ export class EgreempresasComponent implements OnInit {
     this.borrar();
   }
   empresasList(){
-    this.adminService.empresas(this.ID).subscribe(response=>{
+    this.adminService.empresas(this.ID,this.tokenService.get()).subscribe(response=>{
       this.empresas= response;
     })
   }
@@ -56,7 +57,7 @@ export class EgreempresasComponent implements OnInit {
     })
   }
   PersonaList(){
-    this.adminService.egresado(this.ID).subscribe(response=>{
+    this.adminService.egresado(this.ID,this.tokenService.get()).subscribe(response=>{
       this.egresado=response
     })
   }
