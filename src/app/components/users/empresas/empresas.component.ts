@@ -17,7 +17,7 @@ export class EmpresasComponent implements OnInit {
   empresaForm: FormGroup;
   ngOnInit() { 
     this.PersonaList()
-    /*this.empresasList()*/
+    this.empresasList()
     this.empresaForm = this.formBuilder.group({
       id:  [''],
       nombre: ['', [Validators.required]],

@@ -18,30 +18,26 @@
         <div class="col-12">
             <div class="container">
                 <div class="" *ngFor="let s of sugerencias">
-                  <div class="border-1"> 
+                  <div style="border-style: dotted; border-width: 1px;" class="mb-2 mt-2"> 
                       <div class="row">
                         <div class="col-12">
-                            Comentario: {{s.comentario_egresado}} <br>
-                            fecha: {{s.fecha_creacion}} <br>
-                            tipo: {{s.tipo_comentario}}
+                            <b>Comentario: </b> {{s.comentario_egresado}}  <br>
+                            <b>Fecha: </b>  {{s.fecha_creacion}} 
+                            <b>Tipo: </b> {{s.tipo_comentario}}
+                            <i class="fa fa-pen mr-3 ml-1" *ngIf="(list.rol == 1 || list.user_ID == s.user_creador) && s.comentario_respuesta == null "  
+                                data-toggle="modal" data-target="#comentario" (click)="detalles(s.id)" ></i>
+                                <i class="fa fa-times" (click)="delete(s.id)"  *ngIf="(list.rol == 1 || list.user_ID == s.user_creador) && s.comentario_respuesta == null " ></i>
                         </div>
                       </div>
                     <div class="row">
                       <div class="col-12">
                           <div *ngIf="s.comentario_respuesta !== null" style="    margin-left: 90px;">
-                              {{s.comentario_respuesta}} <br>
-                              {{s.fecha_atencion}} <br>
-                              {{s.user_administrador}}
+                            <b>Respuesta: </b>  {{s.comentario_respuesta}}  <br>
+                            <b>F. Aten: </b>   {{s.fecha_atencion}} 
+                            <b>Admin: </b>  {{s.user_administrador}}
                           </div>
                       </div>
                     </div>
-                      <div class="row">
-                        <div class="col-8" style="margin: auto;">
-                            <button type="button" class="btn btn-warning align-content-start"  *ngIf="(list.rol == 1 || list.user_ID == s.user_creador) && s.comentario_respuesta == null " data-toggle="modal" data-target="#comentario" (click)="detalles(s.id)" style="float: left;">
-                                Actualizar</button>
-                              <button type="button" class="btn btn-danger ml-2" (click)="delete(s.id)"  *ngIf="(list.rol == 1 || list.user_ID == s.user_creador) && s.comentario_respuesta == null " style="float: right ;"> Eliminar</button>
-                        </div>
-                      </div>
                   </div>
                 </div>
             </div>
