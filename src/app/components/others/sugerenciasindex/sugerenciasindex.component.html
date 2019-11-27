@@ -5,13 +5,13 @@
       <div class="row mb-2">
         <div class="col-12" style="text-align: center;">
             <button  class="btn btn-primary" data-toggle="modal" data-target="#comentario" (click)="generar(list.user_ID)"
-             style="padding-right: 25px; padding-left: 25px;" *ngIf="list.rol == 1">Agregar Comentario</button>
+             style="padding-right: 25px; padding-left: 25px;" >Agregar Comentario</button>
         </div>
       </div>
       <div class="row mb-2">
         <div class="col-12" style="text-align: center;">
             <button  class="btn btn-primary" routerLink="/sugerencias/responder" routerLinkActive="active" 
-            style="padding-right: 25px; padding-left: 25px;">Comentarios sin responder</button>
+            style="padding-right: 25px; padding-left: 25px;" *ngIf="list.rol == 1">Comentarios sin responder</button>
         </div>
       </div>
       <div class="row">

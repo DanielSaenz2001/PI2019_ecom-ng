@@ -51,6 +51,7 @@ export class SugerenciasindexComponent implements OnInit {
   sugerenciasList(){
     this.sugerenciasService.getlist().subscribe(response=>{
       this.sugerencias= response;
+      console.log(response)
     })
   }
   delete(id) {
