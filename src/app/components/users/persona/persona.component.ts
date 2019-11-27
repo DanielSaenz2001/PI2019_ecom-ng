@@ -18,8 +18,9 @@ export class PersonaComponent implements OnInit {
   public list;
   personaForm: FormGroup;
   ngOnInit() {
-    /*this.dependientesList();*/
+    
     this.PersonaList();
+    this.dependientesList();
     this.personaForm = this.formBuilder.group({
       id:  [''],
       nombre: ['', [Validators.required]],

@@ -1,41 +1,23 @@
 
 <div *ngIf="list">
   <div class="container" id="perfil">
-    <section id="profile" class="mt-5" >
-      <div class="row">
-        <div class="col-10 col-sm-10  col-md-7  col-lg-5 col-xl-5 mx-auto main-section text-center card">
-          <div class="row">
-
-          </div>
-          <div class="row user-details">
-            <div class="col-12 col-lg-12 col-sm-12">
-              <span>
-                  {{list.avatar}}
-               Usuario: {{list.usuario}}
-               Sexo: {{list.sexo}}
-               Role: {{list.rol}}
-               Pais: {{list.pais}}
-               Nombre: {{list.nombre}}
-               Fech_nacimiento: {{list.fec_nacimiento}}
-               Estado Civil: {{list.est_civil}}
-               Email: {{list.email}}
-               Dni: {{list.dni}}
-               Departamento: {{list.departamentos}}
-               Materno: {{list.ap_materno}}
-               Paterno: {{list.ap_paterno}}
-               Provincia: {{list.provincia}}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-          <div class="col-10 col-sm-10  col-md-7  col-lg-5 col-xl-5 mx-auto main-section text-center card">
-              <button class="button-red" class="btn btn-dark mt-2 form-control" data-toggle="modal" data-target="#Persona" (click)="persona(list.persona_ID);">Actualizar</button>
-          </div>
-      </div>
-    </section>
+    <div class="row mb-5">
+      <div class="col-3"><b>Nombre:</b>  <br> <input type="text" class="form-control" value="{{list.nombre}}" disabled> </div>
+      <div class="col-3"><b>Paterno: </b> <br> <input type="text" class="form-control" value="{{list.ap_paterno}}" disabled></div>
+      <div class="col-3"> <b>Materno:</b> <br> <input type="text" class="form-control" value="{{list.ap_materno}}" disabled> </div>
+      <div class="col-3"> <b>Email: </b><br> <input type="text" class="form-control" value="{{list.email}}" disabled> </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-3"> <b>Genero: </b><br> <input type="text" class="form-control" value="{{list.sexo}} " disabled> </div>
+      <div class="col-3" data-toggle="modal" data-target="#Persona" (click)="persona(list.persona_ID);"> <b>Est. Civ.:</b> <br>  <input type="text" class="form-control" value="{{list.est_civil}}" disabled  > </div>
+      <div class="col-3"> <b> DNI:</b> <br> <input type="text" class="form-control" value="{{list.dni}}" disabled></div>
+      <div class="col-3"> <b>Fech. Nac.:</b> <br> <input type="text" class="form-control" value="{{list.fec_nacimiento}}" disabled></div>
+    </div>
+     <div class="row mb-5">
+       <div class="col-4"> <b>Pais:</b> <br> <input type="text" class="form-control" value="{{list.pais}} " disabled></div>
+       <div class="col-4"> <b>Depart.: </b> <br> <input type="text" class="form-control" value="{{list.departamentos}} " disabled></div>
+       <div class="col-4"> <b>Provin.:</b> <br><input type="text" class="form-control" value="{{list.provincia}} " disabled> </div>
+     </div>
   </div>  
   <hr>
   <div *ngIf="list.activo == false">
@@ -55,31 +37,18 @@
     <thead class="thead-light">
         <tr>
             <th>#</th>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Celular</th>
-            <th>Est. Civil</th>
+            <th>Apellidos y Nombres</th>
             <th>Genero</th>       
-            <th>Acciones</th>
+            <th></th>
         </tr>
     </thead>
     <tbody *ngFor="let d of dependientes; index as i ">
         <tr>
             <td>{{i+1}}</td>
-            <td>{{d.nombre}}</td>
-            <td>{{d.ap_paterno}} {{d.ap_materno}}</td>
-            <td>{{d.celular}}</td>
-            <td>{{d.est_civil}}</td>
+            <td> {{d.ap_paterno}} {{d.ap_materno}} {{d.nombre}}</td>
             <td>{{d.sexo}}</td>
             <td > 
-                <div class="row" id="ad">
-                    <a routerLink="/personaform/{{d.id}}" routerLinkActive="active" id="ga">
-                        <button class="button-red" class="form-control alert-warning"id="ad" >Edit</button>
-                    </a>
-                </div>
-                <div class="row">
-                    <button class="button-red" class="form-control alert-danger" id="ad" (click)="deleteDependiente(d.id)">Delete</button>
-                </div>
+              <i class="fa fa-times"  (click)="deleteDependiente(d.id)"></i>
             </td>
         </tr>
     </tbody>

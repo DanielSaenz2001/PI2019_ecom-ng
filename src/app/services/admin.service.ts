@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminService {
-  endPoint ='http://localhost:8000/api/admin'
+  endPoint ='https://serve-ecom.herokuapp.com/api/admin'
   constructor(private http:HttpClient) { }
 
   public persona(id,data): Observable<any> {

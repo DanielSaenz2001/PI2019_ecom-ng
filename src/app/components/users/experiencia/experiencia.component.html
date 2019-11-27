@@ -1,19 +1,32 @@
-<button  data-toggle="modal" data-target="#exp" data-toggle="modal"  data-backdrop=static data-keyboard=false> Agregar Experiencia Laboral</button>
-<button type="submit" class="form-control alert-success" (click)="empresasList()">Actualizar Empresas</button>
+
+<div class="mt-2">
+
+</div>
+<div class="row mb-2">
+    <div class="col-5 m-auto ">
+        <button type="submit" class="form-control alert-info"  data-toggle="modal" data-target="#exp" data-backdrop=static data-keyboard=false (click)="empresasList()"> Agregar Experiencia Laboral</button>
+    </div>
+</div>
+
 <table class="table table-light">
   <thead class="thead-light">
     <tr>
       <th>#</th>
       <th>Empresa</th>
+      <th></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let e of expe; index as i">
       <td>{{i+1}}</td>
       <td>{{e.empresa}}</td>
-      <td><button  data-toggle="modal" data-target="#expdata"  (click)="detalles(e.id)" data-backdrop=static data-keyboard=false>Mostrar</button></td>
-      <td><button  data-toggle="modal" data-target="#histoexp" (click)="histo(e.id)" data-backdrop=static data-keyboard=false>Agregar Datos a exp</button></td>
-      <td><button  data-toggle="modal" (click)="verdatos(e.id)" data-target="#histoexpdata"  data-backdrop=static data-keyboard=false>Ver Datos</button></td>
+      <td>
+        <a data-toggle="modal" data-target="#histoexp" (click)="histo(e.id)" data-backdrop=static data-keyboard=false><i class="fa fa-plus"></i></a>
+      </td>
+      <td>
+        <a data-toggle="modal" (click)="verdatos(e.id)" data-target="#histoexpdata"  data-backdrop=static data-keyboard=false><i class="fa fa-eye"></i></a>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -48,53 +61,6 @@
     </div>
   </div>
 </div>
-<div class="modal fade" id="expdata">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Experiencia Laboral</h4>
-        </div>
-        <div class="modal-body">
-          <form [formGroup]="expForm" id="FO">
-              <div class="row">
-                  <div class="col-12">
-                        <div class="row">
-                          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">validado:</div>
-                          <div class="col-lg-7 col-7 col-md-7 col-sm-7 col-xl-7">
-                              <input type="text" formControlName="is_validando" id="is_validando" name="is_validando" class="form-control">
-                          </div>
-                          
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">Fech de valida:</div>
-                            <div class="col-lg-7 col-7 col-md-7 col-sm-7 col-xl-7">
-                                <input type="date" formControlName="validacion_fecha" id="validacion_fecha" name="validacion_fecha" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">Descripcion de val:</div>
-                          <div class="col-lg-7 col-7 col-md-7 col-sm-7 col-xl-7">
-                              <input type="text" formControlName="descripcion_val" id="descripcion_val" name="descripcion_val" class="form-control">
-                          </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">Empresa:</div>
-                            <div class="col-lg-7 col-7 col-md-7 col-sm-7 col-xl-7">
-                                    <select class="form-control" id="sel1" formControlName="empresa_id" id="empresa_id" name="empresa_id" >
-                                            <option *ngFor="let p of empresas" [ngValue]="p.id">{{p.nombre}}</option>
-                                    </select>
-                            </div>     
-                        </div>
-                  </div>
-              </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="borrar()">Close</button>
-        </div>
-      </div>
-    </div>
-</div> 
 <div class="modal fade" id="histoexp">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -105,14 +71,14 @@
           <form [formGroup]="historyForm" id="FO">
               <div class="row">
                   <div class="col-12">
-                        <div class="row">
+                        <div class="row mb-2">
                           <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">Descripcion:</div>
                           <div class="col-lg-7 col-7 col-md-7 col-sm-7 col-xl-7">
                               <input type="text" formControlName="descripccion" id="descripccion" name="descripccion" class="form-control">
                           </div>
                           
                         </div>
-                        <div class="row">
+                        <div class="row mb-2">
                             <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">Estado:</div>
                             <div class="col-lg-7 col-7 col-md-7 col-sm-7 col-xl-7">
                                 <select class="form-control form-control-lg" formControlName="estado" >
@@ -122,19 +88,19 @@
                                   </select>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2">
                           <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">Cargo:</div>
                           <div class="col-lg-7 col-7 col-md-7 col-sm-7 col-xl-7">
                               <input type="text" formControlName="cargo" id="cargo" name="cargo" class="form-control">
                           </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2">
                             <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">inicio de trabajo:</div>
                             <div class="col-lg-7 col-7 col-md-7 col-sm-7 col-xl-7">
                                 <input type="date" formControlName="fech_inicio" id="fech_inicio" name="fech_inicio" class="form-control">
                             </div>     
                         </div>
-                        <div class="row">
+                        <div class="row mb-2">
                             <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">fin de trabajo:</div>
                             <div class="col-lg-7 col-7 col-md-7 col-sm-7 col-xl-7">
                                 <input type="date" formControlName="fech_fin" id="fech_fin" name="fech_fin" class="form-control">
@@ -160,15 +126,13 @@
       </div>
       <div class="modal-body">
         <div id="accordion">
-          <div class="card" *ngFor="let d of datos; index as i">
-            <a href="#List-{{ i+1 }}" class="btn btn-info" data-toggle="collapse">Datos #{{i+1}}</a>
+          <div class="card mb-2" *ngFor="let d of datos; index as i">
+            <a href="#List-{{ i+1 }}" class="btn btn-info" data-toggle="collapse">Datos #{{i+1}}  || {{d.fech_inicio}}-{{d.fech_fin}}</a>
             <div id="List-{{ i+1 }}" class="collapse">
               <ul style="list-style: none">
-                <li> {{d.descripccion}}</li>
-                <li> {{d.estado}}</li>
-                <li> {{d.cargo}}</li>
-                <li> {{d.fech_inicio}}</li>
-                <li> {{d.fech_fin}}</li>
+                <li><b>Descripcion: </b> {{d.descripccion}}</li>
+                <li><b>Estado: </b>{{d.estado}}</li>
+                <li><b>Cargo: </b> {{d.cargo}}</li>
               </ul>
             </div>
           </div>

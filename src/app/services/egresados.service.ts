@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class EgresadosService {
 
-  endPoint ='http://localhost:8000/api/egresados';
+  endPoint ='https://serve-ecom.herokuapp.com/api/egresados';
   constructor(private http:HttpClient) { }
 
   public getlist(): Observable<any>{
@@ -21,13 +21,12 @@ export class EgresadosService {
   }
   public updateestado(id, data): Observable<any> {
     return this.http.put<any>(`${this.endPoint}estado/${id}`, data);
-}
+  }
   public delete(id): Observable<any> {
       
       return this.http.delete<any>(`${this.endPoint}/${id}`);
   }
   public getById(id): Observable<any> {
-    console.log(id)
     return this.http.get<any>(`${this.endPoint}/${id}`);
   }
   egresados(data) {
@@ -36,5 +35,7 @@ export class EgresadosService {
       }
     })
   }
-  
+  public buscar(data): Observable<any> {
+    return this.http.put<any>(`${this.endPoint}buscar`, data);
+  }
 }

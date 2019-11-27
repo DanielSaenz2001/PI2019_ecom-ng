@@ -21,6 +21,7 @@
                   <div style="border-style: dotted; border-width: 1px;" class="mb-2 mt-2"> 
                       <div class="row">
                         <div class="col-12">
+                            <b>Creado Por: </b> {{s.nombre}}      <br>
                             <b>Comentario: </b> {{s.comentario_egresado}}  <br>
                             <b>Fecha: </b>  {{s.fecha_creacion}} 
                             <b>Tipo: </b> {{s.tipo_comentario}}
@@ -34,7 +35,6 @@
                           <div *ngIf="s.comentario_respuesta !== null" style="    margin-left: 90px;">
                             <b>Respuesta: </b>  {{s.comentario_respuesta}}  <br>
                             <b>F. Aten: </b>   {{s.fecha_atencion}} 
-                            <b>Admin: </b>  {{s.user_administrador}}
                           </div>
                       </div>
                     </div>

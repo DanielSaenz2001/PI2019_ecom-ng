@@ -20,8 +20,7 @@ export class CapacitacionesComponent implements OnInit {
   capacitaciones;
   ngOnInit() {
     this.PersonaList();
-    /*this.capacitacionesList();
-    this.empresasList();*/
+    this.capacitacionesList();
     this.capacitacionesForm = this.formBuilder.group({
       id:  [''],
       nombre: ['', [Validators.required]],

@@ -183,7 +183,7 @@
           <div class="lista-productos">
               <div class="producto" *ngFor="let d of evento">
                   <div class="imagenp">
-                      <img src='http://localhost:8000/uploads/eventos/{{d.imagen}}' alt="img event" (click)="detalles(d.id)" data-toggle="modal" data-target="#detalles" >
+                      <img src='https://serve-ecom.herokuapp.com/uploads/eventos/{{d.imagen}}' alt="img event" (click)="detalles(d.id)" data-toggle="modal" data-target="#detalles" >
                   </div>
                   <div class="row">
                     <div class="col-8" style="    margin: auto;">

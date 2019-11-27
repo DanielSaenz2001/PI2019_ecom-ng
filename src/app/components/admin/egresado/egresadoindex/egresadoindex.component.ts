@@ -4,6 +4,7 @@ import { TokenService } from 'src/app/services/token.service';
 import { JarwisService } from 'src/app/services/jarwis.service';
 import { Router } from '@angular/router';
 
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-egresadoindex',
   templateUrl: './egresadoindex.component.html',
@@ -13,9 +14,14 @@ export class EgresadoindexComponent implements OnInit {
   user;
   constructor(private egresadosService:EgresadosService, 
     private token:TokenService, private Jarwis:JarwisService
-    , public router: Router) { }
+    , public router: Router,private formBuilder: FormBuilder) { }
   egresados;
+  buscador: FormGroup;
   ngOnInit() {
+    this.buscador = this.formBuilder.group({
+      codigo: null,
+      estado: null,
+    });
     this.egresadosList();
     this.persona();
   }
@@ -33,5 +39,12 @@ export class EgresadoindexComponent implements OnInit {
       }
     })
   }
- 
+ buscar(){
+   this.egresadosService.buscar(this.buscador.value).subscribe(response=>{
+    this.egresados= response;
+   })
+ }
+ borrar(){
+  this.buscador.reset()
+  }
 }

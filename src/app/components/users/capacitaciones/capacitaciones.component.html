@@ -1,90 +1,102 @@
-<div class="row">
-    <button type="submit" class="form-control alert-success" (click)="empresasList()">Actualizar Empresas</button>
+<div class="mt-2">
+  <div class="row">
+    <h3 style="text-align: center;" class="m-auto mb-2">Capacitaciones</h3>
+  </div>
+    <div class="row mb-2">
+        <div class="col-5 m-auto ">
+            <button type="submit" class="form-control alert-info" (click)="empresasList()">Actualizar Empresas</button>
+        </div>
+    </div>
+    <form [formGroup]="capacitacionesForm" id="FO">
+      <div class="row">
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Nombre:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                  <input type="text" formControlName="nombre" required id="nombre" name="nombre" class="form-control">
+          </div>
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Información:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                  <input type="text" formControlName="informacion" id="informacion" name="informacion" class="form-control">
+          </div>        
+      </div>
+      <br>  
+      <div class="row">
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Fecha de inicio :</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                  <input type="date" formControlName="fecha_inicio" id="fecha_inicio" name="fecha_inicio" class="form-control" >
+          </div>
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Fecha Fin:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                  <input type="date" formControlName="fecha_fin" id="fecha_fin" name="fecha_fin" class="form-control">
+          </div>
+      </div>
+      <br>
+    
+      <div class="row">
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Dirección:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                  <input type="text" formControlName="direccion" required id="direccion" name="direccion" class="form-control">
+          </div>
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Tipo:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+            <select class="form-control form-control-lg" formControlName="tipo" >
+              <option value=null>seleccionar tipo</option>
+              <option>Uno</option>
+              <option>dos</option>
+            </select>
+          </div>        
+      </div>
+      <br> 
+      <div class="row">
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Ruta:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                  <input type="text" formControlName="rutas" required id="rutas" name="rutas" class="form-control">
+          </div>
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Empresas:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+            <select class="form-control form-control-lg" formControlName="empresa_id" required id="empresa_id" name="empresa_id">
+               <option *ngFor="let p of empresas" [ngValue]="p.id">{{p.nombre}}</option>
+            </select>
+          </div>        
+      </div>
+      <br> 
+      <div class="row mb-3">
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              <button type="submit" [disabled]="!capacitacionesForm.valid" class="form-control alert-success" id="ad" (click)="save()">Guardar</button>
+          </div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              
+              
+          </div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              <button type="submit" class="form-control btn-warning alert-warning" (click)="borrar();">Borrar</button>
+          </div>
+      </div>
+    </form>
+    <table class="table table-light">
+      <thead class="thead-light">
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>F Inicio</th>
+          <th>F Fin</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of capacitaciones; index as i">
+          <td>{{i + 1}}</td>
+          <td>{{c.nombre}}</td>
+          <td>{{c.tipo}}</td>
+          <td>{{c.fecha_inicio}}</td>
+          <td>{{c.fecha_fin}}</td>
+          <td>
+              <i class="fa fa-pen"  (click)="actualizar(c.id);" ></i>
+          </td>
+          <td>
+              <i class="fa fa-times"  (click)="delete(c.id)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 </div>
-<form [formGroup]="capacitacionesForm" id="FO">
-
-  <div class="row">
-      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Nombre:</div>
-      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-              <input type="text" formControlName="nombre" required id="nombre" name="nombre" class="form-control">
-      </div>
-      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Información:</div>
-      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-              <input type="text" formControlName="informacion" id="informacion" name="informacion" class="form-control">
-      </div>        
-  </div>
-  <br>  
-  <div class="row">
-      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Fecha de inicio :</div>
-      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-              <input type="date" formControlName="fecha_inicio" id="fecha_inicio" name="fecha_inicio" class="form-control" >
-      </div>
-      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Fecha Fin:</div>
-      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-              <input type="date" formControlName="fecha_fin" id="fecha_fin" name="fecha_fin" class="form-control">
-      </div>
-  </div>
-  <br>
-
-  <div class="row">
-      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Dirección:</div>
-      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-              <input type="text" formControlName="direccion" required id="direccion" name="direccion" class="form-control">
-      </div>
-      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Tipo:</div>
-      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-        <select class="form-control form-control-lg" formControlName="tipo" >
-          <option value=null>seleccionar tipo</option>
-          <option>Uno</option>
-          <option>dos</option>
-        </select>
-      </div>        
-  </div>
-  <br> 
-  <div class="row">
-      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Ruta:</div>
-      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-              <input type="text" formControlName="rutas" required id="rutas" name="rutas" class="form-control">
-      </div>
-      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Empresas:</div>
-      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-        <select class="form-control form-control-lg" formControlName="empresa_id" required id="empresa_id" name="empresa_id">
-           <option *ngFor="let p of empresas" [ngValue]="p.id">{{p.nombre}}</option>
-        </select>
-      </div>        
-  </div>
-  <br> 
-  <div class="row">
-      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4"></div>
-      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-          <button type="submit" [disabled]="!capacitacionesForm.valid" class="form-control alert-success" id="ad" (click)="save()">Submit</button>
-          <button type="submit" class="form-control alert-success" (click)="borrar();">Borrar</button>
-      </div>
-      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-      </div>
-  </div>
-</form>
-<table class="table table-light">
-  <thead class="thead-light">
-    <tr>
-      <th>#</th>
-      <th>Nombre</th>
-      <th>Tipo</th>
-      <th>F Inicio</th>
-      <th>F Fin</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let c of capacitaciones; index as i">
-      <td>{{i + 1}}</td>
-      <td>{{c.nombre}}</td>
-      <td>{{c.tipo}}</td>
-      <td>{{c.fecha_inicio}}</td>
-      <td>{{c.fecha_fin}}</td>
-      <td>
-        <button (click)="actualizar(c.id)">Actualizar</button>
-        <button (click)="delete(c.id)">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>

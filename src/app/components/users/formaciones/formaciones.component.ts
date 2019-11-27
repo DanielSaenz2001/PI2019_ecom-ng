@@ -18,7 +18,7 @@ export class FormacionesComponent implements OnInit {
   ngOnInit() {
     
     this.PersonaList()
-   /* this.formacionesList()*/
+   this.formacionesList()
     this.formacionForm = this.formBuilder.group({
       id:  [''],
       fech_inicio: ['', [Validators.required]],

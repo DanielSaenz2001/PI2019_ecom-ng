@@ -1,6 +1,40 @@
 
-<div *ngIf="user">
-  <h2>Egresados</h2>
+<div *ngIf="user" class="mt-3">
+  <h2 style="text-align: center;">Egresados</h2>
+  <div>
+    <div class="row mb-2">
+        <div class="col-5 m-auto ">
+            <button type="submit" class="form-control alert-info" (click)="egresadosList()"> Ver todos los egresados</button>
+        </div>
+    </div>
+    <form [formGroup]="buscador" id="FO" class="mt-3">
+      <div class="row">
+          <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Codigo:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+            <input type="text" formControlName="codigo" required id="codigo" name="codigo" class="form-control" maxlength="9">
+      </div>
+      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Estado:</div>
+          <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+            <select class="form-control form-control-lg" formControlName="estado" >
+                <option [ngValue]="0">Rojo</option>
+                <option [ngValue]="1">Amarillo</option>
+                <option [ngValue]="2">Verde</option>
+              </select>
+      </div>
+      </div>
+      
+    </form>
+    <div class="row mb-3">
+       <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+          <button type="submit"  class="form-control alert-success" id="ad" (click)="buscar()">Guardar</button>
+        </div>
+        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+        </div>
+        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+            <button type="submit" class="form-control btn-warning alert-warning" (click)="borrar();">Borrar</button>
+        </div>
+    </div>
+  </div>
   <table class="table table-light">
     <thead class="thead-light">
       <tr>
@@ -10,7 +44,7 @@
         <th>Nombre</th>
         <th>Celular</th>
         <th>Fec. Actu</th>
-        <th colspan="2"></th>
+        <th colspan="1"></th>
       </tr>
     </thead>
     <tbody>
@@ -24,7 +58,6 @@
         <td>{{e.celular}}</td>
         <td> {{e.fec_actualizacion}}</td>
         <td><a routerLink="/veregresado/{{ e.userid }}" routerLinkActive="active"><i class="fa fa-eye"></i></a></td>
-        <td><a routerLink="/veregresado/{{ e.userid }}" routerLinkActive="active"><i class="fa fa-print"></i></a></td>
       </tr>
     </tbody>
   </table>

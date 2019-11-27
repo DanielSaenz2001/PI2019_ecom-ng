@@ -20,7 +20,6 @@ export class EgrecapacitacionesComponent implements OnInit {
   ngOnInit() {
     this.PersonaList();
     this.capacitacionesList();
-    this.empresasList();
     this.capacitacionesForm = this.formBuilder.group({
       id:  [''],
       nombre: ['', [Validators.required]],

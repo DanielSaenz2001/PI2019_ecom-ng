@@ -1,0 +1,27 @@
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+li {
+    padding: 10px 15px;
+    margin: 1px 1px;
+    align-items: center;
+}
+.face img{
+    width: 25%;
+}
+#perfil{
+    margin-top: auto;
+}
+#foto{
+    background-color: #772953;
+}
+
+input{
+    -webkit-box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
+text-align: center;
+}

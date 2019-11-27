@@ -15,6 +15,8 @@ import { PersonaService } from 'src/app/services/persona.service';
 })
 export class EgresadoformComponent implements OnInit {
   @Input() ID:string;
+  @Input() EGRE:string;
+  
   constructor( private datePipe: DatePipe,
     private formBuilder: FormBuilder,
     private paisesService:PaisesService,
@@ -61,16 +63,19 @@ export class EgresadoformComponent implements OnInit {
 
   myDate;
   save(){
-    this.myDate = new Date();
+    if(this.EGRE == null){
+      this.myDate = new Date();
     this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
     this.egresadoform.value.fec_actualizacion=this.myDate;
     this.egresadoform.value.estado_actualizaciones='0';
     this.egresadoform.value.persona_id=this.ID;
     this.personaForm.value.activo=true
-    console.log(this.personaForm.value)
-    console.log(this.egresadoform.value)
     this.egresadosService.add(this.egresadoform.value).subscribe();
     this.personaServices.update(this.ID, this.personaForm.value).subscribe();
+    }else{
+      this.egresadosService.update(this.EGRE,this.egresadoform.value).subscribe();
+    }
+    
   }
   borrar(){
     this.egresadoform.reset();

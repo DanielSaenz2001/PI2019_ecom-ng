@@ -1,65 +1,73 @@
-
-<form [formGroup]="formacionForm" id="FO">
-    <div >
-        <div class="row">
-            <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Nombre:</div>
-            <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                    <input type="text" formControlName="nombre" required id="nombre" name="nombre" class="form-control">
-            </div>
-            <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Imagen por url:</div>
-            <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                    <input type="text" formControlName="rutas" id="rutas" name="rutas" class="form-control">
-            </div>        
-        </div>
-        <br>  
-        <div class="row">
-            <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Fecha de inicio :</div>
-            <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                    <input type="date" formControlName="fech_inicio" id="fech_inicio" name="fech_inicio" class="form-control" >
-            </div>
-            <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Fecha Fin:</div>
-            <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                    <input type="date" formControlName="fech_fin" id="fech_fin" name="fech_fin" class="form-control">
-            </div>
-        </div>
-        <br>
-      
-        
+<div class="mt-2">
+        <h3 style="text-align: center;">Formaciones Basicas</h3>
+        <form [formGroup]="formacionForm" id="FO">
+                <div >
                 <div class="row">
-
+                        <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Nombre:</div>
                         <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                                <input type="text" formControlName="nombre" required id="nombre" name="nombre" class="form-control">
+                        </div>
+                        <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Imagen por url:</div>
+                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                                <input type="text" formControlName="rutas" id="rutas" name="rutas" class="form-control">
+                        </div>        
+                </div>
+                <br>  
+                <div class="row">
+                        <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Fecha de inicio :</div>
+                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                                <input type="date" formControlName="fech_inicio" id="fech_inicio" name="fech_inicio" class="form-control" >
+                        </div>
+                        <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Fecha Fin:</div>
+                        <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                                <input type="date" formControlName="fech_fin" id="fech_fin" name="fech_fin" class="form-control">
+                        </div>
+                </div>
+                <br>
+                
+                
+                        <div class="row">
+        
+                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                                                <button type="submit" [disabled]="!formacionForm.valid" class="form-control alert-success" id="ad" (click)="save()">Guardar</button>
+                                </div>
+                                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+                                
+                                
                         </div>
                         <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                        <button type="submit" [disabled]="!formacionForm.valid" class="form-control alert-success" id="ad" (click)="save()">Submit</button>
-                        <button type="submit" class="form-control alert-success" (click)="borrar();">Borrar</button>
+                                        <button type="submit" class="form-control btn-warning alert-warning" (click)="borrar();">Borrar</button>
+                        </div>
+                        
+                        </div>
+                <br>  
                 </div>
-                <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-                </div>
+        </form>
+        
+        <table class="table table-light">
+                <thead class="thead-light">
+                <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>F inicio</th>
+                <th>F fin</th>
+                <th colspan="2"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let for of formaciones; index as i">
+                <td>{{i+1}}</td>
+                <td>{{for.nombre}}</td>
+                <td>{{for.fech_inicio}}</td>
+                <td>{{for.fech_fin}}</td>
                 
-                </div>
-        <br>  
-    </div>
-</form>
-
-<table class="table table-light">
-  <thead class="thead-light">
-    <tr>
-      <th>#</th>
-      <th>Nombre</th>
-      <th>F inicio</th>
-      <th>F fin</th>
-      <th>Ruta</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let for of formaciones; index as i">
-      <td>{{i+1}}</td>
-      <td>{{for.nombre}}</td>
-      <td>{{for.fech_inicio}}</td>
-      <td>{{for.fech_fin}}</td>
-      <td>{{for.rutas}}</td>
-      <td><button (click)="actualizar(for.id);">Actualizar</button></td>
-      <td><button (click)="delete(for.id);">eliminar</button></td>
-    </tr>
-  </tbody>
-</table>
+                <td>
+                        <i class="fa fa-pen"  (click)="actualizar(for.id);" ></i>
+                </td>
+                <td>
+                                <i class="fa fa-times"  (click)="delete(for.id)"></i>
+                </td>
+                </tr>
+                </tbody>
+        </table>
+</div>
