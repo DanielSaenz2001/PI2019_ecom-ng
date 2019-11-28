@@ -19,7 +19,7 @@ export class CatalogosComponent implements OnInit {
       nombreCatalogo: ['', [Validators.required]],
       codigoCatalogo: ['', [Validators.required]],
       precioCatalogo: ['', [Validators.required]],
-      ordenCatalogo: ['', [Validators.required]]
+      ordenCatalogo: ['', [Validators.required,Validators.min(1),Validators.max(100)]]
     });
   }
   ImagenesList(){

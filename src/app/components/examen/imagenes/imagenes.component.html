@@ -13,7 +13,10 @@
   <div class="row">
       <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Principal:</div>
       <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
-              <input type="text" formControlName="es_principalImagen" id="es_principalImagen" name="es_principalImagen" class="form-control" >
+              <select formControlName="es_principalImagen" id="es_principalImagen" name="es_principalImagen" class="form-control"  >
+                <option value=true>Si</option>
+                <option value=false>No</option>
+              </select>
       </div>
       <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Orden:</div>
       <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
@@ -41,3 +44,25 @@
       </div>
   </div>
 </form>
+<table class="table table-light">
+  <thead class="thead-light">
+    <tr>
+      <th>#</th>
+      <th>url</th>
+      <th>detalle</th>
+      <th>es_principal</th>
+      <th>orden</th>
+      <th>catalogoid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of imagenes">
+      <td>{{item.id}}</td>
+      <td>{{item.url}}</td>
+      <td>{{item.detalle}}</td>
+      <td>{{item.precio}}</td>
+      <td>{{item.orden}}</td>
+      <td>{{item.catalogoid}}</td>
+    </tr>
+  </tbody>
+</table>

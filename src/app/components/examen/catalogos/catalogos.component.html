@@ -34,3 +34,24 @@
       </div>
   </div>
 </form>
+
+<table class="table table-light">
+  <thead class="thead-light">
+    <tr>
+      <th>#</th>
+      <th>nom</th>
+      <th>cod</th>
+      <th>pre</th>
+      <th>ord</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of catalogos">
+      <td>{{item.id}}</td>
+      <td>{{item.nombre}}</td>
+      <td>{{item.codigo}}</td>
+      <td>{{item.precio}}</td>
+      <td>{{item.orden}}</td>
+    </tr>
+  </tbody>
+</table>
