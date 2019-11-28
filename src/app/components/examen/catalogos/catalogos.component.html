@@ -1,0 +1,36 @@
+<form [formGroup]="CatalogoForm" id="FO">
+  <div class="row">
+      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Nombre:</div>
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              <input type="text" formControlName="nombreCatalogo" required id="nombreCatalogo" name="nombreCatalogo" class="form-control" maxlength="50">
+      </div>
+      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Codigo:</div>
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              <input type="text" formControlName="codigoCatalogo" id="codigoCatalogo" name="codigoCatalogo" class="form-control" maxlength="10">
+      </div>        
+  </div>
+  <br>  
+  <div class="row">
+      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Precio:</div>
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              <input type="text" formControlName="precioCatalogo" id="precioCatalogo" name="precioCatalogo" class="form-control" >
+      </div>
+      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Orden:</div>
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              <input type="number" formControlName="ordenCatalogo" id="ordenCatalogo" name="ordenCatalogo" class="form-control">
+      </div>
+  </div>
+  <br>
+  <div class="row mb-3">
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+         
+      </div>
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+        <button type="submit" [disabled]="!CatalogoForm.valid" class="form-control alert-success" id="ad" (click)="save()">Guardar</button>
+          
+      </div>
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+         
+      </div>
+  </div>
+</form>

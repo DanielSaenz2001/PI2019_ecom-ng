@@ -31,7 +31,21 @@ import { VeregresadoComponent } from './components/admin/egresado/veregresado/ve
 
 import { ResponderSugerenciasComponent } from './components/others/sugerenciasindex/responder-sugerencias/responder-sugerencias.component';
 
+
+import { CatalogosComponent } from './components/examen/catalogos/catalogos.component';
+import { ImagenesComponent } from './components/examen/imagenes/imagenes.component';
+
+
 const routes: Routes = [
+  {
+    path: 'catalogos',
+    component: CatalogosComponent
+    
+  },
+  {
+    path: 'imagenes',
+    component: ImagenesComponent
+  },
   {
     path: 'login',
     component: LoginComponent,

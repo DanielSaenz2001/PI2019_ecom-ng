@@ -49,6 +49,8 @@ import { EgrecapacitacionesComponent } from './components/admin/egresado/veregre
 import { EgreempresasComponent } from './components/admin/egresado/veregresado/datosegresados/egreempresas/egreempresas.component';
 import { EgreexperienciaComponent } from './components/admin/egresado/veregresado/datosegresados/egreexperiencia/egreexperiencia.component';
 import { ResponderSugerenciasComponent } from './components/others/sugerenciasindex/responder-sugerencias/responder-sugerencias.component';
+import { CatalogosComponent } from './components/examen/catalogos/catalogos.component';
+import { ImagenesComponent } from './components/examen/imagenes/imagenes.component';
 
 
 @NgModule({
@@ -85,6 +87,8 @@ import { ResponderSugerenciasComponent } from './components/others/sugerenciasin
     EgreempresasComponent,
     EgreexperienciaComponent,
     ResponderSugerenciasComponent,
+    CatalogosComponent,
+    ImagenesComponent,
   ],
   imports: [
     BrowserModule,

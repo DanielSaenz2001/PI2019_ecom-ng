@@ -1,0 +1,43 @@
+<form [formGroup]="imagenesForm" id="FO">
+  <div class="row">
+      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">URL:</div>
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              <input type="text" formControlName="urlImagen" required id="urlImagen" name="urlImagen" class="form-control">
+      </div>
+      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Detalles:</div>
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              <input type="text" formControlName="detalleImagen" id="detalleImagen" name="detalleImagen" class="form-control">
+      </div>        
+  </div>
+  <br>  
+  <div class="row">
+      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Principal:</div>
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              <input type="text" formControlName="es_principalImagen" id="es_principalImagen" name="es_principalImagen" class="form-control" >
+      </div>
+      <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Orden:</div>
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              <input type="number" formControlName="ordenImagen" id="ordenImagen" name="ordenImagen" class="form-control">
+      </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-2 col-2 col-md-2 col-sm-2 col-xl-2">Catalogo:</div>
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+              <input type="text" formControlName="catalogoidImagen" id="catalogoidImagen" name="catalogoidImagen" class="form-control" >
+      </div>
+  </div>
+  <br>
+  <div class="row mb-3">
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+         
+      </div>
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+        <button type="submit" [disabled]="!imagenesForm.valid" class="form-control alert-success" id="ad" (click)="save()">Guardar</button>
+          
+      </div>
+      <div class="col-lg-4 col-4 col-md-4 col-sm-4 col-xl-4">
+         
+      </div>
+  </div>
+</form>
