@@ -27,7 +27,7 @@
     "@types/jquery": "^3.3.31",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "generator-angular-cli-webpack": "0.0.2",
     "jquery": "^3.4.1",
     "ng-snotify": "^4.3.1",
